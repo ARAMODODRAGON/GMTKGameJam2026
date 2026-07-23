@@ -27,6 +27,15 @@ gdscript/warnings/unsafe_call_argument=2
 gdscript/warnings/missing_tool=2
 gdscript/warnings/integer_division=0
 
+[file_customization]
+
+folder_colors={
+"res://entities/": "yellow",
+"res://maps/": "teal",
+"res://objects/": "orange",
+"res://scripts/": "blue"
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
