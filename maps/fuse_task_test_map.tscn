@@ -2,42 +2,74 @@
 
 [ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="1_etokd"]
 [ext_resource type="PackedScene" uid="uid://ctwkhl3yls86" path="res://objects/terminals/fuse_status_display_terminal/fuse_status_display_terminal.tscn" id="2_sh34q"]
-[ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_round_button.tscn" id="3_6mleh"]
+[ext_resource type="PackedScene" uid="uid://b41i5syd5gfe7" path="res://objects/buttons/interactable_breaker_switch.tscn" id="3_6mleh"]
 
 [node name="FuseTaskTestMap" type="Node3D" unique_id=2129452457]
+
+[node name="FuseStatusDisplayTerminal" parent="." unique_id=1953974550 node_paths=PackedStringArray("fuses") instance=ExtResource("2_sh34q")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.4, 0.90000004, 1.7)
+fuses = [NodePath("../InteractableBreakerSwitch3"), NodePath("../InteractableBreakerSwitch5"), NodePath("../InteractableBreakerSwitch2"), NodePath("../InteractableBreakerSwitch6"), NodePath("../InteractableBreakerSwitch1"), NodePath("../InteractableBreakerSwitch4")]
 
 [node name="LevelBlockout" type="CSGCombiner3D" parent="." unique_id=575214815]
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="LevelBlockout" unique_id=508646058]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049999997, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0999999, -0.049999997, 0)
 use_collision = true
-size = Vector3(9, 0.1, 9.6)
+size = Vector3(6.8, 0.1, 9.6)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="LevelBlockout" unique_id=529024764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2500002, 1.9000001, -3.3527613e-07)
+size = Vector3(0.1, 4, 9.6)
 
 [node name="Player" parent="." unique_id=1162497877 instance=ExtResource("1_etokd")]
 transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9659258, 1.3000001, -1.0430813e-07, -2.6000001)
 
-[node name="FuseStatusDisplayTerminal" parent="." unique_id=1953974550 node_paths=PackedStringArray("fuses") instance=ExtResource("2_sh34q")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.4, 0.90000004, 1.7)
-fuses = [NodePath("../InteractableRoundButton5"), NodePath("../InteractableRoundButton3"), NodePath("../InteractableRoundButton1"), NodePath("../InteractableRoundButton4"), NodePath("../InteractableRoundButton6"), NodePath("../InteractableRoundButton2")]
-
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=392436910]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099999905, 2, -2.5)
 
-[node name="InteractableRoundButton5" parent="." unique_id=2115933321 instance=ExtResource("3_6mleh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2999997, 0, -0.8000002)
+[node name="InteractableBreakerSwitch1" parent="." unique_id=547640884 instance=ExtResource("3_6mleh")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -2.8)
 
-[node name="InteractableRoundButton3" parent="." unique_id=1497255654 instance=ExtResource("3_6mleh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1000001, 0, -0.5000001)
+[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch1" unique_id=1689337242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
+text = "1
+"
 
-[node name="InteractableRoundButton1" parent="." unique_id=425202436 instance=ExtResource("3_6mleh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6000001, 0, -2.3)
+[node name="InteractableBreakerSwitch2" parent="." unique_id=313669747 instance=ExtResource("3_6mleh")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -2.2999997)
 
-[node name="InteractableRoundButton4" parent="." unique_id=479160881 instance=ExtResource("3_6mleh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3000002, 0, -3.3000002)
+[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch2" unique_id=1101803593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
+text = "2
+"
 
-[node name="InteractableRoundButton6" parent="." unique_id=2043813532 instance=ExtResource("3_6mleh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3999999, 0, -3.0000002)
+[node name="InteractableBreakerSwitch3" parent="." unique_id=260356538 instance=ExtResource("3_6mleh")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -1.7999998)
 
-[node name="InteractableRoundButton2" parent="." unique_id=1242355320 instance=ExtResource("3_6mleh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1000001, 0, -2.1000001)
+[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch3" unique_id=1418145964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
+text = "3
+"
+
+[node name="InteractableBreakerSwitch4" parent="." unique_id=1554170057 instance=ExtResource("3_6mleh")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -1.2999998)
+
+[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch4" unique_id=1472631699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
+text = "4
+"
+
+[node name="InteractableBreakerSwitch5" parent="." unique_id=1307381731 instance=ExtResource("3_6mleh")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -0.79999983)
+
+[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch5" unique_id=302853015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
+text = "5"
+
+[node name="InteractableBreakerSwitch6" parent="." unique_id=1486199586 instance=ExtResource("3_6mleh")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -0.29999983)
+
+[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch6" unique_id=969466658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
+text = "6"
