@@ -18,6 +18,11 @@ extends CharacterBody3D
 @export var interactable_reticle: Texture2D
 
 
+## Private Variables
+
+var _interactable: BaseInteractable = null
+
+
 ## Public Methods
 
 func get_move_vector() -> Vector2:
@@ -98,9 +103,15 @@ func _pressed() -> void:
 	if not inter:
 		return
 
+	if _interactable:
+		_interactable._released()
+		_interactable = null
+
+	_interactable = inter
 	inter._pressed()
 
 
-
 func _released() -> void:
-	pass
+	if _interactable:
+		_interactable._released()
+		_interactable = null
