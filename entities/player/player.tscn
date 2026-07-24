@@ -16,6 +16,7 @@ reticle_texture_rect = NodePath("Camera3D/UI/CenterContainer/ReticleTexture")
 move_speed = 3.0
 acceleration = 50.0
 mouse_sensitivity = 0.1
+controller_sensitivity = 3.0
 regular_reticle = ExtResource("2_abrql")
 interactable_reticle = ExtResource("3_sglur")
 

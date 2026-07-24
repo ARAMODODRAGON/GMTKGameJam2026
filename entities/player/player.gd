@@ -9,7 +9,8 @@ extends CharacterBody3D
 @export var acceleration: float = 5.0
 
 @export_group("Camera")
-@export_range(0.0, 1.0) var mouse_sensitivity: float = 1.0
+@export_range(0.0, 10.0) var mouse_sensitivity: float = 1.0
+@export_range(0.0, 10.0) var controller_sensitivity: float = 1.0
 @export var min_camera_pitch: float = -90.0
 @export var max_camera_pitch: float = 90.0
 
@@ -20,14 +21,26 @@ extends CharacterBody3D
 
 ## Private Variables
 
+var _mouse_captured: bool:
+	get:
+		return Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 var _interactable: BaseInteractable = null
 
 
 ## Public Methods
 
 func get_move_vector() -> Vector2:
-	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+	if _mouse_captured:
 		return Input.get_vector(&"Left", &"Right", &"Forward", &"Back")
+	else:
+		return Vector2.ZERO
+
+
+func get_look_vector() -> Vector2:
+	if _mouse_captured:
+		# var mouse_look := (Input.get_last_mouse_screen_velocity() / Vector2(get_window().size)) * mouse_sensitivity
+		# var joy_look := Input.get_vector(&"JoyLookLeft", &"JoyLookRight", &"JoyLookUp", &"JoyLookDown")
+		return Input.get_vector(&"JoyLookLeft", &"JoyLookRight", &"JoyLookUp", &"JoyLookDown") * controller_sensitivity
 	else:
 		return Vector2.ZERO
 
@@ -40,10 +53,18 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_released(&"Interact"):
 		_released()
 
+	## For controller
+	var look_vector := get_look_vector()
+	rotation_degrees.y += -look_vector.x
+	camera.rotation_degrees.x += -look_vector.y
+	camera.rotation_degrees.x = clampf(camera.rotation_degrees.x, min_camera_pitch, max_camera_pitch)
+
 	if camera_ray.get_collider():
 		reticle_texture_rect.texture = interactable_reticle
 	else:
 		reticle_texture_rect.texture = regular_reticle
+
+
 
 func _physics_process(delta: float) -> void:
 	var move_vector := get_move_vector()
@@ -68,6 +89,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	var mouse_input := event as InputEventMouseButton
 	if mouse_input:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		return
+
+	var keyboard_input := event as InputEventKey
+	if keyboard_input:
+		if keyboard_input.keycode == KEY_ESCAPE:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 		return
 
@@ -79,13 +106,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		rotation_degrees.y += -mouse_motion.relative.x * mouse_sensitivity
 		camera.rotation_degrees.x += -mouse_motion.relative.y * mouse_sensitivity
 		camera.rotation_degrees.x = clampf(camera.rotation_degrees.x, min_camera_pitch, max_camera_pitch)
-
-		return
-
-	var keyboard_input := event as InputEventKey
-	if keyboard_input:
-		if keyboard_input.keycode == KEY_ESCAPE:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 		return
 
