@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTKGameJam2026"
+run/main_scene="uid://cqlupub86wsye"
 config/features=PackedStringArray("4.6")
 
 [debug]
