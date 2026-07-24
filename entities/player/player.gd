@@ -1,6 +1,8 @@
 extends CharacterBody3D
 
 @export var camera: Camera3D
+@export var camera_ray: RayCast3D
+@export var reticle_texture_rect: TextureRect
 
 @export_group("Physics")
 @export var move_speed: float = 10.0
@@ -11,17 +13,32 @@ extends CharacterBody3D
 @export var min_camera_pitch: float = -90.0
 @export var max_camera_pitch: float = 90.0
 
+@export_group("Reticle")
+@export var regular_reticle: Texture2D
+@export var interactable_reticle: Texture2D
+
 
 ## Public Methods
 
 func get_move_vector() -> Vector2:
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		return Input.get_vector("Left", "Right", "Forward", "Back")
+		return Input.get_vector(&"Left", &"Right", &"Forward", &"Back")
 	else:
 		return Vector2.ZERO
 
 
 ## Virtual Methods
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(&"Interact"):
+		_pressed()
+	elif Input.is_action_just_released(&"Interact"):
+		_released()
+
+	if camera_ray.get_collider():
+		reticle_texture_rect.texture = interactable_reticle
+	else:
+		reticle_texture_rect.texture = regular_reticle
 
 func _physics_process(delta: float) -> void:
 	var move_vector := get_move_vector()
@@ -66,3 +83,24 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 		return
+
+
+## Private Methods
+
+func _pressed() -> void:
+
+	var object := camera_ray.get_collider()
+
+	if not object:
+		return
+
+	var inter := object as BaseInteractable
+	if not inter:
+		return
+
+	inter._pressed()
+
+
+
+func _released() -> void:
+	pass

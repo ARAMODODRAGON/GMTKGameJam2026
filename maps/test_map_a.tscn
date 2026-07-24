@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cqlupub86wsye"]
 
 [ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="1_afr3j"]
+[ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_button.tscn" id="2_eiaq7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afr3j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -43,3 +44,6 @@ size = Vector3(0.2, 1.7, 3.1000001)
 
 [node name="Player" parent="." unique_id=1162497877 instance=ExtResource("1_afr3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.6)
+
+[node name="InteractableRoundButton" parent="." unique_id=2115933321 instance=ExtResource("2_eiaq7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3000001, 0, 1.2)

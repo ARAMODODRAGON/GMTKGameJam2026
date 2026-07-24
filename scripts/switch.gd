@@ -15,6 +15,8 @@ var state: bool = false:
 func _pressed() -> void:
 	state = not state
 	switched.emit()
+	print("Pressed")
 
 func _released() -> void:
+	print("Released")
 	pass
