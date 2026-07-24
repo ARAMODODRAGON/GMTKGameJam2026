@@ -43,7 +43,7 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 size = Vector3(0.2, 1.7, 3.1000001)
 
 [node name="Player" parent="." unique_id=1162497877 instance=ExtResource("1_afr3j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.6)
+transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 0.7, 0, 0.6)
 
 [node name="InteractableRoundButton" parent="." unique_id=2115933321 instance=ExtResource("2_eiaq7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3000001, 0, 1.2)
