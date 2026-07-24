@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://duvimgjcgjhlk"]
+
+[ext_resource type="AudioStream" uid="uid://cd6iaj6gkq4s6" path="res://objects/screens/sounds/crt_whine.mp3" id="1_fgkbe"]
+
+[node name="CRTWhine" type="AudioStreamPlayer3D" unique_id=276462580]
+stream = ExtResource("1_fgkbe")
+volume_db = -8.0
+autoplay = true

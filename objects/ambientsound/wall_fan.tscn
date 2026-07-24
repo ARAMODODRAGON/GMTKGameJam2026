@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dwccejqovs72g"]
+
+[ext_resource type="PackedScene" uid="uid://bmgi0tnpq6tor" path="res://objects/ambientsound/WallFan.blend" id="1_dyly7"]
+[ext_resource type="Script" uid="uid://d1xlgnxmxiffn" path="res://fanblades.gd" id="2_56p6r"]
+[ext_resource type="AudioStream" uid="uid://br686vlfyjfxj" path="res://objects/ambientsound/sounds/computer_fan.mp3" id="3_56p6r"]
+[ext_resource type="Script" uid="uid://bstxlednpo7vx" path="res://objects/ambientsound/fan_audiostream.gd" id="4_uvipg"]
+
+[node name="WallFan" unique_id=1554156394 instance=ExtResource("1_dyly7")]
+
+[node name="Fanblades" parent="." index="0" unique_id=1720855267]
+script = ExtResource("2_56p6r")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2" unique_id=1542451227]
+stream = ExtResource("3_56p6r")
+volume_db = -20.0
+autoplay = true
+script = ExtResource("4_uvipg")

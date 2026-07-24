@@ -2,14 +2,18 @@
 
 [ext_resource type="Script" uid="uid://falf61iw477d" path="res://objects/buttons/interactable_round_button.gd" id="1_t66a4"]
 [ext_resource type="PackedScene" uid="uid://4pbj2vwkgykd" path="res://objects/buttons/round_button.tscn" id="2_ivaak"]
+[ext_resource type="AudioStream" uid="uid://dgh8tbfb4xxlv" path="res://objects/buttons/sounds/button_press_1.mp3" id="3_s0kxo"]
+[ext_resource type="AudioStream" uid="uid://c8ledljihg1gs" path="res://objects/buttons/sounds/button_release_1.mp3" id="4_82pxb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ivaak"]
 height = 0.1
 radius = 0.1
 
-[node name="InteractableRoundButton" type="Area3D" unique_id=2115933321 node_paths=PackedStringArray("anim")]
+[node name="InteractableRoundButton" type="Area3D" unique_id=2115933321 node_paths=PackedStringArray("anim", "sound_press", "sound_release")]
 script = ExtResource("1_t66a4")
 anim = NodePath("round_button/AnimationPlayer")
+sound_press = NodePath("ButtonPress")
+sound_release = NodePath("ButtonRelease")
 metadata/_custom_type_script = "uid://2nw5ygv4ummy"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=254591160]
@@ -17,5 +21,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = SubResource("CylinderShape3D_ivaak")
 
 [node name="round_button" parent="." unique_id=358854810 instance=ExtResource("2_ivaak")]
+
+[node name="ButtonPress" type="AudioStreamPlayer3D" parent="." unique_id=1206258682]
+stream = ExtResource("3_s0kxo")
+volume_db = -30.0
+
+[node name="ButtonRelease" type="AudioStreamPlayer3D" parent="." unique_id=172451531]
+stream = ExtResource("4_82pxb")
+volume_db = -30.0
 
 [editable path="round_button"]

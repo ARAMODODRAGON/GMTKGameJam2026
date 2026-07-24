@@ -3,7 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://di7vqt17ag3r4" path="res://maps/BlockoutShip/BlockoutShip.blend" id="1_hucus"]
 [ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="2_yqli5"]
 [ext_resource type="PackedScene" uid="uid://pmxho031sukg" path="res://objects/screens/4_by_3_crt.tscn" id="3_d0ixs"]
+[ext_resource type="PackedScene" uid="uid://duvimgjcgjhlk" path="res://objects/screens/CrtWhine.tscn" id="4_4ccfq"]
 [ext_resource type="PackedScene" uid="uid://docwiblc2d30y" path="res://objects/radio/cheap_radio.tscn" id="4_e6m4r"]
+[ext_resource type="PackedScene" uid="uid://bya3nrm02dy7o" path="res://objects/buttons/interactable_triangle_button.tscn" id="5_ny3hm"]
+[ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_round_button.tscn" id="6_k0lse"]
+[ext_resource type="PackedScene" uid="uid://dwccejqovs72g" path="res://objects/ambientsound/wall_fan.tscn" id="8_k0lse"]
 
 [node name="BlockoutShip" unique_id=1609120507 instance=ExtResource("1_hucus")]
 
@@ -44,9 +48,21 @@ omni_attenuation = 2.0
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.2258086, 1.8331957, -8.937719)
 label_string = "hello workld its me the screen"
 
+[node name="CRTWhine" parent="4by3_crt" index="2" unique_id=276462580 instance=ExtResource("4_4ccfq")]
+volume_db = -18.0
+
+[node name="InteractableTriangleButton" parent="4by3_crt" index="3" unique_id=2115933321 instance=ExtResource("5_ny3hm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.7104726, -3.6663914, 3.2492542)
+
+[node name="InteractableRoundButton" parent="4by3_crt" index="4" unique_id=70203006 instance=ExtResource("6_k0lse")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.5177722, -3.6663914, 3.2272844)
+
 [node name="4by3_crt2" parent="." index="8" unique_id=134732014 instance=ExtResource("3_d0ixs")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.22580862, 1.8331957, -8.937719)
 label_string = "im screen 2"
 
 [node name="cheap_radio" parent="." index="9" unique_id=703107636 instance=ExtResource("4_e6m4r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.765045, 0.06499988, -2.5067816)
+
+[node name="WallFan" parent="." index="10" unique_id=1554156394 instance=ExtResource("8_k0lse")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5271449, 2.23951, -8.69715)

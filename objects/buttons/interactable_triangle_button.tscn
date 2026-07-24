@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bya3nrm02dy7o"]
+
+[ext_resource type="Script" uid="uid://falf61iw477d" path="res://objects/buttons/interactable_round_button.gd" id="1_e1yjo"]
+[ext_resource type="PackedScene" uid="uid://bkbp6j8wql321" path="res://objects/buttons/triangle_button.tscn" id="2_e1yjo"]
+[ext_resource type="AudioStream" uid="uid://dgh8tbfb4xxlv" path="res://objects/buttons/sounds/button_press_1.mp3" id="3_ssqs4"]
+[ext_resource type="AudioStream" uid="uid://c8ledljihg1gs" path="res://objects/buttons/sounds/button_release_1.mp3" id="4_q3l8t"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ivaak"]
+height = 0.1
+radius = 0.1
+
+[node name="InteractableTriangleButton" type="Area3D" unique_id=2115933321 node_paths=PackedStringArray("anim", "sound_press", "sound_release")]
+script = ExtResource("1_e1yjo")
+anim = NodePath("triangle_button/AnimationPlayer")
+sound_press = NodePath("ButtonPress")
+sound_release = NodePath("ButtonRelease")
+metadata/_custom_type_script = "uid://2nw5ygv4ummy"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=254591160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+shape = SubResource("CylinderShape3D_ivaak")
+
+[node name="triangle_button" parent="." unique_id=215357534 instance=ExtResource("2_e1yjo")]
+
+[node name="ButtonPress" type="AudioStreamPlayer3D" parent="." unique_id=1206258682]
+stream = ExtResource("3_ssqs4")
+volume_db = -30.0
+
+[node name="ButtonRelease" type="AudioStreamPlayer3D" parent="." unique_id=172451531]
+stream = ExtResource("4_q3l8t")
+volume_db = -30.0
+
+[editable path="triangle_button"]

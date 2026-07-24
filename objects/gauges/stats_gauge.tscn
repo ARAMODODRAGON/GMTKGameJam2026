@@ -13,6 +13,7 @@ script = ExtResource("2_m4hmp")
 [node name="ElectricSprite" type="Sprite3D" parent="." index="2" unique_id=1297951701]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0.030317962, 0.49554545)
 visible = false
+shaded = true
 alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("2_2s1it")
@@ -20,6 +21,7 @@ texture = ExtResource("2_2s1it")
 [node name="NavSprite" type="Sprite3D" parent="." index="3" unique_id=1583321808]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0.030317962, 0.49554545)
 visible = false
+shaded = true
 alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("3_is016")
@@ -27,6 +29,7 @@ texture = ExtResource("3_is016")
 [node name="OxygenSprite" type="Sprite3D" parent="." index="4" unique_id=474219621]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0.030317962, 0.49554545)
 visible = false
+shaded = true
 alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("4_m4hmp")
@@ -34,6 +37,7 @@ texture = ExtResource("4_m4hmp")
 [node name="ShieldSprite" type="Sprite3D" parent="." index="5" unique_id=873069290]
 transform = Transform3D(2, 0, 0, 0, -8.742278e-08, 2, 0, -2, -8.742278e-08, 0, 0.030317962, 0.49554545)
 visible = false
+shaded = true
 alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("5_vn7oq")
