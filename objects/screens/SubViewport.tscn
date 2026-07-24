@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c31qwrrs25akn"]
+
+[ext_resource type="Shader" uid="uid://61bihtcvq7cv" path="res://objects/screens/SubViewportScreen.gdshader" id="1_wy21l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2uu3s"]
+shader = ExtResource("1_wy21l")
+
+[node name="SubViewport" type="Node3D" unique_id=1163745244]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1901880015]
+disable_3d = true
+size = Vector2i(320, 240)
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport" unique_id=815580861]
+material = SubResource("ShaderMaterial_2uu3s")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -1,5 +1,48 @@
 [gd_scene format=3 uid="uid://clf6knhf7ywmp"]
 
 [ext_resource type="PackedScene" uid="uid://di7vqt17ag3r4" path="res://maps/BlockoutShip/BlockoutShip.blend" id="1_hucus"]
+[ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="2_yqli5"]
+[ext_resource type="PackedScene" uid="uid://pmxho031sukg" path="res://objects/screens/4_by_3_crt.tscn" id="3_d0ixs"]
 
 [node name="BlockoutShip" unique_id=1609120507 instance=ExtResource("1_hucus")]
+
+[node name="Player" parent="." index="1" unique_id=1162497877 instance=ExtResource("2_yqli5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2420774, 0, 6.681638)
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="." index="2" unique_id=159900142]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.024993, 2.7105854, 7.2463417)
+light_energy = 2.0
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="." index="3" unique_id=753297047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.440633, 2.7105854, 0.27287054)
+light_energy = 2.0
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="." index="4" unique_id=1699610456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.673974, 2.7105854, 0.17180657)
+light_energy = 2.0
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="." index="5" unique_id=1285284295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19320202, 2.7105854, -5.84155)
+light_energy = 2.0
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="." index="6" unique_id=1993263669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14266872, 2.7105854, 0.37393665)
+light_energy = 2.0
+omni_range = 10.0
+omni_attenuation = 2.0
+
+[node name="4by3_crt" parent="." index="7" unique_id=2010853883 instance=ExtResource("3_d0ixs")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.2258086, 1.8331957, -8.937719)
+label_string = "hello workld its me the screen"
+
+[node name="4by3_crt2" parent="." index="8" unique_id=134732014 instance=ExtResource("3_d0ixs")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.22580862, 1.8331957, -8.937719)
+label_string = "im screen 2"

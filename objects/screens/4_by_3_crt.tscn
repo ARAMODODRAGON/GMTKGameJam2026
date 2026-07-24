@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://pmxho031sukg"]
+
+[ext_resource type="PackedScene" uid="uid://bbhu6701kuquw" path="res://objects/screens/4by3_crt.blend" id="1_81yfy"]
+[ext_resource type="Script" uid="uid://bi5mu6nnw43vu" path="res://objects/screens/4_by_3_crt.gd" id="2_bhitg"]
+[ext_resource type="Shader" uid="uid://61bihtcvq7cv" path="res://objects/screens/SubViewportScreen.gdshader" id="2_fo7be"]
+[ext_resource type="Script" uid="uid://cfh8e05rs7v8v" path="res://objects/screens/label_testing.gd" id="3_2g3pd"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fo7be"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2g3pd"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_fo7be")
+roughness = 0.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2g3pd"]
+shader = ExtResource("2_fo7be")
+
+[node name="4by3_crt" unique_id=2010853883 instance=ExtResource("1_81yfy")]
+script = ExtResource("2_bhitg")
+
+[node name="Cube" parent="." index="0" unique_id=867779040]
+surface_material_override/0 = SubResource("StandardMaterial3D_2g3pd")
+
+[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=1593528878]
+disable_3d = true
+size = Vector2i(320, 240)
+
+[node name="ColorRect" type="ColorRect" parent="SubViewport" index="0" unique_id=1781815461]
+material = SubResource("ShaderMaterial_2g3pd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SubViewport" index="1" unique_id=1853371711]
+offset_top = 120.0
+offset_right = 277.0
+offset_bottom = 143.0
+text = "TESTING TESTING HEEHEE HOOHOO"
+script = ExtResource("3_2g3pd")
