@@ -1,9 +1,32 @@
 [gd_scene format=3 uid="uid://cqlupub86wsye"]
 
+[ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="1_afr3j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afr3j"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_eiaq7"]
+sky_material = SubResource("ProceduralSkyMaterial_afr3j")
+
+[sub_resource type="Environment" id="Environment_8rmuw"]
+background_mode = 2
+sky = SubResource("Sky_eiaq7")
+tonemap_mode = 2
+
 [node name="TestMapA" type="Node3D" unique_id=15633260]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1918579257]
+environment = SubResource("Environment_8rmuw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=980164947]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1126961137]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049999997, 0)
+use_collision = true
+collision_mask = 0
 size = Vector3(9.6, 0.1, 8)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=580464295]
@@ -17,3 +40,6 @@ size = Vector3(1, 1.7, 1)
 [node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D" unique_id=999535647]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 3, 0.85, -1.3000002)
 size = Vector3(0.2, 1.7, 3.1000001)
+
+[node name="Player" parent="." unique_id=1162497877 instance=ExtResource("1_afr3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0, 0.6)
