@@ -30,17 +30,16 @@ colors = PackedColorArray(0, 1, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_s0g6b"]
 gradient = SubResource("Gradient_73oae")
 
-[node name="OxygenTaskView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("red_bar", "green_zone", "container", "_success_boxes")]
+[node name="OxygenTaskView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("red_bar", "green_zone", "_success_boxes")]
 script = ExtResource("1_73oae")
 red_bar = NodePath("Container/RedBar")
 green_zone = NodePath("Container/SafeZone")
-container = NodePath("Container")
 move_speed = 150.0
 timer_initial = 0.5
+stat_success_amount = 50.0
 _upper_limits = -122.0
 _lower_limits = 122.0
 _success_boxes = [NodePath("Sucess Box"), NodePath("Sucess Box2"), NodePath("Sucess Box3")]
-stat_success_amount = 50.0
 
 [node name="Container" type="Sprite2D" parent="." unique_id=1686386458]
 clip_children = 2
