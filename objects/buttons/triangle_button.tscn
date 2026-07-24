@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bkbp6j8wql321"]
+
+[ext_resource type="PackedScene" uid="uid://dbvhq1fi11ajj" path="res://objects/buttons/triangle_button.blend" id="1_xrkbl"]
+
+[node name="triangle_button" unique_id=215357534 instance=ExtResource("1_xrkbl")]

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://4pbj2vwkgykd"]
+
+[ext_resource type="PackedScene" uid="uid://6txiihdw0vw1" path="res://objects/buttons/round_button.blend" id="1_pawf8"]
+
+[node name="round_button" unique_id=358854810 instance=ExtResource("1_pawf8")]

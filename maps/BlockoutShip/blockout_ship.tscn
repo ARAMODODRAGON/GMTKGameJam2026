@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://clf6knhf7ywmp"]
+
+[ext_resource type="PackedScene" uid="uid://di7vqt17ag3r4" path="res://maps/BlockoutShip/BlockoutShip.blend" id="1_hucus"]
+
+[node name="BlockoutShip" unique_id=1609120507 instance=ExtResource("1_hucus")]
