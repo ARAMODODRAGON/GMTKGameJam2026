@@ -4,33 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://crm4glme3gtl8" path="res://objects/terminals/oxygen_terminal/oxygen_terminal.tscn" id="3_8rmuw"]
 [ext_resource type="PackedScene" uid="uid://cjugs1yx6f7vg" path="res://objects/gauges/stats_gauge.tscn" id="3_bgkko"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afr3j"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_eiaq7"]
-sky_material = SubResource("ProceduralSkyMaterial_afr3j")
-
-[sub_resource type="Environment" id="Environment_8rmuw"]
-background_mode = 2
-sky = SubResource("Sky_eiaq7")
-tonemap_mode = 2
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_8rmuw"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgkko"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_8rmuw")
-
 [node name="TestMapA" type="Node3D" unique_id=15633260]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1918579257]
-environment = SubResource("Environment_8rmuw")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=980164947]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1126961137]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049999997, 0)
@@ -55,9 +29,6 @@ transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25
 
 [node name="OxygenTerminal" parent="." unique_id=1564582219 instance=ExtResource("3_8rmuw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1783936, 0.8731784, -2.489795)
-
-[node name="Cube" parent="OxygenTerminal" index="0" unique_id=156791562]
-surface_material_override/0 = SubResource("StandardMaterial3D_bgkko")
 
 [node name="InteractableRoundButton" parent="OxygenTerminal" index="2" unique_id=2115933321]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.077105, 0, 0.248317)
