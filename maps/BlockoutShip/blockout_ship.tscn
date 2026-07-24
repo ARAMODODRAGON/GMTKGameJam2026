@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://di7vqt17ag3r4" path="res://maps/BlockoutShip/BlockoutShip.blend" id="1_hucus"]
 [ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="2_yqli5"]
 [ext_resource type="PackedScene" uid="uid://pmxho031sukg" path="res://objects/screens/4_by_3_crt.tscn" id="3_d0ixs"]
+[ext_resource type="PackedScene" uid="uid://docwiblc2d30y" path="res://objects/radio/cheap_radio.tscn" id="4_e6m4r"]
 
 [node name="BlockoutShip" unique_id=1609120507 instance=ExtResource("1_hucus")]
 
@@ -46,3 +47,6 @@ label_string = "hello workld its me the screen"
 [node name="4by3_crt2" parent="." index="8" unique_id=134732014 instance=ExtResource("3_d0ixs")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.22580862, 1.8331957, -8.937719)
 label_string = "im screen 2"
+
+[node name="cheap_radio" parent="." index="9" unique_id=703107636 instance=ExtResource("4_e6m4r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.765045, 0.06499988, -2.5067816)

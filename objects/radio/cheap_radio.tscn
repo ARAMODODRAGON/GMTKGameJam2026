@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://docwiblc2d30y"]
+
+[ext_resource type="PackedScene" uid="uid://d320v2gjgoups" path="res://objects/radio/cheap_radio.blend" id="1_6m0oq"]
+[ext_resource type="AudioStream" uid="uid://pwlmhq5hyg5l" path="res://objects/radio/sounds/indistinct_1.mp3" id="2_dqh11"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dqh11"]
+streams_count = 1
+stream_0/stream = ExtResource("2_dqh11")
+
+[node name="cheap_radio" unique_id=703107636 instance=ExtResource("1_6m0oq")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1" unique_id=1924165844]
+stream = SubResource("AudioStreamRandomizer_dqh11")
+volume_db = -20.0
+autoplay = true
