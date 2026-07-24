@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://dnuwutp7epok7"]
 
-[ext_resource type="Script" uid="uid://2nw5ygv4ummy" path="res://scripts/button.gd" id="1_8q2j2"]
+[ext_resource type="Script" uid="uid://falf61iw477d" path="res://objects/buttons/interactable_round_button.gd" id="1_t66a4"]
 [ext_resource type="PackedScene" uid="uid://4pbj2vwkgykd" path="res://objects/buttons/round_button.tscn" id="2_ivaak"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ivaak"]
 height = 0.1
 radius = 0.1
 
-[node name="InteractableRoundButton" type="Area3D" unique_id=2115933321]
-script = ExtResource("1_8q2j2")
+[node name="InteractableRoundButton" type="Area3D" unique_id=2115933321 node_paths=PackedStringArray("anim")]
+script = ExtResource("1_t66a4")
+anim = NodePath("round_button/AnimationPlayer")
 metadata/_custom_type_script = "uid://2nw5ygv4ummy"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=254591160]
