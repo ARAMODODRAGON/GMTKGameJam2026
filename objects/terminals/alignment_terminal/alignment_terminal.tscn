@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bb1ow6olvw86a"]
+
+[ext_resource type="PackedScene" uid="uid://bbhu6701kuquw" path="res://objects/screens/4by3_crt.blend" id="1_mh7j8"]
+[ext_resource type="PackedScene" uid="uid://b3jo1ve3507k7" path="res://objects/terminals/alignment_terminal/alignment_task_view.tscn" id="2_javye"]
+[ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_round_button.tscn" id="3_rksgb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_javye"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxc17"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_javye")
+
+[node name="AlignmentTerminal" unique_id=1564582219 instance=ExtResource("1_mh7j8")]
+
+[node name="Cube" parent="." index="0" unique_id=1599189902]
+surface_material_override/0 = SubResource("StandardMaterial3D_uxc17")
+
+[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=482558649]
+disable_3d = true
+size = Vector2i(320, 240)
+
+[node name="AlignmentTaskView" parent="SubViewport" index="0" unique_id=2007830041 instance=ExtResource("2_javye")]
+
+[node name="PositiveX" parent="." index="2" unique_id=2115933321 instance=ExtResource("3_rksgb")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.0807345, -0.3260852, 0.24324441)
+
+[node name="NegativeX" parent="." index="3" unique_id=301334479 instance=ExtResource("3_rksgb")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.078, -0.326, 0.25)
+
+[node name="PositiveY" parent="." index="4" unique_id=1791827229 instance=ExtResource("3_rksgb")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.0736842, 0.4110756, 0.24577719)
+
+[node name="NegativeY" parent="." index="5" unique_id=518696593 instance=ExtResource("3_rksgb")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.0933145, 0.411, 0.25044942)
+
+[node name="PosYLabel" type="Label3D" parent="." index="6" unique_id=248148246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0868521, 0.61114943, 0.25538212)
+text = "+Y "
+
+[node name="PosXLabel" type="Label3D" parent="." index="7" unique_id=1551387369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0868521, -0.11860353, 0.25538212)
+text = "+X"
+
+[node name="NegXLabel" type="Label3D" parent="." index="8" unique_id=865744585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0710086, -0.11860353, 0.25538212)
+text = "-X"
+
+[node name="NegYLabel" type="Label3D" parent="." index="9" unique_id=1560724258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0945867, 0.61114943, 0.25538212)
+text = "-Y"

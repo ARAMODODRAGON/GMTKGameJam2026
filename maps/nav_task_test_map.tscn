@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bgopbni4t06rw"]
+
+[ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="1_tlj1d"]
+[ext_resource type="PackedScene" uid="uid://cjugs1yx6f7vg" path="res://objects/gauges/stats_gauge.tscn" id="3_4ouoq"]
+[ext_resource type="PackedScene" uid="uid://bb1ow6olvw86a" path="res://objects/terminals/alignment_terminal/alignment_terminal.tscn" id="3_tlj1d"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afr3j"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_eiaq7"]
+sky_material = SubResource("ProceduralSkyMaterial_afr3j")
+
+[sub_resource type="Environment" id="Environment_8rmuw"]
+background_mode = 2
+sky = SubResource("Sky_eiaq7")
+tonemap_mode = 2
+
+[node name="TestMapA" type="Node3D" unique_id=15633260]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1918579257]
+environment = SubResource("Environment_8rmuw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=980164947]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1126961137]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.049999997, 0)
+use_collision = true
+collision_mask = 0
+size = Vector3(9.6, 0.1, 8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=580464295]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.85, 2.2)
+size = Vector3(1, 1.7, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=1955933855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8000001, 0.85, -2.0000002)
+size = Vector3(1, 1.7, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D" unique_id=999535647]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 3, 0.85, -1.3000002)
+size = Vector3(0.2, 1.7, 3.1000001)
+
+[node name="Player" parent="." unique_id=1162497877 instance=ExtResource("1_tlj1d")]
+transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 0.7, 0, 0.6)
+
+[node name="DomedGauge" parent="." unique_id=642379518 instance=ExtResource("3_4ouoq")]
+transform = Transform3D(0.13950557, -0.14331153, 6.2643437e-09, -1.257478e-15, -8.742276e-09, -0.20000003, 0.14331153, 0.13950557, -6.097981e-09, 2.1594539, 1.160779, -1.9729732)
+gauge_type = 2
+
+[node name="AlignmentTerminal" parent="." unique_id=1564582219 instance=ExtResource("3_tlj1d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.323215, 0.8731783, -2.3904467)
