@@ -37,13 +37,14 @@ theme_override_constants/margin_right = 30
 layout_mode = 2
 
 [node name="Battery" type="TextureRect" parent="Background/VBoxContainer/Margin/Control" unique_id=1938143823]
+visible = false
 layout_mode = 0
 offset_right = 53.0
 offset_bottom = 112.0
 texture = ExtResource("1_nqbkg")
 stretch_mode = 5
 
-[node name="Batterylevel" type="Control" parent="Background/VBoxContainer/Margin/Control/Battery" unique_id=1813488529]
+[node name="Batterylevel" type="VBoxContainer" parent="Background/VBoxContainer/Margin/Control/Battery" unique_id=1049204647]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,27 +55,30 @@ offset_right = -11.0
 offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 2
 
-[node name="Clip" type="Control" parent="Background/VBoxContainer/Margin/Control/Battery/Batterylevel" unique_id=700572163]
+[node name="ButtonLevelClip" type="Control" parent="Background/VBoxContainer/Margin/Control/Battery/Batterylevel" unique_id=700572163]
 clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/Margin/Control/Battery/Batterylevel/Clip" unique_id=563242586]
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/Margin/Control/Battery/Batterylevel/ButtonLevelClip" unique_id=563242586]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -22.0
+offset_top = -44.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("2_gm80e")
-expand_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/Margin/Control" unique_id=545473069]
+layout_mode = 0
+offset_left = 40.05812
+offset_top = 33.200138
+offset_right = 80.05812
+offset_bottom = 73.200134
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer" unique_id=1501480149]
 layout_mode = 2

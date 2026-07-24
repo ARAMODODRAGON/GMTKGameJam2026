@@ -16,12 +16,12 @@ background_mode = 2
 sky = SubResource("Sky_eiaq7")
 tonemap_mode = 2
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1k06s"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_8rmuw"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfbs3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgkko"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_1k06s")
+albedo_texture = SubResource("ViewportTexture_8rmuw")
 
 [node name="TestMapA" type="Node3D" unique_id=15633260]
 
@@ -56,8 +56,8 @@ transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25
 [node name="OxygenTerminal" parent="." unique_id=1564582219 instance=ExtResource("3_8rmuw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1783936, 0.8731784, -2.489795)
 
-[node name="Cube" parent="OxygenTerminal" index="0" unique_id=867779040]
-surface_material_override/0 = SubResource("StandardMaterial3D_wfbs3")
+[node name="Cube" parent="OxygenTerminal" index="0" unique_id=156791562]
+surface_material_override/0 = SubResource("StandardMaterial3D_bgkko")
 
 [node name="InteractableRoundButton" parent="OxygenTerminal" index="2" unique_id=2115933321]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.077105, 0, 0.248317)

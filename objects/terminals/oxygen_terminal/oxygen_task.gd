@@ -13,8 +13,8 @@ extends Node2D
 
 @export var stat_success_amount: float = 0.0
 
-@export var stat_decrease_rate: float = 0.0
-@export var stat_decrease_amount: float = 0.0
+@export_custom(PROPERTY_HINT_NONE, "suffix:/s")
+var stat_usage_rate: float = 1.0
 
 ## Private variables
 @export var _upper_limits: float
@@ -28,7 +28,6 @@ var _is_colliding: bool = false
 var _successes: int = 0
 
 var _timer: float
-var _stat_decrease_timer: float
 
 ## Signals
 signal on_oxygen_terminal_success()
@@ -38,8 +37,7 @@ signal on_oxygen_terminal_failure()
 ## Private functions
 func _ready() -> void:
 	_choose_new_green_location()
-	_stat_decrease_timer = stat_decrease_rate
-	
+
 	if not button:
 		print("Button was found to be null")
 		return
@@ -54,18 +52,15 @@ func _process(delta: float) -> void:
 		if _timer <= 0:
 			_can_move = true
 
-	_stat_decrease_timer -= delta
+	ShipStats.oxygen_amount -= stat_usage_rate * delta
 
-	if _stat_decrease_timer <= 0.0:
-		ShipStats.oxygen_amount -= stat_decrease_amount
-		_stat_decrease_timer = stat_decrease_rate
 
 func _move_red_bar(delta: float) -> void:
-	
+
 	if not red_bar:
 		print("Red Bar was found to be null")
 		return
-	
+
 	if not _can_move:
 		return
 
@@ -73,7 +68,7 @@ func _move_red_bar(delta: float) -> void:
 		_is_moving_down = true
 	elif red_bar.position.y >= _lower_limits:
 		_is_moving_down = false
-	
+
 	if _is_moving_down:
 		red_bar.position.y += move_speed * delta
 	else:
@@ -88,7 +83,7 @@ func _on_red_bar_area_exited(area: Area2D) -> void:
 func _stop_red_bar() -> void:
 	if not _can_move:
 		return
-	
+
 	_can_move = false
 	_timer = timer_initial
 
@@ -125,9 +120,9 @@ func _choose_new_green_location() -> void:
 
 	for i in 10:
 		var rando: float = randf_range(_lower_limits, _upper_limits)
-		
+
 		if abs(rando - green_zone.position.y) > 20:
 			green_zone.position.y = rando
 			break
-		
+
 ## Public Functions
