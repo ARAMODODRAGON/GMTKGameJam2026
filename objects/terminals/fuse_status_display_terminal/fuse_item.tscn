@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://ccpse87tt3md2"]
+
+[ext_resource type="Texture2D" uid="uid://dlckpjmhed4a" path="res://objects/terminals/fuse_status_display_terminal/fuse_disabled_texture.tres" id="1_1wrh8"]
+[ext_resource type="Script" uid="uid://b1lsct3nthce3" path="res://objects/terminals/fuse_status_display_terminal/fuse_item.gd" id="1_url8l"]
+[ext_resource type="Texture2D" uid="uid://ch4ghvwglqnk0" path="res://objects/terminals/fuse_status_display_terminal/fuse_enabled_texture.tres" id="3_jwtoi"]
+
+[node name="FuseDisplay" type="Control" unique_id=871357829 node_paths=PackedStringArray("texture_rect")]
+custom_minimum_size = Vector2(32, 124)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1107.0
+offset_bottom = -524.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_url8l")
+disabled_texture = ExtResource("1_1wrh8")
+enabled_texture = ExtResource("3_jwtoi")
+texture_rect = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1334340680]
+custom_minimum_size = Vector2(32, 124)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.48333332
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 44.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("1_1wrh8")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

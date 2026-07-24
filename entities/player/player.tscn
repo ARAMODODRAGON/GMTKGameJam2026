@@ -57,3 +57,7 @@ texture_filter = 1
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 texture = ExtResource("2_abrql")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=286438580]
+transform = Transform3D(0.70710677, -0.70710677, 0, 0.49999997, 0.49999997, -0.70710677, 0.49999997, 0.49999997, 0.70710677, 0, 0, 0)
+gizmo_extents = 1.0
