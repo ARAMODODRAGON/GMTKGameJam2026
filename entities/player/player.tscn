@@ -7,6 +7,8 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_symyc"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1162497877 node_paths=PackedStringArray("camera", "camera_ray", "reticle_texture_rect")]
+axis_lock_angular_x = true
+axis_lock_angular_z = true
 script = ExtResource("1_symyc")
 camera = NodePath("Camera3D")
 camera_ray = NodePath("Camera3D/RayCast3D")
