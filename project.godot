@@ -14,6 +14,10 @@ config/name="GMTKGameJam2026"
 run/main_scene="uid://cqlupub86wsye"
 config/features=PackedStringArray("4.6")
 
+[autoload]
+
+ShipStats="*uid://cx1c80vgq2ghm"
+
 [debug]
 
 gdscript/warnings/unused_private_class_variable=0
