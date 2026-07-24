@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="1_afr3j"]
 [ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_round_button.tscn" id="2_eiaq7"]
+[ext_resource type="PackedScene" uid="uid://crm4glme3gtl8" path="res://objects/terminals/oxygen_terminal/oxygen_terminal.tscn" id="3_8rmuw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afr3j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -14,6 +15,13 @@ sky_material = SubResource("ProceduralSkyMaterial_afr3j")
 background_mode = 2
 sky = SubResource("Sky_eiaq7")
 tonemap_mode = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8rmuw"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgkko"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_8rmuw")
 
 [node name="TestMapA" type="Node3D" unique_id=15633260]
 
@@ -46,4 +54,15 @@ size = Vector3(0.2, 1.7, 3.1000001)
 transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25881904, 0.7, 0, 0.6)
 
 [node name="InteractableRoundButton" parent="." unique_id=2115933321 instance=ExtResource("2_eiaq7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3000001, 0, 1.2)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.2621225, 1.0290061, -2.243183)
+
+[node name="OxygenTerminal" parent="." unique_id=1564582219 instance=ExtResource("3_8rmuw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1783936, 0.8731784, -2.489795)
+
+[node name="Cube" parent="OxygenTerminal" index="0" unique_id=1599189902]
+surface_material_override/0 = SubResource("StandardMaterial3D_bgkko")
+
+[node name="OxygenTaskView" parent="OxygenTerminal/SubViewport" parent_id_path=PackedInt32Array(1564582219, 482558649) index="0" unique_id=2007830041 node_paths=PackedStringArray("button")]
+button = NodePath("../../../InteractableRoundButton")
+
+[editable path="OxygenTerminal"]

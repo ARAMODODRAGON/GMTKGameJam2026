@@ -5,7 +5,7 @@ extends Node
 @export var max_stat_amount: float = 100.0
 
 @export var shield_amount_initial: float = 100.0
-@export var oxygen_amount_initial: float = 100.0
+@export var oxygen_amount_initial: float = 0.0
 @export var energy_amount_initial: float = 100.0
 @export var alignment_amount_initial: float = 100.0
 ## Modify these and not the initial amount

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://crm4glme3gtl8"]
+
+[ext_resource type="PackedScene" uid="uid://bbhu6701kuquw" path="res://objects/screens/4by3_crt.blend" id="1_a2h6s"]
+[ext_resource type="PackedScene" uid="uid://btafxnhyu2oiu" path="res://objects/terminals/oxygen_terminal/oxygen_task_view.tscn" id="2_qky8h"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qky8h"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pij46"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_qky8h")
+
+[node name="OxygenTerminal" unique_id=1564582219 instance=ExtResource("1_a2h6s")]
+
+[node name="Cube" parent="." index="0" unique_id=1599189902]
+surface_material_override/0 = SubResource("StandardMaterial3D_pij46")
+
+[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=482558649]
+disable_3d = true
+size = Vector2i(320, 240)
+
+[node name="OxygenTaskView" parent="SubViewport" index="0" unique_id=2007830041 instance=ExtResource("2_qky8h")]

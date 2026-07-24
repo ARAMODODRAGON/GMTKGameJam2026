@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://btafxnhyu2oiu"]
+
+[ext_resource type="Texture2D" uid="uid://6kp64y8y47yc" path="res://objects/terminals/oxygen_terminal/Container.png" id="1_8fygp"]
+[ext_resource type="Script" uid="uid://b6nlyynwgl75r" path="res://objects/terminals/oxygen_terminal/oxygen_task.gd" id="1_73oae"]
+
+[sub_resource type="Gradient" id="Gradient_s0g6b"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.38113406, 0.61213297, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hqytc"]
+gradient = SubResource("Gradient_s0g6b")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0g6b"]
+size = Vector2(128.3785, 45.2381)
+
+[sub_resource type="Gradient" id="Gradient_n8qqy"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_38bbd"]
+gradient = SubResource("Gradient_n8qqy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73oae"]
+size = Vector2(128.3785, 11.90476)
+
+[sub_resource type="Gradient" id="Gradient_73oae"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_s0g6b"]
+gradient = SubResource("Gradient_73oae")
+
+[node name="OxygenTaskView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("red_bar", "green_zone", "container", "_success_boxes")]
+script = ExtResource("1_73oae")
+red_bar = NodePath("Container/RedBar")
+green_zone = NodePath("Container/SafeZone")
+container = NodePath("Container")
+move_speed = 150.0
+timer_initial = 0.5
+_upper_limits = -122.0
+_lower_limits = 122.0
+_success_boxes = [NodePath("Sucess Box"), NodePath("Sucess Box2"), NodePath("Sucess Box3")]
+stat_success_amount = 50.0
+
+[node name="Container" type="Sprite2D" parent="." unique_id=1686386458]
+clip_children = 2
+position = Vector2(150.99998, 120)
+scale = Vector2(1.4799988, 0.84000003)
+texture = ExtResource("1_8fygp")
+
+[node name="SafeZone" type="Area2D" parent="Container" unique_id=937682190]
+position = Vector2(1.0310002e-05, 105.95237)
+collision_layer = 16
+collision_mask = 16
+
+[node name="SafeZoneSprite" type="Sprite2D" parent="Container/SafeZone" unique_id=1533373217]
+scale = Vector2(1.0000001, 47.000004)
+texture = SubResource("GradientTexture1D_hqytc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/SafeZone" unique_id=958547984]
+scale = Vector2(0.9999999, 0.9999997)
+shape = SubResource("RectangleShape2D_s0g6b")
+
+[node name="RedBar" type="Area2D" parent="Container" unique_id=334005491]
+position = Vector2(1.031e-05, -117.85714)
+collision_layer = 16
+collision_mask = 16
+
+[node name="RedBarSprite" type="Sprite2D" parent="Container/RedBar" unique_id=1773551997]
+scale = Vector2(0.6756761, 11.666666)
+texture = SubResource("GradientTexture1D_38bbd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/RedBar" unique_id=1183486621]
+position = Vector2(0, -7.6293945e-06)
+scale = Vector2(0.9999999, 0.9999997)
+shape = SubResource("RectangleShape2D_73oae")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=629686406]
+custom_minimum_size = Vector2(320, 240)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sucess Box" type="Sprite2D" parent="." unique_id=1138892994]
+visible = false
+position = Vector2(296, 14)
+scale = Vector2(-0.11999997, 16.919994)
+texture = SubResource("GradientTexture1D_s0g6b")
+
+[node name="Sucess Box2" type="Sprite2D" parent="." unique_id=599319559]
+visible = false
+position = Vector2(296.00003, 37)
+scale = Vector2(-0.11999997, 16.919994)
+texture = SubResource("GradientTexture1D_s0g6b")
+
+[node name="Sucess Box3" type="Sprite2D" parent="." unique_id=1567542999]
+visible = false
+position = Vector2(296.00003, 60)
+scale = Vector2(-0.11999997, 16.919994)
+texture = SubResource("GradientTexture1D_s0g6b")
+
+[connection signal="area_entered" from="Container/RedBar" to="." method="_on_red_bar_area_entered"]
+[connection signal="area_exited" from="Container/RedBar" to="." method="_on_red_bar_area_exited"]
