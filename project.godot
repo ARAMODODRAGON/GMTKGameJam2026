@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTKGameJam2026"
-run/main_scene="uid://cqlupub86wsye"
+run/main_scene="uid://b305heht0etyb"
 config/features=PackedStringArray("4.6")
 
 [autoload]
@@ -36,6 +36,7 @@ gdscript/warnings/integer_division=0
 
 folder_colors={
 "res://entities/": "yellow",
+"res://game/": "gray",
 "res://maps/": "teal",
 "res://objects/": "orange",
 "res://scripts/": "blue"

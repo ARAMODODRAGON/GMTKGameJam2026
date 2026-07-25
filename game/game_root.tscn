@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://b305heht0etyb"]
+
+[ext_resource type="PackedScene" uid="uid://cqlupub86wsye" path="res://maps/test_map_a.tscn" id="1_clt6a"]
+[ext_resource type="Shader" uid="uid://lp7iex54587y" path="res://game/blur_effect_shader.gdshader" id="1_hup1c"]
+[ext_resource type="Script" uid="uid://dnr5t465snnl6" path="res://game/blur_effect.gd" id="3_2suya"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_clt6a"]
+shader = ExtResource("1_hup1c")
+shader_parameter/blur_amount = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h7acg"]
+frequency = 0.2061
+fractal_octaves = 2
+fractal_lacunarity = 2.895
+fractal_gain = 5.48
+fractal_weighted_strength = 1.0
+
+[node name="GameRoot" type="Node" unique_id=540067338]
+
+[node name="GameLayer" type="CanvasLayer" parent="." unique_id=1216832409]
+
+[node name="TestMapA" parent="GameLayer" unique_id=15633260 instance=ExtResource("1_clt6a")]
+
+[node name="ScreenEffectsLayer" type="CanvasLayer" parent="." unique_id=1840538123]
+
+[node name="Control" type="Control" parent="ScreenEffectsLayer" unique_id=1915023846]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlurEffect" type="ColorRect" parent="ScreenEffectsLayer/Control" unique_id=731158398]
+material = SubResource("ShaderMaterial_clt6a")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_2suya")
+blur_noise = SubResource("FastNoiseLite_h7acg")
