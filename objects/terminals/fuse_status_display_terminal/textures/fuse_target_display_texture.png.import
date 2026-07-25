@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlxllpib6qpok"
-path="res://.godot/imported/battery_level_display_texture.png-f83a5f3e601eaed4929b69a7cc74d42f.ctex"
+uid="uid://csmrgvgtroir6"
+path="res://.godot/imported/fuse_target_display_texture.png-d6b373727c56eafb42fbb4f4a7786455.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://objects/terminals/fuse_status_display_terminal/battery_level_display_texture.png"
-dest_files=["res://.godot/imported/battery_level_display_texture.png-f83a5f3e601eaed4929b69a7cc74d42f.ctex"]
+source_file="res://objects/terminals/fuse_status_display_terminal/textures/fuse_target_display_texture.png"
+dest_files=["res://.godot/imported/fuse_target_display_texture.png-d6b373727c56eafb42fbb4f4a7786455.ctex"]
 
 [params]
 

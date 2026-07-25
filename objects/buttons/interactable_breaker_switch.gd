@@ -5,9 +5,18 @@ extends InteractableSwitch
 
 func _ready() -> void:
 	state_changed.connect(_state_changed)
+	#print("connected")
+
+	if state:
+		anim.play(&"turn_on")
+	else:
+		anim.play(&"turn_off")
+
+	anim.advance(1000.0)
 
 
 func _state_changed(new_value: bool) -> void:
+	#print("test")
 	if new_value:
 		anim.play.call_deferred(&"turn_on")
 	else:

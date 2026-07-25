@@ -9,7 +9,7 @@
 
 [node name="FuseStatusDisplayTerminal" parent="." unique_id=1953974550 node_paths=PackedStringArray("fuses", "success_button") instance=ExtResource("2_sh34q")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.4, 0.90000004, 1.7)
-fuses = [NodePath("../InteractableBreakerSwitch3"), NodePath("../InteractableBreakerSwitch5"), NodePath("../InteractableBreakerSwitch2"), NodePath("../InteractableBreakerSwitch6"), NodePath("../InteractableBreakerSwitch1"), NodePath("../InteractableBreakerSwitch4")]
+fuses = [NodePath("../InteractableBreakerSwitch1"), NodePath("../InteractableBreakerSwitch2"), NodePath("../InteractableBreakerSwitch3"), NodePath("../InteractableBreakerSwitch4"), NodePath("../InteractableBreakerSwitch5"), NodePath("../InteractableBreakerSwitch6")]
 success_button = NodePath("../InteractableRoundButton")
 
 [node name="LevelBlockout" type="CSGCombiner3D" parent="." unique_id=575214815]
@@ -29,7 +29,6 @@ transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=392436910]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099999905, 2, -2.5)
-visible = false
 light_color = Color(0.79653347, 0.678786, 0.46144718, 1)
 light_energy = 2.194
 omni_range = 4.33
@@ -38,48 +37,20 @@ omni_attenuation = 1.899
 [node name="InteractableBreakerSwitch1" parent="." unique_id=547640884 instance=ExtResource("3_6mleh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -2.8)
 
-[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch1" unique_id=1689337242]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
-text = "1
-"
-
 [node name="InteractableBreakerSwitch2" parent="." unique_id=313669747 instance=ExtResource("3_6mleh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -2.2999997)
-
-[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch2" unique_id=1101803593]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
-text = "2
-"
 
 [node name="InteractableBreakerSwitch3" parent="." unique_id=260356538 instance=ExtResource("3_6mleh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -1.7999998)
 
-[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch3" unique_id=1418145964]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
-text = "3
-"
-
 [node name="InteractableBreakerSwitch4" parent="." unique_id=1554170057 instance=ExtResource("3_6mleh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -1.2999998)
-
-[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch4" unique_id=1472631699]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
-text = "4
-"
 
 [node name="InteractableBreakerSwitch5" parent="." unique_id=1307381731 instance=ExtResource("3_6mleh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -0.79999983)
 
-[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch5" unique_id=302853015]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
-text = "5"
-
 [node name="InteractableBreakerSwitch6" parent="." unique_id=1486199586 instance=ExtResource("3_6mleh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -0.29999983)
-
-[node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch6" unique_id=969466658]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
-text = "6"
 
 [node name="InteractableRoundButton" parent="." unique_id=2115933321 instance=ExtResource("4_7ghoc")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.7, 1, 1.46)

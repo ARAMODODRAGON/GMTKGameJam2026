@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ccpse87tt3md2"]
 
-[ext_resource type="Texture2D" uid="uid://dlckpjmhed4a" path="res://objects/terminals/fuse_status_display_terminal/fuse_disabled_texture.tres" id="1_1wrh8"]
+[ext_resource type="Texture2D" uid="uid://dlckpjmhed4a" path="res://objects/terminals/fuse_status_display_terminal/textures/fuse_disabled_texture.tres" id="1_1wrh8"]
 [ext_resource type="Script" uid="uid://b1lsct3nthce3" path="res://objects/terminals/fuse_status_display_terminal/fuse_item.gd" id="1_url8l"]
-[ext_resource type="Texture2D" uid="uid://ch4ghvwglqnk0" path="res://objects/terminals/fuse_status_display_terminal/fuse_enabled_texture.tres" id="3_jwtoi"]
+[ext_resource type="Texture2D" uid="uid://ch4ghvwglqnk0" path="res://objects/terminals/fuse_status_display_terminal/textures/fuse_enabled_texture.tres" id="3_jwtoi"]
 
 [node name="FuseDisplay" type="Control" unique_id=871357829 node_paths=PackedStringArray("texture_rect")]
 custom_minimum_size = Vector2(32, 124)

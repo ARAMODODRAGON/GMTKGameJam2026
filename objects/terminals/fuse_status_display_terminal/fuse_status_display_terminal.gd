@@ -15,6 +15,7 @@ var energy_usage_rate: float = 1.0
 
 @export_group("References")
 @export var fuse_items: Array[FuseItem] = []
+@export var fuse_targets: Array[FuseItem] = []
 @export var success_indicators: Array[ColorRect] = []
 #@export var button_clip: Control
 
@@ -32,24 +33,15 @@ var _success_timer: float = 0.0
 func _ready() -> void:
 	assert(fuses.size() == 6, "There must be 6 fuses")
 
-	await get_tree().process_frame
-
-	for i in range(fuses.size()):
+	for i in fuses.size():
 		if not fuses[i]:
 			print("Missing fuse in slot ", i)
 			continue
-		fuses[i].switched.connect(_update_display.bind(i))
-		if fuses[i].state:
-			_on_count += 1
 
-		#region debug
-		if fuses[i].get_child_count() < 3:
-			continue
-		var label := fuses[i].get_child(2) as Label3D
-		if label:
-			label.text = str(i)
-			#print(i)
-		#endregion
+		## connect
+		fuses[i].state_changed.connect(_set_fuse_display.bind(fuses[i]))
+
+		print("connected", fuses[i].name, " to index ", i)
 
 	success_button.pressed.connect(_button_state_changed.bind(true))
 	success_button.released.connect(_button_state_changed.bind(false))
@@ -63,9 +55,6 @@ func _process(delta: float) -> void:
 	## Reduce energy
 	ShipStats.energy_amount -= energy_usage_rate * delta
 	#print(ShipStats.energy_amount)
-
-	## Update the energy display
-	#button_clip.custom_minimum_size.y = remap(ShipStats.energy_amount, 0.0, ShipStats._ENERGY_AMOUNT_INITIAL, 0.0, _battery_clip_size)
 
 	if _button_held and _on_count == 6:
 		_success_timer += delta
@@ -97,31 +86,21 @@ func _button_state_changed(state: bool) -> void:
 	_button_held = state
 	#print(state)
 
-func _update_display(index: int) -> void:
-	if index >= fuse_items.size():
-		return
+func _count_matching() -> void:
+	_on_count = 0
+	for i in fuses.size():
+		if fuse_items[i].state == fuse_targets[i].state:
+			_on_count += 1
 
-	var new_value := fuses[index].state
-
-	fuse_items[index].state = new_value
-	if new_value:
-		_on_count += 1
-	else:
-		_on_count -= 1
-
-	#print("real set ", new_value)
-	#print(_on_count)
-
+func _set_fuse_display(value: bool, fuse: InteractableSwitch) -> void:
+	var index := fuses.find(fuse)
+	print("name ", fuse.name, ", set ", index, " to ", value)
+	fuse_items[index].state = value
+	_count_matching()
 
 func _randomize_values() -> void:
-	#print("randomizing")
-	_on_count = 0
-	for i in range(fuses.size()):
-		var new_val := randf_range(0.0, 100.0) < randomizer_fuse_state_chance
-		if new_val:
-			_on_count += 1
-			#print("set ", new_val)
-		fuses[i].state = new_val
-		fuse_items[i].state = new_val
+	for i in fuses.size():
+		var new_value := randf_range(0.0, 100.0) < randomizer_fuse_state_chance
+		fuse_targets[i].state = new_value
 
-	#print(_on_count)
+	_count_matching()

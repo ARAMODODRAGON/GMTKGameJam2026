@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bjf6pofy1pbl2"]
 
+[ext_resource type="Script" uid="uid://b1lsct3nthce3" path="res://objects/terminals/fuse_status_display_terminal/fuse_item.gd" id="1_gm80e"]
 [ext_resource type="PackedScene" uid="uid://ccpse87tt3md2" path="res://objects/terminals/fuse_status_display_terminal/fuse_item.tscn" id="1_i83g3"]
+[ext_resource type="Texture2D" uid="uid://v672ka2o3nv6" path="res://objects/terminals/fuse_status_display_terminal/textures/fuse_target_disabled_texture.tres" id="1_nqbkg"]
+[ext_resource type="Texture2D" uid="uid://baqoaur6xrvmi" path="res://objects/terminals/fuse_status_display_terminal/textures/fuse_target_enabled_texture.tres" id="3_4jb2n"]
 
 [node name="Screen" type="ReferenceRect" unique_id=1153590130]
 custom_minimum_size = Vector2(320, 240)
@@ -26,12 +29,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Margin" type="MarginContainer" parent="Background/VBoxContainer" unique_id=1975315831]
-custom_minimum_size = Vector2(0, 112)
+custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
+theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+theme_override_constants/margin_bottom = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer/Margin" unique_id=1788949932]
 layout_mode = 2
@@ -41,38 +44,156 @@ alignment = 1
 [node name="SuccessIndicator0" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=485592314]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-color = Color(0.37274998, 0.71, 0.1775, 0)
+color = Color(0.37274998, 0.71, 0.1775, 1)
 
 [node name="SuccessIndicator1" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=1972251567]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-color = Color(0.37274998, 0.71, 0.1775, 0)
+color = Color(0.37274998, 0.71, 0.1775, 1)
 
 [node name="SuccessIndicator2" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=976219240]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-color = Color(0.37274998, 0.71, 0.1775, 0)
+color = Color(0.37274998, 0.71, 0.1775, 1)
 
 [node name="SuccessIndicator3" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=994213365]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-color = Color(0.37274998, 0.71, 0.1775, 0)
+color = Color(0.37274998, 0.71, 0.1775, 1)
 
 [node name="SuccessIndicator4" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=855066214]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-color = Color(0.37274998, 0.71, 0.1775, 0)
+color = Color(0.37274998, 0.71, 0.1775, 1)
 
 [node name="SuccessIndicator5" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=781711193]
 custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
-color = Color(0.37274998, 0.71, 0.1775, 0)
+color = Color(0.37274998, 0.71, 0.1775, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Background/VBoxContainer" unique_id=2068545217]
+layout_mode = 2
+alignment = 1
+
+[node name="FuseTargetItem0" type="Control" parent="Background/VBoxContainer/HBoxContainer2" unique_id=495881583 node_paths=PackedStringArray("texture_rect")]
+custom_minimum_size = Vector2(32, 52)
+layout_mode = 2
+script = ExtResource("1_gm80e")
+disabled_texture = ExtResource("1_nqbkg")
+enabled_texture = ExtResource("3_4jb2n")
+texture_rect = NodePath("TextureRect")
+metadata/_custom_type_script = "uid://b1lsct3nthce3"
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/HBoxContainer2/FuseTargetItem0" unique_id=453256711]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nqbkg")
+stretch_mode = 5
+
+[node name="FuseTargetItem1" type="Control" parent="Background/VBoxContainer/HBoxContainer2" unique_id=996982883 node_paths=PackedStringArray("texture_rect")]
+custom_minimum_size = Vector2(32, 52)
+layout_mode = 2
+script = ExtResource("1_gm80e")
+disabled_texture = ExtResource("1_nqbkg")
+enabled_texture = ExtResource("3_4jb2n")
+texture_rect = NodePath("TextureRect")
+metadata/_custom_type_script = "uid://b1lsct3nthce3"
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/HBoxContainer2/FuseTargetItem1" unique_id=1192900965]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nqbkg")
+stretch_mode = 5
+
+[node name="FuseTargetItem2" type="Control" parent="Background/VBoxContainer/HBoxContainer2" unique_id=1326254443 node_paths=PackedStringArray("texture_rect")]
+custom_minimum_size = Vector2(32, 52)
+layout_mode = 2
+script = ExtResource("1_gm80e")
+disabled_texture = ExtResource("1_nqbkg")
+enabled_texture = ExtResource("3_4jb2n")
+texture_rect = NodePath("TextureRect")
+metadata/_custom_type_script = "uid://b1lsct3nthce3"
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/HBoxContainer2/FuseTargetItem2" unique_id=1285055573]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nqbkg")
+stretch_mode = 5
+
+[node name="FuseTargetItem3" type="Control" parent="Background/VBoxContainer/HBoxContainer2" unique_id=1282508136 node_paths=PackedStringArray("texture_rect")]
+custom_minimum_size = Vector2(32, 52)
+layout_mode = 2
+script = ExtResource("1_gm80e")
+disabled_texture = ExtResource("1_nqbkg")
+enabled_texture = ExtResource("3_4jb2n")
+texture_rect = NodePath("TextureRect")
+metadata/_custom_type_script = "uid://b1lsct3nthce3"
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/HBoxContainer2/FuseTargetItem3" unique_id=87974451]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nqbkg")
+stretch_mode = 5
+
+[node name="FuseTargetItem4" type="Control" parent="Background/VBoxContainer/HBoxContainer2" unique_id=824688244 node_paths=PackedStringArray("texture_rect")]
+custom_minimum_size = Vector2(32, 52)
+layout_mode = 2
+script = ExtResource("1_gm80e")
+disabled_texture = ExtResource("1_nqbkg")
+enabled_texture = ExtResource("3_4jb2n")
+texture_rect = NodePath("TextureRect")
+metadata/_custom_type_script = "uid://b1lsct3nthce3"
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/HBoxContainer2/FuseTargetItem4" unique_id=2099926452]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nqbkg")
+stretch_mode = 5
+
+[node name="FuseTargetItem5" type="Control" parent="Background/VBoxContainer/HBoxContainer2" unique_id=214778329 node_paths=PackedStringArray("texture_rect")]
+custom_minimum_size = Vector2(32, 52)
+layout_mode = 2
+script = ExtResource("1_gm80e")
+disabled_texture = ExtResource("1_nqbkg")
+enabled_texture = ExtResource("3_4jb2n")
+texture_rect = NodePath("TextureRect")
+metadata/_custom_type_script = "uid://b1lsct3nthce3"
+
+[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/HBoxContainer2/FuseTargetItem5" unique_id=141277447]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nqbkg")
+stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer" unique_id=1501480149]
 layout_mode = 2
 alignment = 1
 
-[node name="FuseDisplay" parent="Background/VBoxContainer/HBoxContainer" unique_id=871357829 instance=ExtResource("1_i83g3")]
+[node name="FuseDisplay0" parent="Background/VBoxContainer/HBoxContainer" unique_id=871357829 instance=ExtResource("1_i83g3")]
 layout_mode = 2
 
 [node name="FuseDisplay2" parent="Background/VBoxContainer/HBoxContainer" unique_id=1758657058 instance=ExtResource("1_i83g3")]
