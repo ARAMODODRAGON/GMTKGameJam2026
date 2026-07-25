@@ -31,7 +31,6 @@ fractal_weighted_strength = 1.0
 script = ExtResource("1_d8wum")
 win_scene = ExtResource("2_g5d3f")
 lose_scene = ExtResource("3_i6pox")
-shield_stat_override = 10.0
 debug_display = NodePath("OutsideWorldUI/UI/MarginContainer/DebugDisplay")
 pause_screen = NodePath("OutsideWorldUI/UI/PauseScreen")
 game_layer = NodePath("GameLayer")

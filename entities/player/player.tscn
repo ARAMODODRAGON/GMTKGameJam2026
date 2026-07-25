@@ -26,6 +26,12 @@ fov = 60.0
 script = ExtResource("4_bls4j")
 shake_factor = 0.01
 shake_rate = 8.0
+h_sway_rate = 0.25
+v_sway_rate = 0.5
+rotational_sway_rate = 0.5
+normal_sway_strength = 0.001
+low_alignment_max_rotational_sway_multiplier = 10.0
+low_alignment_max_sway_strength_multiplier = 30.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1860944623]
 target_position = Vector3(0, 0, -5)
