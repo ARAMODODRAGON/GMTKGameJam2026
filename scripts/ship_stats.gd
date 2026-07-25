@@ -15,7 +15,7 @@ signal on_lose()
 const _MAX_STAT_AMOUNT: float = 100.0
 
 const _SHIELD_AMOUNT_INITIAL: float = 100.0
-const _OXYGEN_AMOUNT_INITIAL: float = 50.0
+const _OXYGEN_AMOUNT_INITIAL: float = 100.0
 const _ENERGY_AMOUNT_INITIAL: float = 100.0
 const _ALIGNMENT_AMOUNT_INITIAL: float = 100.0
 

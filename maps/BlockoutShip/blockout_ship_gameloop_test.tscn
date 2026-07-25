@@ -1,0 +1,382 @@
+[gd_scene format=3 uid="uid://cuhit0v3xav5"]
+
+[ext_resource type="PackedScene" uid="uid://di7vqt17ag3r4" path="res://maps/BlockoutShip/BlockoutShip.blend" id="1_cced1"]
+[ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="2_iyosd"]
+[ext_resource type="PackedScene" uid="uid://bv2gh0fxa2knv" path="res://objects/terminals/light_terminal/light_terminal.tscn" id="4_mmu2l"]
+[ext_resource type="PackedScene" uid="uid://bb1ow6olvw86a" path="res://objects/terminals/alignment_terminal/alignment_terminal.tscn" id="5_qdhvh"]
+[ext_resource type="PackedScene" uid="uid://cjugs1yx6f7vg" path="res://objects/gauges/stats_gauge.tscn" id="6_38i6u"]
+[ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_round_button.tscn" id="6_io5t0"]
+[ext_resource type="PackedScene" uid="uid://ctwkhl3yls86" path="res://objects/terminals/fuse_status_display_terminal/fuse_status_display_terminal.tscn" id="7_c8hah"]
+[ext_resource type="PackedScene" uid="uid://dwccejqovs72g" path="res://objects/ambientsound/wall_fan.tscn" id="8_06smb"]
+[ext_resource type="PackedScene" uid="uid://b41i5syd5gfe7" path="res://objects/buttons/interactable_breaker_switch.tscn" id="9_v7n0w"]
+[ext_resource type="PackedScene" uid="uid://crm4glme3gtl8" path="res://objects/terminals/oxygen_terminal/oxygen_terminal.tscn" id="10_35odt"]
+[ext_resource type="PackedScene" uid="uid://c6hsu271tvy5s" path="res://objects/terminals/shields_terminal/ShieldsTerminal.tscn" id="11_cced1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_38i6u"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_c8hah"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54hi3"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_38i6u")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_c8hah")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cced1"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_iyosd"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1j0yu"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_cced1")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_iyosd")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1j0yu"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_aomme"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v4aq"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_1j0yu")
+roughness = 0.12
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_aomme")
+
+[node name="BlockoutShipGameloopTest" unique_id=1609120507 instance=ExtResource("1_cced1")]
+
+[node name="Corridor" parent="." index="0" unique_id=290702819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.921701, 0, -10.021486)
+
+[node name="Player" parent="." index="1" unique_id=1162497877 instance=ExtResource("2_iyosd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.896618, 0.48761773, 4.3569994)
+
+[node name="WallFan" parent="." index="2" unique_id=1554156394 instance=ExtResource("8_06smb")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -17.064611, 2.5001414, -8.972887)
+
+[node name="Cylinder" parent="." index="3" unique_id=1813187105]
+transform = Transform3D(5.543277, 0, -2.2961006, 0, 1, 0, 2.2961006, 0, 5.543277, -12.332726, 0, 0)
+
+[node name="Plane_002" parent="." index="4" unique_id=312887981]
+transform = Transform3D(-1, 0, -3.2584137e-07, 0, 1, 0, 3.2584137e-07, 0, -1, -14.216801, 1.777881, -9)
+
+[node name="TestFloor" parent="." index="5" unique_id=1163666562]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 30, 0, 0)
+
+[node name="LightTerminalArea" type="Node3D" parent="." index="6" unique_id=877242736]
+
+[node name="LightTerminal" parent="LightTerminalArea" index="0" unique_id=1564582219 instance=ExtResource("4_mmu2l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.221062, 2.8101995, -0.14879167)
+
+[node name="Cube" parent="LightTerminalArea/LightTerminal" index="0" unique_id=1599189902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3667264, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_54hi3")
+
+[node name="LightTaskView" parent="LightTerminalArea/LightTerminal/SubViewport" parent_id_path=PackedInt32Array(1564582219, 482558649) index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_lights", "oxygen_lights", "shield_lights", "energy_lights")]
+nav_lights = [NodePath("../../../../NavigationArea/OmniLight3D2")]
+oxygen_lights = [NodePath("../../../../OxygenArea/OmniLight3D4"), NodePath("../../../../OxygenArea/OmniLight3D5"), NodePath("../../../../OxygenArea/OmniLight3D6")]
+shield_lights = [NodePath("../../../../ShieldArea/OmniLight3D3"), NodePath("../../../../ShieldArea/OmniLight3D4"), NodePath("../../../../ShieldArea/OmniLight3D6"), NodePath("../../../../ShieldArea/OmniLight3D5")]
+energy_lights = [NodePath("../../../../EnergyArea/OmniLight3D2"), NodePath("../../../../EnergyArea/OmniLight3D3")]
+
+[node name="NavSwitch" parent="LightTerminalArea/LightTerminal" index="2" unique_id=547640884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7232113, -1.5022631, 0.65437204)
+
+[node name="O2Switch" parent="LightTerminalArea/LightTerminal" index="3" unique_id=1191667856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23963356, -1.5022631, 0.6676033)
+
+[node name="EnergySwitch" parent="LightTerminalArea/LightTerminal" index="4" unique_id=2073703464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25489998, -1.5022631, 0.6631587)
+
+[node name="ShieldSwitch" parent="LightTerminalArea/LightTerminal" index="5" unique_id=2116648874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70733833, -1.5022631, 0.65699935)
+
+[node name="MainBreaker" parent="LightTerminalArea/LightTerminal" index="6" unique_id=2115933321]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2401619, -0.2992208, 0.766973)
+
+[node name="Label3D" type="Label3D" parent="LightTerminalArea/LightTerminal/MainBreaker" index="4" unique_id=464154669]
+transform = Transform3D(1, 8.742278e-08, -8.742277e-08, 8.742278e-08, 4.3711395e-08, 1, 8.7422784e-08, -1, 4.371139e-08, 1.9726684e-08, 9.863344e-09, -0.22564697)
+text = "Light Breaker"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="LightTerminalArea" index="1" unique_id=763185073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.015797, 4.228924, 1.2431848)
+light_energy = 3.0
+omni_range = 11.777
+omni_attenuation = 0.313
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LightTerminalArea" index="2" unique_id=1332897186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.297102, 0.8032414, 0)
+size = Vector3(2.625061, 1.5455933, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="LightTerminalArea" index="3" unique_id=73010558]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.453827, 1.6830174, -0.0018920898)
+size = Vector3(1.3549881, 3.3051453, 0.9962158)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="LightTerminalArea" index="4" unique_id=601279105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.637135, 0.98936045, 0)
+size = Vector3(2.051529, 1.9178314, 1)
+
+[node name="DomedGauge2" parent="LightTerminalArea" index="5" unique_id=642379518 instance=ExtResource("6_38i6u")]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 31.985607, 1.5445518, 0.5326724)
+gauge_type = 1
+
+[node name="DomedGauge3" parent="LightTerminalArea" index="6" unique_id=1837112501 instance=ExtResource("6_38i6u")]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 33.256783, 1.5445518, 0.5326724)
+
+[node name="DomedGauge4" parent="LightTerminalArea" index="7" unique_id=1979645077 instance=ExtResource("6_38i6u")]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 33.256783, 0.7199091, 0.5326724)
+gauge_type = 2
+
+[node name="DomedGauge5" parent="LightTerminalArea" index="8" unique_id=1797885686 instance=ExtResource("6_38i6u")]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 31.945503, 0.7199091, 0.5326724)
+gauge_type = 3
+
+[node name="NavigationArea" type="Node3D" parent="." index="7" unique_id=941360663]
+
+[node name="AlignmentTerminal" parent="NavigationArea" index="0" unique_id=1307335727 instance=ExtResource("5_qdhvh")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 24.35001, 2.293135, -15.285581)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationArea" index="1" unique_id=1555998696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.745895, 1.0702515, -16.36354)
+size = Vector3(5.0839233, 3.140503, 5.8396454)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationArea" index="2" unique_id=552907397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.887678, 1.4880066, -13.464183)
+size = Vector3(8.430771, 3.9760132, 0.5524597)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationArea" index="3" unique_id=1095315115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.203487, 4.7629004, -14.549872)
+visible = false
+light_energy = 8.622
+omni_range = 10.21
+omni_attenuation = 0.313
+
+[node name="DomedGauge" parent="NavigationArea" index="4" unique_id=572162293 instance=ExtResource("6_38i6u")]
+transform = Transform3D(-2.1855694e-08, 0.5, -2.1855694e-08, 0, -2.1855694e-08, -0.5, -0.5, -2.1855694e-08, 9.553427e-16, 24.05219, 2.234324, -17.181053)
+gauge_type = 1
+
+[node name="EnergyArea" type="Node3D" parent="." index="8" unique_id=715957268]
+
+[node name="FuseStatusDisplayTerminal" parent="EnergyArea" index="0" unique_id=1953974550 node_paths=PackedStringArray("fuses", "success_button") instance=ExtResource("7_c8hah")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 55.80681, 2.4413784, 13.847258)
+fuses = [NodePath("../Buttons/InteractableBreakerSwitch"), NodePath("../Buttons/InteractableBreakerSwitch2"), NodePath("../Buttons/InteractableBreakerSwitch3"), NodePath("../Buttons/InteractableBreakerSwitch4"), NodePath("../Buttons/InteractableBreakerSwitch5"), NodePath("../Buttons/InteractableBreakerSwitch6")]
+success_button = NodePath("../Buttons/InteractableRoundButton")
+time_to_succeed = 3.0
+energy_usage_rate = 0.5
+
+[node name="DomedGauge6" parent="EnergyArea" index="1" unique_id=284750539 instance=ExtResource("6_38i6u")]
+transform = Transform3D(-2.1855694e-08, -0.5, 2.1855694e-08, 0, -2.1855694e-08, -0.5, 0.5, -2.1855694e-08, 9.553427e-16, 55.83773, 2.60468, 15.795351)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="EnergyArea" index="2" unique_id=1870265241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.200203, 0.8200073, 10.405963)
+size = Vector3(2.7156982, 1.7075195, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="EnergyArea" index="3" unique_id=755193088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.19654, 1.8247681, 11.574298)
+size = Vector3(1.1610718, 3.717041, 3.33667)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="EnergyArea" index="4" unique_id=685625834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.770756, 0.8200073, 13.816263)
+size = Vector3(0.70474243, 1.7075195, 2.3748474)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="EnergyArea" index="5" unique_id=632669177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.59236, 0.8200073, 17.899994)
+size = Vector3(2.7156982, 1.7075195, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="EnergyArea" index="6" unique_id=1507529976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.524784, 0.8200073, 10.509001)
+size = Vector3(2.7156982, 1.7075195, 1)
+
+[node name="Buttons" type="Node3D" parent="EnergyArea" index="7" unique_id=1163484443]
+
+[node name="InteractableRoundButton" parent="EnergyArea/Buttons" index="0" unique_id=995050692 instance=ExtResource("6_io5t0")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 55.338303, 1.2976613, 13.816768)
+
+[node name="Label3D" type="Label3D" parent="EnergyArea/Buttons/InteractableRoundButton" index="4" unique_id=1400763667]
+transform = Transform3D(-3.821371e-15, 1, 0, -8.742278e-08, 0, 1, 1, 7.374084e-15, 8.742278e-08, 0.21937317, 0, 0)
+text = "Main Breaker"
+
+[node name="InteractableBreakerSwitch" parent="EnergyArea/Buttons" index="1" unique_id=2044553613 instance=ExtResource("9_v7n0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.467537, 1.0102601, 11.058539)
+
+[node name="Label3D" type="Label3D" parent="EnergyArea/Buttons/InteractableBreakerSwitch" index="2" unique_id=480207464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28265238, 0)
+text = "1"
+
+[node name="InteractableBreakerSwitch2" parent="EnergyArea/Buttons" index="2" unique_id=471610584 instance=ExtResource("9_v7n0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.22938, 1.176531, 10.977395)
+
+[node name="Label3D" type="Label3D" parent="EnergyArea/Buttons/InteractableBreakerSwitch2" index="2" unique_id=757124513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27822638, 0)
+text = "2"
+
+[node name="InteractableBreakerSwitch3" parent="EnergyArea/Buttons" index="3" unique_id=514130936 instance=ExtResource("9_v7n0w")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 46.302155, 1.176531, 17.380405)
+
+[node name="Label3D" type="Label3D" parent="EnergyArea/Buttons/InteractableBreakerSwitch3" index="2" unique_id=752074550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22486591, 0)
+text = "3"
+
+[node name="InteractableBreakerSwitch4" parent="EnergyArea/Buttons" index="4" unique_id=399797752 instance=ExtResource("9_v7n0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.14403, 0.6519054, 10.959675)
+
+[node name="Label3D" type="Label3D" parent="EnergyArea/Buttons/InteractableBreakerSwitch4" index="2" unique_id=375054946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29369485, 0)
+text = "4"
+
+[node name="InteractableBreakerSwitch5" parent="EnergyArea/Buttons" index="5" unique_id=1535188755 instance=ExtResource("9_v7n0w")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 44.96316, 1.176531, 17.386583)
+
+[node name="Label3D" type="Label3D" parent="EnergyArea/Buttons/InteractableBreakerSwitch5" index="2" unique_id=1658530860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23172033, 0)
+text = "5"
+
+[node name="InteractableBreakerSwitch6" parent="EnergyArea/Buttons" index="6" unique_id=1691549151 instance=ExtResource("9_v7n0w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.487377, 0.443941, 11.0494995)
+
+[node name="Label3D" type="Label3D" parent="EnergyArea/Buttons/InteractableBreakerSwitch6" index="2" unique_id=1902627497]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3021636, 0)
+text = "6"
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="EnergyArea" index="8" unique_id=649837872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.632088, 4.228924, 13.975969)
+visible = false
+light_energy = 3.0
+omni_range = 11.777
+omni_attenuation = 0.313
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="EnergyArea" index="9" unique_id=1597587212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.609005, 4.228924, 16.313135)
+visible = false
+light_energy = 3.0
+omni_range = 11.777
+omni_attenuation = 0.313
+
+[node name="OxygenArea" type="Node3D" parent="." index="9" unique_id=1643218763]
+
+[node name="OxygenTerminal" parent="OxygenArea" index="0" unique_id=260172510 instance=ExtResource("10_35odt")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 67.90816, 2.137981, 3.7363944)
+
+[node name="Cube" parent="OxygenArea/OxygenTerminal" index="0" unique_id=1599189902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85701776, 3.9083562)
+surface_material_override/0 = SubResource("StandardMaterial3D_1j0yu")
+
+[node name="OxygenTaskView" parent="OxygenArea/OxygenTerminal/SubViewport" parent_id_path=PackedInt32Array(260172510, 482558649) index="0" unique_id=2007830041]
+stat_success_amount = 30.0
+stat_usage_rate = 0.5
+
+[node name="InteractableRoundButton" parent="OxygenArea/OxygenTerminal" index="2" unique_id=2115933321]
+transform = Transform3D(1, 8.742278e-08, -8.742278e-08, -8.742278e-08, -4.371139e-08, -1, -8.742278e-08, 1, -4.371138e-08, 1.4453049, 0.6492164, 4.1945944)
+
+[node name="Label3D" type="Label3D" parent="OxygenArea/OxygenTerminal/InteractableRoundButton" index="4" unique_id=989085262]
+transform = Transform3D(1, -1.7484555e-07, 5.081262e-14, -2.8959026e-14, 4.3711374e-08, 1, -1.7484557e-07, -1, 4.371138e-08, 0, -2.9802322e-08, -0.3153174)
+text = "Oxygen Pump Switch"
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="OxygenArea" index="1" unique_id=1293114358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.61612, 4.228924, -3.6956844)
+visible = false
+light_energy = 3.0
+omni_range = 11.777
+omni_attenuation = 0.313
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="OxygenArea" index="2" unique_id=108695071]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.56006, 4.228924, 0.9947469)
+visible = false
+light_energy = 3.0
+omni_range = 11.777
+omni_attenuation = 0.313
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="OxygenArea" index="3" unique_id=1046816114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.630825, 4.228924, 4.6700177)
+visible = false
+light_energy = 3.0
+omni_range = 14.46033
+omni_attenuation = 0.313
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="OxygenArea" index="4" unique_id=1964697931]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.971664, 1.0171814, 0.056059837)
+size = Vector3(8.168518, 2.1018677, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="OxygenArea" index="5" unique_id=1334303411]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.31674, 2.541401, 0.056059837)
+size = Vector3(2.858673, 1.3075027, 1)
+
+[node name="DomedGauge6" parent="OxygenArea" index="6" unique_id=1875091885 instance=ExtResource("6_38i6u")]
+transform = Transform3D(-0.5, -4.371139e-08, 1.9106855e-15, 0, -2.1855694e-08, -0.5, 4.371139e-08, -0.5, 2.1855694e-08, 66.31586, 1.7768278, -0.58967173)
+gauge_type = 2
+
+[node name="ShieldArea" type="Node3D" parent="." index="10" unique_id=1981535611]
+
+[node name="ShieldsTerminal" parent="ShieldArea" index="0" unique_id=2010853883 instance=ExtResource("11_cced1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5827546, 2.5612304, -0.23403645)
+
+[node name="Cube" parent="ShieldArea/ShieldsTerminal" index="0" unique_id=1599189902]
+surface_material_override/0 = SubResource("StandardMaterial3D_6v4aq")
+
+[node name="ShieldsTaskView" parent="ShieldArea/ShieldsTerminal/SubViewport" parent_id_path=PackedInt32Array(2010853883, 578667375) index="0" unique_id=1330622129]
+stat_usage_rate = 0.5
+
+[node name="InteractableTriangleButton" parent="ShieldArea/ShieldsTerminal" index="3" unique_id=2115933321]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.99180317, -1.0227066, 0.40335578)
+
+[node name="InteractableTriangleButton2" parent="ShieldArea/ShieldsTerminal" index="4" unique_id=1615200884]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.026273012, -1.0227066, 0.40335578)
+
+[node name="InteractableTriangleButton3" parent="ShieldArea/ShieldsTerminal" index="5" unique_id=802853854]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.0115073, -1.0227066, 0.40335578)
+
+[node name="InteractableBreakerSwitch" parent="ShieldArea/ShieldsTerminal" index="6" unique_id=547640884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3663714, 0, 0.56809473)
+
+[node name="Label3D" type="Label3D" parent="ShieldArea/ShieldsTerminal/InteractableBreakerSwitch" index="2" unique_id=654385660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26508713, 0)
+text = "Lock Shield Generator"
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="ShieldArea" index="1" unique_id=209428761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.131918, 4.7629004, -3.4920702)
+visible = false
+light_energy = 8.622
+omni_range = 10.21
+omni_attenuation = 0.313
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="ShieldArea" index="2" unique_id=423194613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0658464, 4.7629004, 5.838498)
+visible = false
+light_energy = 8.622
+omni_range = 10.21
+omni_attenuation = 0.313
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="ShieldArea" index="3" unique_id=30967631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.999441, 4.7629004, 5.838498)
+visible = false
+light_energy = 8.622
+omni_range = 10.21
+omni_attenuation = 0.313
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="ShieldArea" index="4" unique_id=570740014]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0658464, 4.7629004, -4.240677)
+visible = false
+light_energy = 8.622
+omni_range = 10.21
+omni_attenuation = 0.313
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="ShieldArea" index="5" unique_id=1442022301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8462029, 0.8383789, -0.6203289)
+size = Vector3(7.9045258, 1.7442627, 1.6240082)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="ShieldArea" index="6" unique_id=967681737]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2935867, 2.442215, -0.6203289)
+size = Vector3(3.009758, 1.9429626, 1.6240082)
+
+[node name="DomedGauge6" parent="ShieldArea" index="7" unique_id=554681737 instance=ExtResource("6_38i6u")]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 5.654912, 2.7397432, 0.23870549)
+gauge_type = 3
+
+[editable path="LightTerminalArea/LightTerminal"]
+[editable path="OxygenArea/OxygenTerminal"]
+[editable path="ShieldArea/ShieldsTerminal"]
