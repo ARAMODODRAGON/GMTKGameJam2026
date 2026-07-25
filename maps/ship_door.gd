@@ -1,3 +1,4 @@
+class_name ShipDoor
 extends Node3D
 
 

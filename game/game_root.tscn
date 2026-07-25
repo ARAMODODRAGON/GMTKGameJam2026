@@ -40,6 +40,7 @@ screen_fade = NodePath("OutsideWorldUI/UI/ScreenFade")
 [node name="PausableGameLayer" type="CanvasLayer" parent="." unique_id=1216832409]
 
 [node name="AsteroidHandler" type="Node" parent="PausableGameLayer" unique_id=721860510]
+process_mode = 4
 script = ExtResource("5_i6pox")
 rock_interval_min = 20.0
 rock_interval_max = 50.0

@@ -18,6 +18,11 @@ enum PowerState
 @export var shield_switch: InteractableSwitch
 @export var energy_switch: InteractableSwitch
 
+@export var nav_door: ShipDoor
+@export var energy_door: ShipDoor
+@export var oxygen_door: ShipDoor
+@export var shield_door: ShipDoor
+
 @export var nav_rect: ColorRect
 @export var shield_rect: ColorRect
 @export var oxygen_rect: ColorRect
@@ -116,6 +121,10 @@ func send_power(room: PowerState) -> void:
 			set_light_visibility(energy_lights, false)
 			nav_rect.color = on_colour
 			_needs_refresh = true
+			set_door_state(nav_door, true)
+			set_door_state(energy_door, false)
+			set_door_state(oxygen_door, false)
+			set_door_state(shield_door, false)
 			print("Power send to nav")
 		PowerState.OXYGEN:
 			set_light_visibility(nav_lights, false)
@@ -124,6 +133,10 @@ func send_power(room: PowerState) -> void:
 			set_light_visibility(energy_lights, false)
 			oxygen_rect.color = on_colour
 			_needs_refresh = true
+			set_door_state(nav_door, false)
+			set_door_state(energy_door, false)
+			set_door_state(oxygen_door, true)
+			set_door_state(shield_door, false)
 			print("Power send to oxygen")
 		PowerState.ENERGY:
 			set_light_visibility(nav_lights, false)
@@ -132,6 +145,10 @@ func send_power(room: PowerState) -> void:
 			set_light_visibility(energy_lights, true)
 			energy_rect.color = on_colour
 			_needs_refresh = true
+			set_door_state(nav_door, false)
+			set_door_state(energy_door, true)
+			set_door_state(oxygen_door, false)
+			set_door_state(shield_door, false)
 			print("Power send to energy")
 		PowerState.SHIELD:
 			set_light_visibility(nav_lights, false)
@@ -140,6 +157,10 @@ func send_power(room: PowerState) -> void:
 			set_light_visibility(energy_lights, false)
 			shield_rect.color = on_colour
 			_needs_refresh = true
+			set_door_state(nav_door, false)
+			set_door_state(energy_door, false)
+			set_door_state(oxygen_door, false)
+			set_door_state(shield_door, true)
 			print("Power send to shields")
 
 func select_nav(state: bool) -> void:
@@ -235,4 +256,7 @@ func should_show_error_text() -> void:
 		show_error_text(true)
 	else:
 		show_error_text(false)
-	
+
+func set_door_state(door: ShipDoor, state: bool) -> void:
+	if door._door_open == not state:
+		door._toggle_door()
