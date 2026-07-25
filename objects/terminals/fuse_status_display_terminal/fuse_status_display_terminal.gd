@@ -26,6 +26,7 @@ var energy_usage_rate: float = 1.0
 var _on_count: int = 0
 var _button_held: bool = false
 var _success_timer: float = 0.0
+var _block_process: bool = false
 
 
 ## Virtual Methods
@@ -51,10 +52,12 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-
 	## Reduce energy
 	ShipStats.energy_amount -= energy_usage_rate * delta
 	#print(ShipStats.energy_amount)
+
+	if _block_process:
+		return
 
 	if _button_held and _on_count == 6:
 		_success_timer += delta
@@ -69,7 +72,30 @@ func _process(delta: float) -> void:
 
 		#print("Success")
 		ShipStats.energy_amount	+= success_energy_amount
+
+		_block_process = true
+
+		var tween := create_tween()
+
+		for i in 3:
+			tween.set_parallel(false)
+			tween.tween_interval(0.1)
+
+			for box in success_indicators:
+				tween.tween_property(box, "color:a", 0.0, 0.0)
+				tween.set_parallel(true)
+
+			tween.set_parallel(false)
+			tween.tween_interval(0.1)
+
+			for box in success_indicators:
+				tween.tween_property(box, "color:a", 1.0, 0.0)
+				tween.set_parallel(true)
+
+		await tween.finished
+
 		_randomize_values()
+		_block_process = false
 
 
 
