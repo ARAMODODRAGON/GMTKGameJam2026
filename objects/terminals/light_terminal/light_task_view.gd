@@ -83,15 +83,17 @@ func _process(delta: float) -> void:
 
 
 func _on_button_held() -> void:
-	_is_held = true
-	var index: float = remap(_timer, 0.0, button_hold_timer, 0.0, 6.0)
-	
-	for i in success_indicators.size() - 1:
-		if i + 1 <= index:
-			success_indicators[i].color.a = 1.0
-		else:
-			success_indicators[i].color.a = 0.0
-	print("Main power held")
+
+	if not _current_selections.size() > 1 and not _current_selections.size() <= 0:
+		_is_held = true
+		var index: float = remap(_timer, 0.0, button_hold_timer, 0.0, 6.0)
+		
+		for i in success_indicators.size() - 1:
+			if i + 1 <= index:
+				success_indicators[i].color.a = 1.0
+			else:
+				success_indicators[i].color.a = 0.0
+		print("Main power held")
 
 func _on_button_released() -> void:
 	_is_held = false
