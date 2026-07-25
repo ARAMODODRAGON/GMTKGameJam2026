@@ -24,16 +24,16 @@ region = Rect2(30, 29, 36, 36)
 
 [node name="LightTaskView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("nav_rect", "shield_rect", "oxygen_rect", "energy_rect", "success_indicators", "error_text")]
 script = ExtResource("1_vufoi")
-nav_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer4/NavRect")
-shield_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer/ShieldRect")
-oxygen_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer2/OxygenRect")
-energy_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer3/EnergyRect")
+nav_rect = NodePath("ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer4/NavRect")
+shield_rect = NodePath("ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer/ShieldRect")
+oxygen_rect = NodePath("ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer2/OxygenRect")
+energy_rect = NodePath("ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer3/EnergyRect")
 on_colour = Color(0.37254903, 0.70980394, 0.1764706, 1)
 selected_colour = Color(1, 1, 0, 1)
 off_colour = Color(1, 0, 0, 1)
 button_hold_timer = 2.0
-success_indicators = [NodePath("ReferenceRect/ChargingBar/SuccessIndicator0"), NodePath("ReferenceRect/ChargingBar/SuccessIndicator1"), NodePath("ReferenceRect/ChargingBar/SuccessIndicator2"), NodePath("ReferenceRect/ChargingBar/SuccessIndicator3"), NodePath("ReferenceRect/ChargingBar/SuccessIndicator4"), NodePath("ReferenceRect/ChargingBar/SuccessIndicator5")]
-error_text = NodePath("ReferenceRect/RichTextLabel")
+success_indicators = [NodePath("ReferenceRect/VBoxContainer/ChargingBar/SuccessIndicator0"), NodePath("ReferenceRect/VBoxContainer/ChargingBar/SuccessIndicator1"), NodePath("ReferenceRect/VBoxContainer/ChargingBar/SuccessIndicator2"), NodePath("ReferenceRect/VBoxContainer/ChargingBar/SuccessIndicator3"), NodePath("ReferenceRect/VBoxContainer/ChargingBar/SuccessIndicator4"), NodePath("ReferenceRect/VBoxContainer/ChargingBar/SuccessIndicator5")]
+error_text = NodePath("ReferenceRect/VBoxContainer/RichTextLabel")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1795928623]
 custom_minimum_size = Vector2(320, 240)
@@ -51,125 +51,123 @@ custom_minimum_size = Vector2(320, 240)
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ReferenceRect" unique_id=419592127]
-custom_minimum_size = Vector2(320, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="ReferenceRect" unique_id=1235763314]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 22
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ReferenceRect/HBoxContainer" unique_id=625483781]
+[node name="ChargingBar" type="HBoxContainer" parent="ReferenceRect/VBoxContainer" unique_id=615607849]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="SuccessIndicator0" type="ColorRect" parent="ReferenceRect/VBoxContainer/ChargingBar" unique_id=450661409]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="SuccessIndicator1" type="ColorRect" parent="ReferenceRect/VBoxContainer/ChargingBar" unique_id=803867287]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="SuccessIndicator2" type="ColorRect" parent="ReferenceRect/VBoxContainer/ChargingBar" unique_id=1907763857]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="SuccessIndicator3" type="ColorRect" parent="ReferenceRect/VBoxContainer/ChargingBar" unique_id=951647291]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="SuccessIndicator4" type="ColorRect" parent="ReferenceRect/VBoxContainer/ChargingBar" unique_id=2098936819]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="SuccessIndicator5" type="ColorRect" parent="ReferenceRect/VBoxContainer/ChargingBar" unique_id=764622340]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ReferenceRect/VBoxContainer" unique_id=419592127]
+custom_minimum_size = Vector2(320, 0)
 layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="ReferenceRect/HBoxContainer/VBoxContainer" unique_id=2098951902]
+[node name="VBoxContainer" type="VBoxContainer" parent="ReferenceRect/VBoxContainer/HBoxContainer" unique_id=625483781]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2098951902]
 layout_mode = 2
 texture = SubResource("AtlasTexture_iy28c")
 stretch_mode = 5
 
-[node name="ShieldRect" type="ColorRect" parent="ReferenceRect/HBoxContainer/VBoxContainer" unique_id=475446285]
+[node name="ShieldRect" type="ColorRect" parent="ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=475446285]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 color = Color(1, 0, 0, 1)
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ReferenceRect/HBoxContainer" unique_id=1847813201]
+[node name="VBoxContainer2" type="VBoxContainer" parent="ReferenceRect/VBoxContainer/HBoxContainer" unique_id=1847813201]
 layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="ReferenceRect/HBoxContainer/VBoxContainer2" unique_id=591207653]
+[node name="TextureRect2" type="TextureRect" parent="ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=591207653]
 layout_mode = 2
 texture = SubResource("AtlasTexture_jefgf")
 stretch_mode = 5
 
-[node name="OxygenRect" type="ColorRect" parent="ReferenceRect/HBoxContainer/VBoxContainer2" unique_id=2008294437]
+[node name="OxygenRect" type="ColorRect" parent="ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=2008294437]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 color = Color(1, 0, 0, 1)
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ReferenceRect/HBoxContainer" unique_id=53273989]
+[node name="VBoxContainer3" type="VBoxContainer" parent="ReferenceRect/VBoxContainer/HBoxContainer" unique_id=53273989]
 layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="TextureRect3" type="TextureRect" parent="ReferenceRect/HBoxContainer/VBoxContainer3" unique_id=1003105069]
+[node name="TextureRect3" type="TextureRect" parent="ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1003105069]
 layout_mode = 2
 texture = SubResource("AtlasTexture_1frfa")
 stretch_mode = 5
 
-[node name="EnergyRect" type="ColorRect" parent="ReferenceRect/HBoxContainer/VBoxContainer3" unique_id=1491441116]
+[node name="EnergyRect" type="ColorRect" parent="ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1491441116]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 color = Color(1, 0, 0, 1)
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="ReferenceRect/HBoxContainer" unique_id=1090261293]
+[node name="VBoxContainer4" type="VBoxContainer" parent="ReferenceRect/VBoxContainer/HBoxContainer" unique_id=1090261293]
 layout_mode = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="TextureRect4" type="TextureRect" parent="ReferenceRect/HBoxContainer/VBoxContainer4" unique_id=1043870103]
+[node name="TextureRect4" type="TextureRect" parent="ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1043870103]
 layout_mode = 2
 texture = SubResource("AtlasTexture_4ictx")
 stretch_mode = 5
 
-[node name="NavRect" type="ColorRect" parent="ReferenceRect/HBoxContainer/VBoxContainer4" unique_id=1350753767]
+[node name="NavRect" type="ColorRect" parent="ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer4" unique_id=1350753767]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 color = Color(1, 0, 0, 1)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ReferenceRect" unique_id=1092202402]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 185.0
-offset_right = 316.0
-offset_bottom = 235.0
+[node name="RichTextLabel" type="RichTextLabel" parent="ReferenceRect/VBoxContainer" unique_id=1092202402]
+layout_mode = 2
 theme_override_font_sizes/normal_font_size = 14
 text = "ERROR: AUXILIARY POWER DRAW EXCEEDED"
+fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ChargingBar" type="HBoxContainer" parent="ReferenceRect" unique_id=615607849]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 0
-offset_left = 47.0
-offset_top = 20.0
-offset_right = 267.0
-offset_bottom = 50.0
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="SuccessIndicator0" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=450661409]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-color = Color(1, 1, 0, 1)
-
-[node name="SuccessIndicator1" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=803867287]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-color = Color(1, 1, 0, 1)
-
-[node name="SuccessIndicator2" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=1907763857]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-color = Color(1, 1, 0, 1)
-
-[node name="SuccessIndicator3" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=951647291]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-color = Color(1, 1, 0, 1)
-
-[node name="SuccessIndicator4" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=2098936819]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-color = Color(1, 1, 0, 1)
-
-[node name="SuccessIndicator5" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=764622340]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-color = Color(1, 1, 0, 1)

@@ -38,8 +38,8 @@ enum PowerState
 @export var button_hold_timer: float
 
 @export var nav_lights: Array[Light3D] = []
-@export var oxygen_lights: Array[Light3D] = [] 
-@export var shield_lights: Array[Light3D] = [] 
+@export var oxygen_lights: Array[Light3D] = []
+@export var shield_lights: Array[Light3D] = []
 @export var energy_lights: Array[Light3D] = []
 
 @export var success_indicators: Array[ColorRect] = []
@@ -49,16 +49,14 @@ enum PowerState
 ## Private variables
 
 var _timer: float = 0.0
-
 var _is_held: bool = false
-
 var _needs_refresh: bool = false
-
 var _current_selections: Array[PowerState] = []
+var _block_process: bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_timer = button_hold_timer
 	main_breaker.pressed.connect(_on_button_held)
 	main_breaker.released.connect(_on_button_released)
 
@@ -72,39 +70,50 @@ func _ready() -> void:
 	energy_switch.state = false
 	shield_switch.state = false
 
-	reset_success_boxes()
+	for box in success_indicators:
+		box.color.a = 0.0
 	show_error_text(false)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if _block_process:
+		return
+
 	if _is_held:
 		update_success_boxes()
-		_timer -= delta
-		if _timer <= 0:
+		_timer += delta
+		if _timer >= button_hold_timer:
 			_reroute_power()
-			_timer = button_hold_timer
+			_timer = 0.0
 			reset_success_boxes()
 
 
 func _on_button_held() -> void:
+	if _block_process:
+		return
 
 	if not _current_selections.size() > 1 and not _current_selections.size() <= 0:
 		_is_held = true
 		var index: float = remap(_timer, 0.0, button_hold_timer, 0.0, 6.0)
-		
+
 		for i in success_indicators.size() - 1:
 			if i + 1 <= index:
 				success_indicators[i].color.a = 1.0
 			else:
 				success_indicators[i].color.a = 0.0
 		print("Main power held")
+	else:
+		fail_success_boxes()
 
 func _on_button_released() -> void:
 	_is_held = false
-	_timer = button_hold_timer
-	reset_success_boxes()
 	print("Main power released")
+	_timer = 0.0
+	if _block_process:
+		return
+	for box in success_indicators:
+		box.color.a = 0.0
 
 func _reroute_power() -> void:
 	if _current_selections.size() == 1:
@@ -166,7 +175,7 @@ func send_power(room: PowerState) -> void:
 func select_nav(state: bool) -> void:
 	if _needs_refresh:
 		refresh_light_colour()
-	
+
 	if state:
 		_current_selections.push_back(PowerState.NAV)
 		nav_rect.color = selected_colour
@@ -179,7 +188,7 @@ func select_nav(state: bool) -> void:
 func select_shield(state: bool) -> void:
 	if _needs_refresh:
 		refresh_light_colour()
-	
+
 	if state:
 		_current_selections.push_back(PowerState.SHIELD)
 		shield_rect.color = selected_colour
@@ -192,7 +201,7 @@ func select_shield(state: bool) -> void:
 func select_energy(state: bool) -> void:
 	if _needs_refresh:
 		refresh_light_colour()
-	
+
 	if state:
 		_current_selections.push_back(PowerState.ENERGY)
 		energy_rect.color = selected_colour
@@ -205,7 +214,7 @@ func select_energy(state: bool) -> void:
 func select_oxygen(state: bool) -> void:
 	if _needs_refresh:
 		refresh_light_colour()
-	
+
 	if state:
 		_current_selections.push_back(PowerState.OXYGEN)
 		oxygen_rect.color = selected_colour
@@ -232,9 +241,9 @@ func refresh_light_colour() -> void:
 func update_success_boxes() -> void:
 	if not _is_held:
 		return
-	
+
 	var index: float = remap(_timer, 0.0, button_hold_timer, 0.0, 6.0)
-	
+
 	for i in success_indicators.size() - 1:
 		if float(i + 1) <= index:
 			success_indicators[i].color.a = 1.0
@@ -242,14 +251,75 @@ func update_success_boxes() -> void:
 			success_indicators[i].color.a = 0.0
 
 func reset_success_boxes() -> void:
-	for s in success_indicators:
-		s.color.a = 0.0
+
+	_block_process = true
+
+	for box in success_indicators:
+		box.color = on_colour
+
+	var tween := create_tween()
+
+	for i in 3:
+		tween.set_parallel(false)
+		tween.tween_interval(0.1)
+
+		for box in success_indicators:
+			tween.tween_property(box, "color:a", 0.0, 0.0)
+			tween.set_parallel(true)
+
+		tween.set_parallel(false)
+		tween.tween_interval(0.1)
+
+		for box in success_indicators:
+			tween.tween_property(box, "color:a", 1.0, 0.0)
+			tween.set_parallel(true)
+
+	await tween.finished
+
+	for box in success_indicators:
+		box.color = selected_colour
+		box.color.a = 0.0
+
+	_block_process = false
+
+
+func fail_success_boxes() -> void:
+	_block_process = true
+
+	for box in success_indicators:
+		box.color = off_colour
+
+	var tween := create_tween()
+
+	for i in 3:
+		tween.set_parallel(false)
+		tween.tween_interval(0.1)
+
+		for box in success_indicators:
+			tween.tween_property(box, "color:a", 0.0, 0.0)
+			tween.set_parallel(true)
+
+		tween.set_parallel(false)
+		tween.tween_interval(0.1)
+
+		for box in success_indicators:
+			tween.tween_property(box, "color:a", 1.0, 0.0)
+			tween.set_parallel(true)
+
+	await tween.finished
+
+	for box in success_indicators:
+		box.color = selected_colour
+		box.color.a = 0.0
+
+	_block_process = false
+
 
 func show_error_text(should_be_shown: bool) -> void:
 	if should_be_shown:
-		error_text.visible = true
+		error_text.modulate.a = 1.0
 	else:
-		error_text.visible = false
+		error_text.modulate.a = 0.0
 
 func should_show_error_text() -> void:
 	if _current_selections.size() > 1:
