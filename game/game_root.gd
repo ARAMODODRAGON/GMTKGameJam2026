@@ -22,9 +22,6 @@ extends Node
 @export var screen_fade: ColorRect
 @export_group("")
 
-@export var debug_shield_redux: float = -1.0
-
-
 var game_paused: bool = false:
 	set(value):
 		game_paused = value
@@ -79,9 +76,6 @@ func _process(delta: float) -> void:
 
 	## debug stuff
 
-	if debug_shield_redux > 0.0:
-		ShipStats.shield_amount -= delta * debug_shield_redux
-
 	if not debug_display.visible:
 		return
 
@@ -104,6 +98,8 @@ func _unhandled_input(event: InputEvent) -> void:
 ## Private Methods
 
 func _on_game_win() -> void:
+	screen_fade.color.a = 0.0
+
 	var tween := create_tween()
 	tween.tween_property(screen_fade, "color:a", 1.0, transition_next_fade_time)
 	tween.tween_interval(2.0)
@@ -114,6 +110,8 @@ func _on_game_win() -> void:
 
 
 func _on_game_lose() -> void:
+	screen_fade.color.a = 0.0
+
 	var tween := create_tween()
 	tween.tween_property(screen_fade, "color:a", 1.0, transition_next_fade_time)
 	tween.tween_interval(2.0)
