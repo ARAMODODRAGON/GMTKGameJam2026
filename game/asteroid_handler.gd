@@ -102,10 +102,10 @@ func _set_next_interval() -> void:
 
 func _handle_hit() -> void:
 	if not _should_be_asteroid():
-		print("small hit")
+		#print("small hit")
 		_handle_small_rock()
 	else:
-		print("big hit")
+		#print("big hit")
 		_handle_asteroid()
 
 

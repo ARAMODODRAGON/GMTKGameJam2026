@@ -94,7 +94,7 @@ func _count_matching() -> void:
 
 func _set_fuse_display(value: bool, fuse: InteractableSwitch) -> void:
 	var index := fuses.find(fuse)
-	print("name ", fuse.name, ", set ", index, " to ", value)
+	#print("name ", fuse.name, ", set ", index, " to ", value)
 	fuse_items[index].state = value
 	_count_matching()
 
