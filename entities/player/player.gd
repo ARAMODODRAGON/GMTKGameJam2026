@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 @export var camera: Camera3D
 @export var camera_ray: RayCast3D
-@export var reticle_texture_rect: TextureRect
 
 @export_group("Physics")
 @export var move_speed: float = 10.0
@@ -13,10 +12,6 @@ extends CharacterBody3D
 @export_range(0.0, 10.0) var controller_sensitivity: float = 1.0
 @export var min_camera_pitch: float = -90.0
 @export var max_camera_pitch: float = 90.0
-
-@export_group("Reticle")
-@export var regular_reticle: Texture2D
-@export var interactable_reticle: Texture2D
 
 
 ## Private Variables
@@ -60,9 +55,9 @@ func _process(delta: float) -> void:
 	camera.rotation_degrees.x = clampf(camera.rotation_degrees.x, min_camera_pitch, max_camera_pitch)
 
 	if camera_ray.get_collider():
-		reticle_texture_rect.texture = interactable_reticle
+		EffectsManager._pointer_set_hitting_interactable.emit(true)
 	else:
-		reticle_texture_rect.texture = regular_reticle
+		EffectsManager._pointer_set_hitting_interactable.emit(false)
 
 
 

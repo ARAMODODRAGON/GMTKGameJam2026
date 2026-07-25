@@ -5,24 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://cjugs1yx6f7vg" path="res://objects/gauges/stats_gauge.tscn" id="3_bgkko"]
 [ext_resource type="PackedScene" uid="uid://dwccejqovs72g" path="res://objects/ambientsound/wall_fan.tscn" id="4_bgkko"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_afr3j"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_eiaq7"]
-sky_material = SubResource("ProceduralSkyMaterial_afr3j")
-
-[sub_resource type="Environment" id="Environment_8rmuw"]
-background_mode = 2
-sky = SubResource("Sky_eiaq7")
-tonemap_mode = 2
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_bgkko"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1k06s"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1k06s"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_wfbs3"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fp8oq"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_bgkko")
+albedo_texture = SubResource("ViewportTexture_1k06s")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_wfbs3")
 
 [node name="TestMapA" type="Node3D" unique_id=15633260]
 
@@ -49,6 +42,9 @@ transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25
 
 [node name="OxygenTerminal" parent="." unique_id=1564582219 instance=ExtResource("3_8rmuw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1783936, 0.8731784, -2.489795)
+
+[node name="Cube" parent="OxygenTerminal" index="0" unique_id=156791562]
+surface_material_override/0 = SubResource("StandardMaterial3D_fp8oq")
 
 [node name="InteractableRoundButton" parent="OxygenTerminal" index="2" unique_id=2115933321]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.077105, 0, 0.248317)
