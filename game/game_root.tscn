@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://0sqv4t6nmxro" path="res://game/reticle.png" id="4_h7acg"]
 [ext_resource type="Script" uid="uid://cnyd7r1prpgi1" path="res://game/asteroid_handler.gd" id="5_i6pox"]
 [ext_resource type="PackedScene" uid="uid://b3vluj17osdqh" path="res://maps/lights_task_test_map.tscn" id="5_qud3c"]
+[ext_resource type="Script" uid="uid://bbjcpn5o0ebbi" path="res://game/light_flicker_handler.gd" id="5_xk365"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d8wum"]
 shader = ExtResource("2_5sefw")
@@ -50,6 +51,13 @@ small_hit_shake_min = 1.0
 small_hit_shake_max = 3.0
 big_hit_shake_min = 8.0
 big_hit_shake_max = 12.0
+
+[node name="LightFlickerHandler" type="Node" parent="PausableGameLayer" unique_id=1936204595]
+script = ExtResource("5_xk365")
+light_group = &"flickering_lights"
+flicker_frequency_min = 30.0
+flicker_frequency_max = 60.0
+low_energy_flicker_frequency_multipler = 30.0
 
 [node name="LightsTestMap" parent="PausableGameLayer" unique_id=15633260 instance=ExtResource("5_qud3c")]
 
