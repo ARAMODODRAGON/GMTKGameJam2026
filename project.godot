@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.6")
 [autoload]
 
 ShipStats="*uid://cx1c80vgq2ghm"
+EffectsManager="*uid://ckvrack12qtih"
 
 [debug]
 

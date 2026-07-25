@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dwhok7ja56be5" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="Texture2D" uid="uid://0sqv4t6nmxro" path="res://entities/player/reticle.png" id="2_abrql"]
 [ext_resource type="Texture2D" uid="uid://4b0wm87slhrq" path="res://entities/player/reticle_interactable.png" id="3_sglur"]
+[ext_resource type="Script" uid="uid://buhm5ckfaeki" path="res://entities/player/player_camera.gd" id="4_bls4j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_symyc"]
 
@@ -27,6 +28,9 @@ shape = SubResource("CapsuleShape3D_symyc")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1055155897]
 transform = Transform3D(1, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 1.5, 0)
 fov = 60.0
+script = ExtResource("4_bls4j")
+shake_factor = 0.01
+shake_rate = 8.0
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1860944623]
 target_position = Vector3(0, 0, -5)
