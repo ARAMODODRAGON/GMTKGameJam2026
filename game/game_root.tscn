@@ -26,13 +26,15 @@ fractal_lacunarity = 2.895
 fractal_gain = 5.48
 fractal_weighted_strength = 1.0
 
-[node name="GameRoot" type="Node" unique_id=540067338 node_paths=PackedStringArray("debug_display", "pause_screen", "game_layer")]
+[node name="GameRoot" type="Node" unique_id=540067338 node_paths=PackedStringArray("debug_display", "pause_screen", "game_layer", "screen_fade")]
 script = ExtResource("1_d8wum")
+game_length = 5.0
 win_scene = ExtResource("2_g5d3f")
 lose_scene = ExtResource("3_i6pox")
 debug_display = NodePath("OutsideWorldUI/UI/MarginContainer/DebugDisplay")
 pause_screen = NodePath("OutsideWorldUI/UI/PauseScreen")
 game_layer = NodePath("GameLayer")
+screen_fade = NodePath("OutsideWorldUI/UI/ScreenFade")
 
 [node name="GameLayer" type="CanvasLayer" parent="." unique_id=1216832409]
 
@@ -142,3 +144,12 @@ visible = false
 layout_mode = 2
 mouse_filter = 1
 text = "time:"
+
+[node name="ScreenFade" type="ColorRect" parent="OutsideWorldUI/UI" unique_id=615525705]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
