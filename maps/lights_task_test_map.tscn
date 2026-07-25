@@ -44,12 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40181905, 0.8828207, -2.602
 [node name="Cube" parent="LightTerminal" index="0" unique_id=1599189902]
 surface_material_override/0 = SubResource("StandardMaterial3D_nra4u")
 
-[node name="LightTaskView" parent="LightTerminal/SubViewport" parent_id_path=PackedInt32Array(1564582219, 482558649) index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_lights", "oxygen_lights", "shield_lights", "energy_lights")]
-nav_lights = [NodePath("../../../NavLight")]
-oxygen_lights = [NodePath("../../../OxygenLight")]
-shield_lights = [NodePath("../../../ShieldLight")]
-energy_lights = [NodePath("../../../EnergyLight")]
-
 [node name="ShieldLight" type="OmniLight3D" parent="." unique_id=1809769158]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9507192, 0.4527042, 0)
 visible = false

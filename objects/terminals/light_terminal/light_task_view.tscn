@@ -22,16 +22,18 @@ region = Rect2(30, 29, 36, 36)
 atlas = ExtResource("5_bb8wh")
 region = Rect2(30, 29, 36, 36)
 
-[node name="LightTaskView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("nav_rect", "shield_rect", "oxygen_rect", "energy_rect")]
+[node name="LightTaskView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("nav_rect", "shield_rect", "oxygen_rect", "energy_rect", "success_indicators", "error_text")]
 script = ExtResource("1_vufoi")
 nav_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer4/NavRect")
 shield_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer/ShieldRect")
 oxygen_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer2/OxygenRect")
 energy_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer3/EnergyRect")
-on_colour = Color(0, 1, 0, 1)
+on_colour = Color(0.37274998, 0.71, 0.1775, 1)
 selected_colour = Color(1, 1, 0, 1)
 off_colour = Color(1, 0, 0, 1)
 button_hold_timer = 2.0
+success_indicators = [NodePath("ReferenceRect/ChargingBar/SuccessIndicator0"), NodePath("ReferenceRect/ChargingBar/SuccessIndicator1"), NodePath("ReferenceRect/ChargingBar/SuccessIndicator2"), NodePath("ReferenceRect/ChargingBar/SuccessIndicator3"), NodePath("ReferenceRect/ChargingBar/SuccessIndicator4"), NodePath("ReferenceRect/ChargingBar/SuccessIndicator5")]
+error_text = NodePath("ReferenceRect/RichTextLabel")
 
 [node name="Background" type="ColorRect" parent="." unique_id=1795928623]
 custom_minimum_size = Vector2(320, 240)
@@ -119,3 +121,55 @@ stretch_mode = 5
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 color = Color(1, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ReferenceRect" unique_id=1092202402]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 185.0
+offset_right = 316.0
+offset_bottom = 235.0
+theme_override_font_sizes/normal_font_size = 14
+text = "ERROR: AUXILIARY POWER DRAW EXCEEDED"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChargingBar" type="HBoxContainer" parent="ReferenceRect" unique_id=615607849]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 0
+offset_left = 47.0
+offset_top = 20.0
+offset_right = 267.0
+offset_bottom = 50.0
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="SuccessIndicator0" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=450661409]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="SuccessIndicator1" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=803867287]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="SuccessIndicator2" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=1907763857]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="SuccessIndicator3" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=951647291]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="SuccessIndicator4" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=2098936819]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)
+
+[node name="SuccessIndicator5" type="ColorRect" parent="ReferenceRect/ChargingBar" unique_id=764622340]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(1, 1, 0, 1)

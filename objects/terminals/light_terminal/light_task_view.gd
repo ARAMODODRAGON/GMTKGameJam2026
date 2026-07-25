@@ -35,7 +35,11 @@ enum PowerState
 @export var nav_lights: Array[Light3D] = []
 @export var oxygen_lights: Array[Light3D] = [] 
 @export var shield_lights: Array[Light3D] = [] 
-@export var energy_lights: Array[Light3D] = [] 
+@export var energy_lights: Array[Light3D] = []
+
+@export var success_indicators: Array[ColorRect] = []
+
+@export var error_text: RichTextLabel
 
 ## Private variables
 
@@ -63,22 +67,36 @@ func _ready() -> void:
 	energy_switch.state = false
 	shield_switch.state = false
 
+	reset_success_boxes()
+	show_error_text(false)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if _is_held:
+		update_success_boxes()
 		_timer -= delta
 		if _timer <= 0:
 			_reroute_power()
 			_timer = button_hold_timer
+			reset_success_boxes()
+
 
 func _on_button_held() -> void:
 	_is_held = true
+	var index: float = remap(_timer, 0.0, button_hold_timer, 0.0, 6.0)
+	
+	for i in success_indicators.size() - 1:
+		if i + 1 <= index:
+			success_indicators[i].color.a = 1.0
+		else:
+			success_indicators[i].color.a = 0.0
 	print("Main power held")
 
 func _on_button_released() -> void:
 	_is_held = false
 	_timer = button_hold_timer
+	reset_success_boxes()
 	print("Main power released")
 
 func _reroute_power() -> void:
@@ -133,6 +151,8 @@ func select_nav(state: bool) -> void:
 		_current_selections.erase(PowerState.NAV)
 		nav_rect.color = off_colour
 
+	should_show_error_text()
+
 func select_shield(state: bool) -> void:
 	if _needs_refresh:
 		refresh_light_colour()
@@ -143,6 +163,8 @@ func select_shield(state: bool) -> void:
 	else:
 		_current_selections.erase(PowerState.SHIELD)
 		shield_rect.color = off_colour
+
+	should_show_error_text()
 
 func select_energy(state: bool) -> void:
 	if _needs_refresh:
@@ -155,6 +177,8 @@ func select_energy(state: bool) -> void:
 		_current_selections.erase(PowerState.ENERGY)
 		energy_rect.color = off_colour
 
+	should_show_error_text()
+
 func select_oxygen(state: bool) -> void:
 	if _needs_refresh:
 		refresh_light_colour()
@@ -165,6 +189,8 @@ func select_oxygen(state: bool) -> void:
 	else:
 		_current_selections.erase(PowerState.OXYGEN)
 		oxygen_rect.color = off_colour
+
+	should_show_error_text()
 
 func set_light_visibility(array: Array[Light3D], is_on: bool) -> void:
 	for l in array:
@@ -179,4 +205,32 @@ func refresh_light_colour() -> void:
 		energy_rect.color = selected_colour
 	if shield_switch.state == true:
 		shield_rect.color = selected_colour
+
+func update_success_boxes() -> void:
+	if not _is_held:
+		return
+	
+	var index: float = remap(_timer, 0.0, button_hold_timer, 0.0, 6.0)
+	
+	for i in success_indicators.size() - 1:
+		if float(i + 1) <= index:
+			success_indicators[i].color.a = 1.0
+		else:
+			success_indicators[i].color.a = 0.0
+
+func reset_success_boxes() -> void:
+	for s in success_indicators:
+		s.color.a = 0.0
+
+func show_error_text(should_be_shown: bool) -> void:
+	if should_be_shown:
+		error_text.visible = true
+	else:
+		error_text.visible = false
+
+func should_show_error_text() -> void:
+	if _current_selections.size() > 1:
+		show_error_text(true)
+	else:
+		show_error_text(false)
 	
