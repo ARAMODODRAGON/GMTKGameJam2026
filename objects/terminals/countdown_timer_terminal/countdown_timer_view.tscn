@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://du41l1u7weyc6"]
+
+[ext_resource type="Script" uid="uid://dgurnwjbu3ett" path="res://objects/terminals/countdown_timer_terminal/countdown_timer_view.gd" id="1_vav2x"]
+
+[node name="CountdownTimerView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("timer_text")]
+script = ExtResource("1_vav2x")
+timer_text = NodePath("Background/Countdown")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1795928623]
+custom_minimum_size = Vector2(320, 240)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.083900005, 0.079, 0.1, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background" unique_id=1269007820]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 321.0
+offset_bottom = 78.0
+theme_override_font_sizes/normal_font_size = 30
+text = "TIME TO RESCUE"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Countdown" type="RichTextLabel" parent="Background" unique_id=1291095189]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 62.0
+offset_right = 320.0
+offset_bottom = 244.0
+theme_override_font_sizes/normal_font_size = 30
+text = "8000087943759874597984398759874359847598743598797435943987359"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

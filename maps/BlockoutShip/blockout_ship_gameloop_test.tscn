@@ -11,30 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b41i5syd5gfe7" path="res://objects/buttons/interactable_breaker_switch.tscn" id="9_v7n0w"]
 [ext_resource type="PackedScene" uid="uid://crm4glme3gtl8" path="res://objects/terminals/oxygen_terminal/oxygen_terminal.tscn" id="10_35odt"]
 [ext_resource type="PackedScene" uid="uid://c6hsu271tvy5s" path="res://objects/terminals/shields_terminal/ShieldsTerminal.tscn" id="11_cced1"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_38i6u"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_c8hah"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54hi3"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_38i6u")
-emission_enabled = true
-emission_texture = SubResource("ViewportTexture_c8hah")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_cced1"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_iyosd"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1j0yu"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_cced1")
-emission_enabled = true
-emission_texture = SubResource("ViewportTexture_iyosd")
+[ext_resource type="PackedScene" uid="uid://dsxwgtposamdx" path="res://objects/terminals/countdown_timer_terminal/countdown_terminal.tscn" id="12_iyosd"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_1j0yu"]
 viewport_path = NodePath("SubViewport")
@@ -45,9 +22,33 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v4aq"]
 resource_local_to_scene = true
 albedo_texture = SubResource("ViewportTexture_1j0yu")
-roughness = 0.12
 emission_enabled = true
 emission_texture = SubResource("ViewportTexture_aomme")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_io5t0"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1qqq7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06smb"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_io5t0")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_1qqq7")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2hers"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_o7yp7"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efb6p"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_2hers")
+roughness = 0.12
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_o7yp7")
 
 [node name="BlockoutShipGameloopTest" unique_id=1609120507 instance=ExtResource("1_cced1")]
 
@@ -76,7 +77,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.221062, 2.8101995, -0.1487
 
 [node name="Cube" parent="LightTerminalArea/LightTerminal" index="0" unique_id=1599189902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3667264, 0)
-surface_material_override/0 = SubResource("StandardMaterial3D_54hi3")
+surface_material_override/0 = SubResource("StandardMaterial3D_6v4aq")
 
 [node name="LightTaskView" parent="LightTerminalArea/LightTerminal/SubViewport" parent_id_path=PackedInt32Array(1564582219, 482558649) index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_lights", "oxygen_lights", "shield_lights", "energy_lights")]
 nav_lights = [NodePath("../../../../NavigationArea/OmniLight3D2")]
@@ -264,7 +265,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 67.9
 
 [node name="Cube" parent="OxygenArea/OxygenTerminal" index="0" unique_id=1599189902]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85701776, 3.9083562)
-surface_material_override/0 = SubResource("StandardMaterial3D_1j0yu")
+surface_material_override/0 = SubResource("StandardMaterial3D_06smb")
 
 [node name="OxygenTaskView" parent="OxygenArea/OxygenTerminal/SubViewport" parent_id_path=PackedInt32Array(260172510, 482558649) index="0" unique_id=2007830041]
 stat_success_amount = 30.0
@@ -316,7 +317,7 @@ gauge_type = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5827546, 2.5612304, -0.23403645)
 
 [node name="Cube" parent="ShieldArea/ShieldsTerminal" index="0" unique_id=1599189902]
-surface_material_override/0 = SubResource("StandardMaterial3D_6v4aq")
+surface_material_override/0 = SubResource("StandardMaterial3D_efb6p")
 
 [node name="ShieldsTaskView" parent="ShieldArea/ShieldsTerminal/SubViewport" parent_id_path=PackedInt32Array(2010853883, 578667375) index="0" unique_id=1330622129]
 stat_usage_rate = 0.5
@@ -376,6 +377,9 @@ size = Vector3(3.009758, 1.9429626, 1.6240082)
 [node name="DomedGauge6" parent="ShieldArea" index="7" unique_id=554681737 instance=ExtResource("6_38i6u")]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 5.654912, 2.7397432, 0.23870549)
 gauge_type = 3
+
+[node name="CountdownTerminal" parent="." index="11" unique_id=725663135 instance=ExtResource("12_iyosd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.576935, 2.9216106, 0.13396406)
 
 [editable path="LightTerminalArea/LightTerminal"]
 [editable path="OxygenArea/OxygenTerminal"]
