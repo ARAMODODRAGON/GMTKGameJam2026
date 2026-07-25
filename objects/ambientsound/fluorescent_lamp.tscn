@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://oreanoy3stiy"]
+
+[ext_resource type="PackedScene" uid="uid://cega1m855y08u" path="res://objects/ambientsound/FluorescentLamp.blend" id="1_red5p"]
+[ext_resource type="AudioStream" uid="uid://cqxkmn4e0vfr" path="res://objects/ambientsound/sounds/lightbulb_buzzing.mp3" id="2_20q5o"]
+
+[node name="FluorescentLamp" unique_id=1608089528 instance=ExtResource("1_red5p")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1" unique_id=1323315697]
+stream = ExtResource("2_20q5o")
+volume_db = -20.0
+autoplay = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=749858441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37255484, 0, 0)
+light_color = Color(0.9137255, 1, 0.99215686, 1)
+light_energy = 0.1
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." index="3" unique_id=472740513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35816416, 0, 0)
+light_color = Color(0.9137255, 1, 0.99215686, 1)
+light_energy = 0.1
+shadow_enabled = true

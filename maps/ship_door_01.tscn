@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ce4f1oj0pxynm"]
+
+[ext_resource type="PackedScene" uid="uid://bywrm83s8u46m" path="res://maps/BlockoutShip/ShipDoor_01.blend" id="1_ihnio"]
+[ext_resource type="Script" uid="uid://cmks1of6w6bvo" path="res://maps/ship_door.gd" id="2_clgru"]
+[ext_resource type="AudioStream" uid="uid://c5u00elwftt1o" path="res://objects/doors/sounds/door_open.mp3" id="3_b2eak"]
+
+[node name="ShipDoor_01" unique_id=905237972 instance=ExtResource("1_ihnio")]
+script = ExtResource("2_clgru")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2" unique_id=1248979906]
+stream = ExtResource("3_b2eak")
+volume_db = -20.0

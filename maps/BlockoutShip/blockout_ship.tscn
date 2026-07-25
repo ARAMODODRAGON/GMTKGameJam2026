@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bya3nrm02dy7o" path="res://objects/buttons/interactable_triangle_button.tscn" id="5_ny3hm"]
 [ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_round_button.tscn" id="6_k0lse"]
 [ext_resource type="PackedScene" uid="uid://dwccejqovs72g" path="res://objects/ambientsound/wall_fan.tscn" id="8_k0lse"]
+[ext_resource type="PackedScene" uid="uid://oreanoy3stiy" path="res://objects/ambientsound/fluorescent_lamp.tscn" id="9_twnuv"]
+[ext_resource type="LightmapGIData" uid="uid://cuam4vtbw4mtj" path="res://maps/BlockoutShip/blockout_ship.lmbake" id="10_1auym"]
+[ext_resource type="PackedScene" uid="uid://ce4f1oj0pxynm" path="res://maps/ship_door_01.tscn" id="11_8sbg5"]
 
 [node name="BlockoutShip" unique_id=1609120507 instance=ExtResource("1_hucus")]
 
@@ -32,24 +35,18 @@ light_energy = 2.0
 omni_range = 10.0
 omni_attenuation = 2.0
 
-[node name="OmniLight3D10" type="OmniLight3D" parent="." index="5" unique_id=1285284295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19320202, 2.7105854, -5.84155)
-light_energy = 2.0
-omni_range = 10.0
-omni_attenuation = 2.0
-
-[node name="OmniLight3D11" type="OmniLight3D" parent="." index="6" unique_id=1993263669]
+[node name="OmniLight3D11" type="OmniLight3D" parent="." index="5" unique_id=1993263669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14266872, 2.7105854, 0.37393665)
 light_energy = 2.0
 omni_range = 10.0
 omni_attenuation = 2.0
 
-[node name="4by3_crt" parent="." index="7" unique_id=2010853883 instance=ExtResource("3_d0ixs")]
+[node name="4by3_crt" parent="." index="6" unique_id=2010853883 instance=ExtResource("3_d0ixs")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.2258086, 1.8331957, -8.937719)
 label_string = "hello workld its me the screen"
 
 [node name="CRTWhine" parent="4by3_crt" index="2" unique_id=276462580 instance=ExtResource("4_4ccfq")]
-volume_db = -18.0
+volume_db = -25.0
 
 [node name="InteractableTriangleButton" parent="4by3_crt" index="3" unique_id=2115933321 instance=ExtResource("5_ny3hm")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.7104726, -3.6663914, 3.2492542)
@@ -57,12 +54,41 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.7104726, -3.6663914, 3.2492
 [node name="InteractableRoundButton" parent="4by3_crt" index="4" unique_id=70203006 instance=ExtResource("6_k0lse")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.5177722, -3.6663914, 3.2272844)
 
-[node name="4by3_crt2" parent="." index="8" unique_id=134732014 instance=ExtResource("3_d0ixs")]
+[node name="4by3_crt2" parent="." index="7" unique_id=134732014 instance=ExtResource("3_d0ixs")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.22580862, 1.8331957, -8.937719)
 label_string = "im screen 2"
 
-[node name="cheap_radio" parent="." index="9" unique_id=703107636 instance=ExtResource("4_e6m4r")]
+[node name="cheap_radio" parent="." index="8" unique_id=703107636 instance=ExtResource("4_e6m4r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.765045, 0.06499988, -2.5067816)
 
-[node name="WallFan" parent="." index="10" unique_id=1554156394 instance=ExtResource("8_k0lse")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5271449, 2.23951, -8.69715)
+[node name="WallFan" parent="." index="9" unique_id=1554156394 instance=ExtResource("8_k0lse")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5271449, 2.5001414, -8.972887)
+
+[node name="FluorescentLamp" parent="." index="10" unique_id=1608089528 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.4720252, 2.2516656, -6.8983254)
+
+[node name="FluorescentLamp3" parent="." index="11" unique_id=813436647 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-4.126266e-08, 0.3300037, 0.9439798, 1.4424922e-08, 0.9439798, -0.3300037, -1, 9.922104e-17, -4.3711392e-08, 6.080452, 2.3128712, -11.12445)
+
+[node name="FluorescentLamp4" parent="." index="12" unique_id=1086677157 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1.2336376e-07, -0.3391156, -0.94074476, 4.4469637e-08, 0.94074476, -0.3391156, 1, 0, 1.3113416e-07, 8.602176, 2.3263032, -8.818781)
+
+[node name="FluorescentLamp2" parent="." index="13" unique_id=1922757565 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 2.7573862, 2.2516656, -7.0271325)
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="16" unique_id=488127251]
+quality = 2
+supersampling = true
+bounces = 5
+light_data = ExtResource("10_1auym")
+
+[node name="ShipDoor_01" parent="." index="17" unique_id=905237972 node_paths=PackedStringArray("button_1", "button_2") instance=ExtResource("11_8sbg5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3631945, 1.3873694, -4.4733944)
+button_1 = NodePath("../DoorButton_01")
+button_2 = NodePath("../DoorButton_02")
+
+[node name="DoorButton_01" parent="." index="18" unique_id=1735068422 instance=ExtResource("6_k0lse")]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 5.6720963, 1.2071267, -6.3474593)
+
+[node name="DoorButton_02" parent="." index="19" unique_id=264580780 instance=ExtResource("6_k0lse")]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 5.6720963, 1.2071267, -3.6887279)

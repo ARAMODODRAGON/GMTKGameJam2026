@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://di7vqt17ag3r4"
-path="res://.godot/imported/BlockoutShip.blend-d105e42e4ea23127c2f30abe1257b484.scn"
+uid="uid://bywrm83s8u46m"
+path="res://.godot/imported/ShipDoor_01.blend-be53b9e88493914e05fb0d20bae94f1a.scn"
 
 [deps]
 
-source_file="res://maps/BlockoutShip/BlockoutShip.blend"
-dest_files=["res://.godot/imported/BlockoutShip.blend-d105e42e4ea23127c2f30abe1257b484.scn"]
+source_file="res://maps/BlockoutShip/ShipDoor_01.blend"
+dest_files=["res://.godot/imported/ShipDoor_01.blend-be53b9e88493914e05fb0d20bae94f1a.scn"]
 
 [params]
 
@@ -24,7 +24,7 @@ nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=2
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
