@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://curec3utb0vca"]
+
+[ext_resource type="PackedScene" uid="uid://cux837e0hbll" path="res://objects/ambientsound/BulbLamp.blend" id="1_o36aj"]
+[ext_resource type="AudioStream" uid="uid://cqxkmn4e0vfr" path="res://objects/ambientsound/sounds/lightbulb_buzzing.mp3" id="2_8tem0"]
+
+[node name="BulbLamp" unique_id=1102362660 instance=ExtResource("1_o36aj")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1" unique_id=824679274]
+light_color = Color(1, 1, 0.6156863, 1)
+light_energy = 2.0
+light_size = 1.0
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="2" unique_id=726921838]
+stream = ExtResource("2_8tem0")
+volume_db = -20.0
+autoplay = true

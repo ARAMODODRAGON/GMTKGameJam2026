@@ -13,11 +13,13 @@ autoplay = true
 [node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=749858441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37255484, 0, 0)
 light_color = Color(0.9137255, 1, 0.99215686, 1)
-light_energy = 0.1
+light_energy = 0.3
 shadow_enabled = true
+omni_range = 8.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="." index="3" unique_id=472740513]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35816416, 0, 0)
 light_color = Color(0.9137255, 1, 0.99215686, 1)
-light_energy = 0.1
+light_energy = 0.3
 shadow_enabled = true
+omni_range = 8.0

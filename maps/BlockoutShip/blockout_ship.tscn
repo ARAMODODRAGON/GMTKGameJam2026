@@ -5,90 +5,111 @@
 [ext_resource type="PackedScene" uid="uid://pmxho031sukg" path="res://objects/screens/4_by_3_crt.tscn" id="3_d0ixs"]
 [ext_resource type="PackedScene" uid="uid://duvimgjcgjhlk" path="res://objects/screens/CrtWhine.tscn" id="4_4ccfq"]
 [ext_resource type="PackedScene" uid="uid://docwiblc2d30y" path="res://objects/radio/cheap_radio.tscn" id="4_e6m4r"]
-[ext_resource type="PackedScene" uid="uid://bya3nrm02dy7o" path="res://objects/buttons/interactable_triangle_button.tscn" id="5_ny3hm"]
 [ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_round_button.tscn" id="6_k0lse"]
 [ext_resource type="PackedScene" uid="uid://dwccejqovs72g" path="res://objects/ambientsound/wall_fan.tscn" id="8_k0lse"]
 [ext_resource type="PackedScene" uid="uid://oreanoy3stiy" path="res://objects/ambientsound/fluorescent_lamp.tscn" id="9_twnuv"]
 [ext_resource type="LightmapGIData" uid="uid://cuam4vtbw4mtj" path="res://maps/BlockoutShip/blockout_ship.lmbake" id="10_1auym"]
+[ext_resource type="PackedScene" uid="uid://bf0gr22u6fuw7" path="res://objects/ambientsound/shield_generator.tscn" id="11_4ils4"]
 [ext_resource type="PackedScene" uid="uid://ce4f1oj0pxynm" path="res://maps/ship_door_01.tscn" id="11_8sbg5"]
+[ext_resource type="PackedScene" uid="uid://curec3utb0vca" path="res://objects/ambientsound/bulb_lamp.tscn" id="12_4ils4"]
+[ext_resource type="PackedScene" uid="uid://d3g5f0lcnbo74" path="res://objects/ambientsound/RoomTone1.tscn" id="13_6060q"]
 
 [node name="BlockoutShip" unique_id=1609120507 instance=ExtResource("1_hucus")]
 
 [node name="Player" parent="." index="1" unique_id=1162497877 instance=ExtResource("2_yqli5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2420774, 0, 6.681638)
 
-[node name="OmniLight3D7" type="OmniLight3D" parent="." index="2" unique_id=159900142]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.024993, 2.7105854, 7.2463417)
-light_energy = 2.0
-omni_range = 10.0
-omni_attenuation = 2.0
-
-[node name="OmniLight3D8" type="OmniLight3D" parent="." index="3" unique_id=753297047]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.440633, 2.7105854, 0.27287054)
-light_energy = 2.0
-omni_range = 10.0
-omni_attenuation = 2.0
-
-[node name="OmniLight3D9" type="OmniLight3D" parent="." index="4" unique_id=1699610456]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.673974, 2.7105854, 0.17180657)
-light_energy = 2.0
-omni_range = 10.0
-omni_attenuation = 2.0
-
-[node name="OmniLight3D11" type="OmniLight3D" parent="." index="5" unique_id=1993263669]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14266872, 2.7105854, 0.37393665)
-light_energy = 2.0
-omni_range = 10.0
-omni_attenuation = 2.0
-
-[node name="4by3_crt" parent="." index="6" unique_id=2010853883 instance=ExtResource("3_d0ixs")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.2258086, 1.8331957, -8.937719)
-label_string = "hello workld its me the screen"
+[node name="4by3_crt" parent="." index="2" unique_id=2010853883 instance=ExtResource("3_d0ixs")]
+transform = Transform3D(0.35355338, 0, 0.35355338, 0, 0.5, 0, -0.35355338, 0, 0.35355338, -2.664083, -0.11259556, -20.51736)
+label_string = "ERROR"
 
 [node name="CRTWhine" parent="4by3_crt" index="2" unique_id=276462580 instance=ExtResource("4_4ccfq")]
 volume_db = -25.0
 
-[node name="InteractableTriangleButton" parent="4by3_crt" index="3" unique_id=2115933321 instance=ExtResource("5_ny3hm")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.7104726, -3.6663914, 3.2492542)
+[node name="4by3_crt2" parent="." index="3" unique_id=134732014 instance=ExtResource("3_d0ixs")]
+transform = Transform3D(0.30892295, 0, -0.3931496, 0, 0.5, 0, 0.3931496, 0, 0.30892295, 2.5150595, -0.1125958, -20.587683)
+label_string = "Cockpit Lockdown"
 
-[node name="InteractableRoundButton" parent="4by3_crt" index="4" unique_id=70203006 instance=ExtResource("6_k0lse")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.5177722, -3.6663914, 3.2272844)
+[node name="CRTWhine2" parent="4by3_crt2" index="2" unique_id=2140546764 instance=ExtResource("4_4ccfq")]
+transform = Transform3D(-0.23822898, 0, 1.9857612, 0, 2, 0, -1.9857612, 0, -0.23822898, 0.011890411, 4.7683716e-07, 0.21250534)
+volume_db = -25.0
 
-[node name="4by3_crt2" parent="." index="7" unique_id=134732014 instance=ExtResource("3_d0ixs")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.22580862, 1.8331957, -8.937719)
-label_string = "im screen 2"
+[node name="cheap_radio" parent="." index="4" unique_id=703107636 instance=ExtResource("4_e6m4r")]
+transform = Transform3D(0.6985903, 0, 0.71552193, 0, 1, 0, -0.71552193, 0, 0.6985903, -1.9923787, -0.48153156, -20.554394)
 
-[node name="cheap_radio" parent="." index="8" unique_id=703107636 instance=ExtResource("4_e6m4r")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.765045, 0.06499988, -2.5067816)
+[node name="WallFan" parent="." index="5" unique_id=1554156394 instance=ExtResource("8_k0lse")]
+transform = Transform3D(-0.35355332, -1.6420282e-15, 0.35355344, 3.090862e-08, -0.5, 3.0908616e-08, 0.35355344, 4.3711385e-08, 0.35355332, -3.0893974, 1.6804409, -3.0407372)
 
-[node name="WallFan" parent="." index="9" unique_id=1554156394 instance=ExtResource("8_k0lse")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.5271449, 2.5001414, -8.972887)
+[node name="FluorescentLamp6" parent="." index="6" unique_id=170286567 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-0.3202328, 0, 0.947339, 0, 1, 0, -0.947339, 0, -0.3202328, -20.709345, 1.2595094, 6.750938)
 
-[node name="FluorescentLamp" parent="." index="10" unique_id=1608089528 instance=ExtResource("9_twnuv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.4720252, 2.2516656, -6.8983254)
+[node name="FluorescentLamp7" parent="." index="7" unique_id=412475393 instance=ExtResource("9_twnuv")]
+transform = Transform3D(0.46583074, 0, 0.88487387, 0, 1, 0, -0.88487387, 0, 0.46583074, -18.201187, 1.2595096, -12.6914425)
 
-[node name="FluorescentLamp3" parent="." index="11" unique_id=813436647 instance=ExtResource("9_twnuv")]
-transform = Transform3D(-4.126266e-08, 0.3300037, 0.9439798, 1.4424922e-08, 0.9439798, -0.3300037, -1, 9.922104e-17, -4.3711392e-08, 6.080452, 2.3128712, -11.12445)
+[node name="FluorescentLamp8" parent="." index="8" unique_id=136678071 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.972642, 1.0229607, -1.1473218)
 
-[node name="FluorescentLamp4" parent="." index="12" unique_id=1086677157 instance=ExtResource("9_twnuv")]
-transform = Transform3D(1.2336376e-07, -0.3391156, -0.94074476, 4.4469637e-08, 0.94074476, -0.3391156, 1, 0, 1.3113416e-07, 8.602176, 2.3263032, -8.818781)
+[node name="FluorescentLamp9" parent="." index="9" unique_id=1500520429 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.879474, 1.0229607, -1.1473218)
 
-[node name="FluorescentLamp2" parent="." index="13" unique_id=1922757565 instance=ExtResource("9_twnuv")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 2.7573862, 2.2516656, -7.0271325)
+[node name="FluorescentLamp10" parent="." index="10" unique_id=1996656448 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.750759, 1.0229607, -5.7092614)
 
-[node name="LightmapGI" type="LightmapGI" parent="." index="16" unique_id=488127251]
+[node name="FluorescentLamp11" parent="." index="11" unique_id=278940174 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.004122, 1.0229607, -9.411636)
+
+[node name="FluorescentLamp12" parent="." index="12" unique_id=1211458448 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.354425, 1.3821301, -14.576713)
+
+[node name="FluorescentLamp3" parent="." index="13" unique_id=813436647 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-4.126266e-08, 0.3300037, 0.9439798, 1.4424922e-08, 0.9439798, -0.3300037, -1, 9.922104e-17, -4.3711392e-08, -4.9630656, 1.9873912, -17.30006)
+
+[node name="FluorescentLamp5" parent="." index="14" unique_id=395271602 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1.0000001, -1.4424921e-08, 2.4487221e-09, 1.4424922e-08, 0.9439799, -0.33000374, 2.4487292e-09, 0.3300037, 0.9439798, 0.039132595, 1.9331033, -21.205885)
+
+[node name="FluorescentLamp4" parent="." index="15" unique_id=1086677157 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1.2336376e-07, -0.3391156, -0.94074476, 4.4469637e-08, 0.94074476, -0.3391156, 1, 0, 1.3113416e-07, 5.0283213, 1.9046938, -17.243124)
+
+[node name="FluorescentLamp2" parent="." index="16" unique_id=1922757565 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.2319547, 0.9739928, -10.302993)
+
+[node name="FluorescentLamp13" parent="." index="17" unique_id=845391486 instance=ExtResource("9_twnuv")]
+transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 3.4924212, 1.9583707, -3.5277238)
+
+[node name="FluorescentLamp14" parent="." index="18" unique_id=302958369 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-0.70710695, 0, 0.7071066, 0, 1, 0, -0.7071066, 0, -0.70710695, -3.4926207, 2.0857885, 3.2619336)
+
+[node name="LightmapGI" type="LightmapGI" parent="." index="21" unique_id=488127251]
 quality = 2
 supersampling = true
 bounces = 5
 light_data = ExtResource("10_1auym")
 
-[node name="ShipDoor_01" parent="." index="17" unique_id=905237972 node_paths=PackedStringArray("button_1", "button_2") instance=ExtResource("11_8sbg5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3631945, 1.3873694, -4.4733944)
+[node name="ShipDoor_01" parent="." index="22" unique_id=905237972 node_paths=PackedStringArray("button_1", "button_2") instance=ExtResource("11_8sbg5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007866025, 0.021915436, -7.3121915)
 button_1 = NodePath("../DoorButton_01")
 button_2 = NodePath("../DoorButton_02")
 
-[node name="DoorButton_01" parent="." index="18" unique_id=1735068422 instance=ExtResource("6_k0lse")]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 5.6720963, 1.2071267, -6.3474593)
+[node name="DoorButton_01" parent="." index="23" unique_id=1735068422 instance=ExtResource("6_k0lse")]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -1.6505706, -0.050095856, -9.863648)
 
-[node name="DoorButton_02" parent="." index="19" unique_id=264580780 instance=ExtResource("6_k0lse")]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 5.6720963, 1.2071267, -3.6887279)
+[node name="DoorButton_02" parent="." index="24" unique_id=264580780 instance=ExtResource("6_k0lse")]
+transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, -2.0021663, -0.1084688, -5.354125)
+
+[node name="ShieldGenerator" parent="." index="52" unique_id=1074581999 instance=ExtResource("11_4ils4")]
+transform = Transform3D(0.10112579, 0, 0.22863413, 0, 0.25, 0, -0.22863413, 0, 0.10112579, -19.032755, -0.75, -6.5941124)
+
+[node name="ShieldGenerator2" parent="." index="53" unique_id=252313111 instance=ExtResource("11_4ils4")]
+transform = Transform3D(0.10112579, 0, 0.22863413, 0, 0.25, 0, -0.22863413, 0, 0.10112579, -18.295265, -0.7500001, -9.748626)
+
+[node name="BulbLamp" parent="." index="60" unique_id=1102362660 instance=ExtResource("12_4ils4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.049263, 1.4641924, 13.201715)
+
+[node name="BulbLamp2" parent="." index="61" unique_id=451378809 instance=ExtResource("12_4ils4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.049263, 1.4641924, -0.1413126)
+
+[node name="BulbLamp3" parent="." index="62" unique_id=2110109247 instance=ExtResource("12_4ils4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -19.328707, 1.0515509, -0.19397068)
+
+[node name="RoomTone1" parent="." index="63" unique_id=1302090609 instance=ExtResource("13_6060q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8330817, 25.322575)

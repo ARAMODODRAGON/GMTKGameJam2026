@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bf0gr22u6fuw7"]
+
+[ext_resource type="PackedScene" uid="uid://v80q20uacmvx" path="res://objects/ambientsound/ShieldGenerator.blend" id="1_8ecsm"]
+[ext_resource type="AudioStream" uid="uid://b8wytdh0bgfyh" path="res://objects/ambientsound/sounds/shields_loop.mp3" id="2_lgxxy"]
+
+[node name="ShieldGenerator" unique_id=1074581999 instance=ExtResource("1_8ecsm")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1" unique_id=660742196]
+stream = ExtResource("2_lgxxy")
+volume_db = -20.0
+autoplay = true
