@@ -13,6 +13,11 @@ extends Node2D
 @export var pos_y: InteractableButton
 @export var neg_y: InteractableButton
 
+@export_custom(PROPERTY_HINT_NONE, "suffix:/s")
+var stat_usage_rate: float = 1.0
+
+@export var stat_success_amount: float = 0.0
+
 ## Private variables
 @export var _upper_bounds: float
 @export var _lower_bounds: float
@@ -20,6 +25,9 @@ extends Node2D
 @export var _left_bounds: float
 
 var movement_vector: Vector2 = Vector2.ZERO
+
+## Signals
+signal on_nav_terminal_completion()
 
 
 # Called when the node enters the scene tree for the first time.
@@ -30,9 +38,21 @@ func _ready() -> void:
 
 	_select_new_target_location()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+	pos_x.pressed.connect(_positive_x_pressed)
+	pos_x.released.connect(_positive_x_released)
+
+	neg_x.pressed.connect(_negative_x_pressed)
+	neg_x.released.connect(_negative_x_released)
+
+	pos_y.pressed.connect(_positive_y_pressed)
+	pos_y.released.connect(_positive_y_released)
+
+	neg_y.pressed.connect(_negative_y_pressed)
+	neg_y.released.connect(_negative_y_released)
+
+
 func _process(delta: float) -> void:
-	pass
+	ShipStats.alignment_amount -= stat_usage_rate * delta
 
 func _physics_process(delta: float) -> void:
 	_move_player_crosshair(delta, movement_vector)
@@ -45,7 +65,7 @@ func _select_new_target_location() -> void:
 
 	for i in 10:
 		var result: Vector2 = Vector2(randf_range(_left_bounds, _right_bounds), randf_range(_upper_bounds, _lower_bounds))
-		if result.distance_to(target_crosshair.position) >= 20:
+		if result.distance_to(player_crosshair.position) >= 150:
 			target_crosshair.position = result
 			break
 
@@ -72,3 +92,8 @@ func _negative_y_pressed() -> void:
 
 func _negative_y_released() -> void:
 	movement_vector.y = 0.0
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	on_nav_terminal_completion.emit()
+	ShipStats.alignment_amount += stat_success_amount
+	_select_new_target_location()

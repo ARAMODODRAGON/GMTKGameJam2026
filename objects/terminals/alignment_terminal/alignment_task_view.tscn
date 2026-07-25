@@ -8,19 +8,44 @@
 size = Vector2(50, 50)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xfoti"]
+radius = 7.071068
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7fg5"]
-radius = 6.0
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7fg5"]
+size = Vector2(9, 257)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q34tu"]
+size = Vector2(9, 257)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myl8f"]
+size = Vector2(334, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jlu6"]
+size = Vector2(334, 7.5)
 
 [node name="AlignmentTaskView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("player_crosshair", "target_crosshair")]
 script = ExtResource("1_e1rx0")
 player_crosshair = NodePath("PlayerCrosshair")
 target_crosshair = NodePath("TargetCrosshair")
-move_speed = 20.0
-upper_bounds = 26.0
-lower_bounds = 213.0
-right_bounds = 293.0
-left_bounds = 25.0
+move_speed = 50.0
+stat_success_amount = 20.0
+_upper_bounds = 26.0
+_lower_bounds = 213.0
+_right_bounds = 293.0
+_left_bounds = 25.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=1795928623]
+custom_minimum_size = Vector2(320, 240)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.083900005, 0.079, 0.1, 1)
 
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=629686406]
 custom_minimum_size = Vector2(320, 240)
@@ -40,13 +65,17 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_xfoti")
 
 [node name="Area2D" type="Area2D" parent="PlayerCrosshair" unique_id=924296326]
+collision_layer = 16
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCrosshair/Area2D" unique_id=1885939954]
 shape = SubResource("CircleShape2D_xfoti")
 debug_color = Color(0.34050372, 0.6202375, 0.11362345, 0.41960785)
 
 [node name="TargetCrosshair" type="Area2D" parent="." unique_id=346596233]
-position = Vector2(25, 213)
+position = Vector2(293, 26)
+collision_layer = 16
+collision_mask = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="TargetCrosshair" unique_id=92269346]
 position = Vector2(1, 0)
@@ -55,3 +84,23 @@ texture = ExtResource("3_xfoti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TargetCrosshair" unique_id=1185109096]
 shape = SubResource("CircleShape2D_l7fg5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1009190033]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1303080286]
+position = Vector2(-5.5, 118.5)
+shape = SubResource("RectangleShape2D_l7fg5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1555183293]
+position = Vector2(325, 119)
+shape = SubResource("RectangleShape2D_q34tu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=739427646]
+position = Vector2(158, 243.75)
+shape = SubResource("RectangleShape2D_myl8f")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=573273367]
+position = Vector2(159, -5)
+shape = SubResource("RectangleShape2D_1jlu6")
+
+[connection signal="area_entered" from="PlayerCrosshair/Area2D" to="." method="_on_area_2d_area_entered"]
