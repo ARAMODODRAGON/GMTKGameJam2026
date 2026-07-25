@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://b305heht0etyb"]
 
-[ext_resource type="PackedScene" uid="uid://cqlupub86wsye" path="res://maps/test_map_a.tscn" id="1_clt6a"]
 [ext_resource type="Script" uid="uid://dectrirnwri80" path="res://game/game_root.gd" id="1_d8wum"]
 [ext_resource type="Shader" uid="uid://lp7iex54587y" path="res://game/blur_effect_shader.gdshader" id="1_hup1c"]
 [ext_resource type="Shader" uid="uid://bn8x131ttqbpr" path="res://game/pointer_shader.gdshader" id="2_5sefw"]
@@ -11,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://4b0wm87slhrq" path="res://game/reticle_interactable.png" id="4_bwd2a"]
 [ext_resource type="Texture2D" uid="uid://0sqv4t6nmxro" path="res://game/reticle.png" id="4_h7acg"]
 [ext_resource type="Script" uid="uid://cnyd7r1prpgi1" path="res://game/asteroid_handler.gd" id="5_i6pox"]
+[ext_resource type="PackedScene" uid="uid://b3vluj17osdqh" path="res://maps/lights_task_test_map.tscn" id="5_qud3c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d8wum"]
 shader = ExtResource("2_5sefw")
@@ -33,14 +33,12 @@ win_scene = ExtResource("2_g5d3f")
 lose_scene = ExtResource("3_i6pox")
 debug_display = NodePath("OutsideWorldUI/UI/MarginContainer/DebugDisplay")
 pause_screen = NodePath("OutsideWorldUI/UI/PauseScreen")
-game_layer = NodePath("GameLayer")
+game_layer = NodePath("PausableGameLayer")
 screen_fade = NodePath("OutsideWorldUI/UI/ScreenFade")
 
-[node name="GameLayer" type="CanvasLayer" parent="." unique_id=1216832409]
+[node name="PausableGameLayer" type="CanvasLayer" parent="." unique_id=1216832409]
 
-[node name="TestMapA" parent="GameLayer" unique_id=15633260 instance=ExtResource("1_clt6a")]
-
-[node name="AsteroidHandler" type="Node" parent="GameLayer" unique_id=721860510]
+[node name="AsteroidHandler" type="Node" parent="PausableGameLayer" unique_id=721860510]
 script = ExtResource("5_i6pox")
 frequency_redux_at_low_shield = 0.25
 big_asteroid_chance = 20.0
@@ -52,6 +50,8 @@ small_hit_shake_min = 1.0
 small_hit_shake_max = 3.0
 big_hit_shake_min = 8.0
 big_hit_shake_max = 12.0
+
+[node name="LightsTestMap" parent="PausableGameLayer" unique_id=15633260 instance=ExtResource("5_qud3c")]
 
 [node name="InsideWorldUI" type="CanvasLayer" parent="." unique_id=1188786871]
 

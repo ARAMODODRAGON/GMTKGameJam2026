@@ -48,6 +48,10 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_released(&"Interact"):
 		_released()
 
+	if _interactable:
+		if _interactable.global_position.distance_to(global_position) > camera_ray.target_position.length():
+			_released()
+
 	## For controller
 	var look_vector := get_look_vector()
 	rotation_degrees.y += -look_vector.x
