@@ -43,6 +43,15 @@ debug_shield_redux = 1.0
 
 [node name="AsteroidHandler" type="Node" parent="GameLayer" unique_id=721860510]
 script = ExtResource("5_i6pox")
+big_asteroid_chance = 20.0
+min_required_oxygen = 40.0
+min_required_shield = 40.0
+min_required_energy = 40.0
+min_required_alignment = 40.0
+small_hit_shake_min = 1.0
+small_hit_shake_max = 3.0
+big_hit_shake_min = 8.0
+big_hit_shake_max = 12.0
 
 [node name="InsideWorldUI" type="CanvasLayer" parent="." unique_id=1188786871]
 
