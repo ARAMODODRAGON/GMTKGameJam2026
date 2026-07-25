@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b305heht0etyb"]
 
 [ext_resource type="PackedScene" uid="uid://cqlupub86wsye" path="res://maps/test_map_a.tscn" id="1_clt6a"]
+[ext_resource type="Script" uid="uid://dectrirnwri80" path="res://game/game_root.gd" id="1_d8wum"]
 [ext_resource type="Shader" uid="uid://lp7iex54587y" path="res://game/blur_effect_shader.gdshader" id="1_hup1c"]
 [ext_resource type="Shader" uid="uid://bn8x131ttqbpr" path="res://game/pointer_shader.gdshader" id="2_5sefw"]
 [ext_resource type="Script" uid="uid://dnr5t465snnl6" path="res://game/blur_effect.gd" id="3_2suya"]
@@ -23,7 +24,9 @@ fractal_lacunarity = 2.895
 fractal_gain = 5.48
 fractal_weighted_strength = 1.0
 
-[node name="GameRoot" type="Node" unique_id=540067338]
+[node name="GameRoot" type="Node" unique_id=540067338 node_paths=PackedStringArray("debug_display")]
+script = ExtResource("1_d8wum")
+debug_display = NodePath("CanvasLayer/Control/MarginContainer/DebugDisplay")
 
 [node name="GameLayer" type="CanvasLayer" parent="." unique_id=1216832409]
 
@@ -31,14 +34,25 @@ fractal_weighted_strength = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1188786871]
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=750237928]
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=219922716]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control" unique_id=750237928]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ReticleTexture" type="TextureRect" parent="CanvasLayer/CenterContainer" unique_id=1497501116]
+[node name="ReticleTexture" type="TextureRect" parent="CanvasLayer/Control/CenterContainer" unique_id=1497501116]
 texture_filter = 1
 material = SubResource("ShaderMaterial_d8wum")
 custom_minimum_size = Vector2(30, 30)
@@ -47,6 +61,24 @@ texture = ExtResource("4_h7acg")
 script = ExtResource("3_lh3ym")
 normal_reticle = ExtResource("4_h7acg")
 interact_reticle = ExtResource("4_bwd2a")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1143845471]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="DebugDisplay" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer" unique_id=1526536451]
+visible = false
+layout_mode = 2
+mouse_filter = 1
+text = "time:"
 
 [node name="ScreenEffectsLayer" type="CanvasLayer" parent="." unique_id=1840538123]
 
