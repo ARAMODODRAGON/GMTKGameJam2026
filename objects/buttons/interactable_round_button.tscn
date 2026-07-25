@@ -2,12 +2,25 @@
 
 [ext_resource type="Script" uid="uid://falf61iw477d" path="res://objects/buttons/interactable_round_button.gd" id="1_t66a4"]
 [ext_resource type="PackedScene" uid="uid://4pbj2vwkgykd" path="res://objects/buttons/round_button.tscn" id="2_ivaak"]
+[ext_resource type="Shader" uid="uid://cqt326gasnvax" path="res://scripts/shaders/glow_shader.gdshader" id="3_hwm0h"]
 [ext_resource type="AudioStream" uid="uid://dgh8tbfb4xxlv" path="res://objects/buttons/sounds/button_press_1.mp3" id="3_s0kxo"]
 [ext_resource type="AudioStream" uid="uid://c8ledljihg1gs" path="res://objects/buttons/sounds/button_release_1.mp3" id="4_82pxb"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ivaak"]
 height = 0.1
 radius = 0.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82pxb"]
+render_priority = 0
+shader = ExtResource("3_hwm0h")
+shader_parameter/glow_rate = 3.0
+shader_parameter/min_glow = 0.0
+shader_parameter/max_glow = 0.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s0kxo"]
+top_radius = 0.11
+bottom_radius = 0.11
+height = 0.001
 
 [node name="InteractableRoundButton" type="Area3D" unique_id=2115933321 node_paths=PackedStringArray("anim", "sound_press", "sound_release")]
 script = ExtResource("1_t66a4")
@@ -21,6 +34,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 shape = SubResource("CylinderShape3D_ivaak")
 
 [node name="round_button" parent="." unique_id=358854810 instance=ExtResource("2_ivaak")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="round_button/RoundButtonArmature/Skeleton3D" parent_id_path=PackedInt32Array(358854810, 446004159) index="1" unique_id=1480152895]
+material_override = SubResource("ShaderMaterial_82pxb")
+mesh = SubResource("CylinderMesh_s0kxo")
 
 [node name="ButtonPress" type="AudioStreamPlayer3D" parent="." unique_id=1206258682]
 stream = ExtResource("3_s0kxo")

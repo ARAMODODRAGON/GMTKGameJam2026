@@ -1,11 +1,13 @@
 extends Node3D
 
 @export var fuses: Array[InteractableSwitch]
+@export var success_button: InteractableButton
 
 @export_group("Minigame")
 @export_range(0.0, 100.0, 0.001, "suffix:%")
 var randomizer_fuse_state_chance: float = 40.0
 @export var success_energy_amount: float = 10.0
+@export var time_to_succeed: float = 5.0
 
 @export_group("Stats")
 @export_custom(PROPERTY_HINT_NONE, "suffix:/s")
@@ -13,13 +15,16 @@ var energy_usage_rate: float = 1.0
 
 @export_group("References")
 @export var fuse_items: Array[FuseItem] = []
-@export var button_clip: Control
+@export var success_indicators: Array[ColorRect] = []
+#@export var button_clip: Control
 
 
 ## Private Variables
 
-@onready var _battery_clip_size: float = button_clip.custom_minimum_size.y
+#@onready var _battery_clip_size: float = button_clip.custom_minimum_size.y
 var _on_count: int = 0
+var _button_held: bool = false
+var _success_timer: float = 0.0
 
 
 ## Virtual Methods
@@ -46,8 +51,11 @@ func _ready() -> void:
 			#print(i)
 		#endregion
 
-	print(_on_count)
-	_randomize_values.call_deferred.call_deferred()
+	success_button.pressed.connect(_button_state_changed.bind(true))
+	success_button.released.connect(_button_state_changed.bind(false))
+
+	#print(_on_count)
+	_randomize_values()
 
 
 func _process(delta: float) -> void:
@@ -57,10 +65,37 @@ func _process(delta: float) -> void:
 	#print(ShipStats.energy_amount)
 
 	## Update the energy display
-	button_clip.custom_minimum_size.y = remap(ShipStats.energy_amount, 0.0, ShipStats._ENERGY_AMOUNT_INITIAL, 0.0, _battery_clip_size)
+	#button_clip.custom_minimum_size.y = remap(ShipStats.energy_amount, 0.0, ShipStats._ENERGY_AMOUNT_INITIAL, 0.0, _battery_clip_size)
+
+	if _button_held and _on_count == 6:
+		_success_timer += delta
+		#print(_success_timer)
+	elif _success_timer > 0.0:
+		_success_timer -= delta
+
+	_update_success_display()
+
+	if _success_timer > time_to_succeed:
+		_success_timer -= time_to_succeed
+
+		#print("Success")
+		ShipStats.energy_amount	+= success_energy_amount
+		_randomize_values()
+
 
 
 ## Private Methods
+
+func _update_success_display() -> void:
+	var value := remap(_success_timer, 0.0, time_to_succeed, 0.0, 6.0)
+	#print(_success_timer)
+
+	for i in range(success_indicators.size() - 1, -1, -1):
+		success_indicators[i].color.a = 1.0 if float(i + 1) <= value else 0.0
+
+func _button_state_changed(state: bool) -> void:
+	_button_held = state
+	#print(state)
 
 func _update_display(index: int) -> void:
 	if index >= fuse_items.size():
@@ -77,21 +112,16 @@ func _update_display(index: int) -> void:
 	#print("real set ", new_value)
 	#print(_on_count)
 
-	if _on_count == 6:
-		print("success!")
-		ShipStats.energy_amount += success_energy_amount
-		_randomize_values.call_deferred()
-
 
 func _randomize_values() -> void:
 	#print("randomizing")
 	_on_count = 0
 	for i in range(fuses.size()):
 		var new_val := randf_range(0.0, 100.0) < randomizer_fuse_state_chance
-		if new_val != fuses[i].state:
+		if new_val:
 			_on_count += 1
 			#print("set ", new_val)
 		fuses[i].state = new_val
 		fuse_items[i].state = new_val
 
-	print(_on_count)
+	#print(_on_count)

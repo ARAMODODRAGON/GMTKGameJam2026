@@ -2,6 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dtksdcnsc5nba" path="res://objects/buttons/interactable_breaker_switch.gd" id="1_0j0ew"]
 [ext_resource type="PackedScene" uid="uid://bv6cvego3n17k" path="res://objects/buttons/breaker_switch.tscn" id="2_mqtnq"]
+[ext_resource type="Shader" uid="uid://cqt326gasnvax" path="res://scripts/shaders/glow_shader.gdshader" id="3_mqtnq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ho8xv"]
+render_priority = 0
+shader = ExtResource("3_mqtnq")
+shader_parameter/glow_rate = 3.0
+shader_parameter/min_glow = 0.0
+shader_parameter/max_glow = 0.3
+
+[sub_resource type="BoxMesh" id="BoxMesh_0j0ew"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0j0ew"]
 size = Vector3(0.12, 0.24, 0.1)
@@ -14,8 +24,10 @@ metadata/_custom_type_script = "uid://b0gqbdatntww1"
 [node name="breaker_switch" parent="." unique_id=447602379 instance=ExtResource("2_mqtnq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="Skeleton3D" parent="breaker_switch/Armature" parent_id_path=PackedInt32Array(447602379, 45460903) index="0" unique_id=1218978786]
-bones/1/rotation = Quaternion(0.9262553, -1.647469e-08, -4.0487905e-08, 0.37689692)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="breaker_switch/Armature/Skeleton3D" parent_id_path=PackedInt32Array(447602379, 1218978786) index="1" unique_id=1394400461]
+transform = Transform3D(0.054, 0, 0, 0, 0.10875001, 0, 0, 0, 0.0074999975, 0, 0, -0.003)
+material_override = SubResource("ShaderMaterial_ho8xv")
+mesh = SubResource("BoxMesh_0j0ew")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1219909879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8626451e-09, 7.450581e-09, 0.01941406)

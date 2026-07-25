@@ -88,10 +88,10 @@ albedo_texture = SubResource("ViewportTexture_1uhie")
 emission_enabled = true
 emission_texture = SubResource("ViewportTexture_mugi3")
 
-[node name="FuseStatusDisplayTerminal" type="Node3D" unique_id=1953974550 node_paths=PackedStringArray("fuse_items", "button_clip")]
+[node name="FuseStatusDisplayTerminal" type="Node3D" unique_id=1953974550 node_paths=PackedStringArray("fuse_items", "success_indicators")]
 script = ExtResource("1_mugi3")
 fuse_items = [NodePath("SubViewport/Screen/Background/VBoxContainer/HBoxContainer/FuseDisplay"), NodePath("SubViewport/Screen/Background/VBoxContainer/HBoxContainer/FuseDisplay2"), NodePath("SubViewport/Screen/Background/VBoxContainer/HBoxContainer/FuseDisplay3"), NodePath("SubViewport/Screen/Background/VBoxContainer/HBoxContainer/FuseDisplay4"), NodePath("SubViewport/Screen/Background/VBoxContainer/HBoxContainer/FuseDisplay5"), NodePath("SubViewport/Screen/Background/VBoxContainer/HBoxContainer/FuseDisplay6")]
-button_clip = NodePath("SubViewport/Screen/Background/VBoxContainer/Margin/Control/Battery/Batterylevel/ButtonLevelClip")
+success_indicators = [NodePath("SubViewport/Screen/Background/VBoxContainer/Margin/HBoxContainer/SuccessIndicator0"), NodePath("SubViewport/Screen/Background/VBoxContainer/Margin/HBoxContainer/SuccessIndicator1"), NodePath("SubViewport/Screen/Background/VBoxContainer/Margin/HBoxContainer/SuccessIndicator2"), NodePath("SubViewport/Screen/Background/VBoxContainer/Margin/HBoxContainer/SuccessIndicator3"), NodePath("SubViewport/Screen/Background/VBoxContainer/Margin/HBoxContainer/SuccessIndicator4"), NodePath("SubViewport/Screen/Background/VBoxContainer/Margin/HBoxContainer/SuccessIndicator5")]
 
 [node name="Cube" type="MeshInstance3D" parent="." unique_id=156791562]
 mesh = SubResource("ArrayMesh_0g18r")

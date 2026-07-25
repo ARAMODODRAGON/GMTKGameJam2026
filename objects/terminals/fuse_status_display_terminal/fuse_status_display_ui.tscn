@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://bjf6pofy1pbl2"]
 
 [ext_resource type="PackedScene" uid="uid://ccpse87tt3md2" path="res://objects/terminals/fuse_status_display_terminal/fuse_item.tscn" id="1_i83g3"]
-[ext_resource type="Texture2D" uid="uid://btuitq2qpd1f6" path="res://objects/terminals/fuse_status_display_terminal/battery_display_texture.png" id="1_nqbkg"]
-[ext_resource type="Texture2D" uid="uid://dlxllpib6qpok" path="res://objects/terminals/fuse_status_display_terminal/battery_level_display_texture.png" id="2_gm80e"]
 
 [node name="Screen" type="ReferenceRect" unique_id=1153590130]
 custom_minimum_size = Vector2(320, 240)
@@ -31,54 +29,44 @@ grow_vertical = 2
 custom_minimum_size = Vector2(0, 112)
 layout_mode = 2
 theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="Control" type="Control" parent="Background/VBoxContainer/Margin" unique_id=1473367234]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer/Margin" unique_id=1788949932]
 layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
 
-[node name="Battery" type="TextureRect" parent="Background/VBoxContainer/Margin/Control" unique_id=1938143823]
-visible = false
-layout_mode = 0
-offset_right = 53.0
-offset_bottom = 112.0
-texture = ExtResource("1_nqbkg")
-stretch_mode = 5
-
-[node name="Batterylevel" type="VBoxContainer" parent="Background/VBoxContainer/Margin/Control/Battery" unique_id=1049204647]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 11.0
-offset_top = 36.0
-offset_right = -11.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 2
-
-[node name="ButtonLevelClip" type="Control" parent="Background/VBoxContainer/Margin/Control/Battery/Batterylevel" unique_id=700572163]
-clip_contents = true
-custom_minimum_size = Vector2(0, 44)
+[node name="SuccessIndicator0" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=485592314]
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
+color = Color(0.37274998, 0.71, 0.1775, 0)
 
-[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/Margin/Control/Battery/Batterylevel/ButtonLevelClip" unique_id=563242586]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -44.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("2_gm80e")
+[node name="SuccessIndicator1" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=1972251567]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(0.37274998, 0.71, 0.1775, 0)
 
-[node name="TextureRect" type="TextureRect" parent="Background/VBoxContainer/Margin/Control" unique_id=545473069]
-layout_mode = 0
-offset_left = 40.05812
-offset_top = 33.200138
-offset_right = 80.05812
-offset_bottom = 73.200134
+[node name="SuccessIndicator2" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=976219240]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(0.37274998, 0.71, 0.1775, 0)
+
+[node name="SuccessIndicator3" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=994213365]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(0.37274998, 0.71, 0.1775, 0)
+
+[node name="SuccessIndicator4" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=855066214]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(0.37274998, 0.71, 0.1775, 0)
+
+[node name="SuccessIndicator5" type="ColorRect" parent="Background/VBoxContainer/Margin/HBoxContainer" unique_id=781711193]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+color = Color(0.37274998, 0.71, 0.1775, 0)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Background/VBoxContainer" unique_id=1501480149]
 layout_mode = 2

@@ -3,12 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="1_etokd"]
 [ext_resource type="PackedScene" uid="uid://ctwkhl3yls86" path="res://objects/terminals/fuse_status_display_terminal/fuse_status_display_terminal.tscn" id="2_sh34q"]
 [ext_resource type="PackedScene" uid="uid://b41i5syd5gfe7" path="res://objects/buttons/interactable_breaker_switch.tscn" id="3_6mleh"]
+[ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_round_button.tscn" id="4_7ghoc"]
 
 [node name="FuseTaskTestMap" type="Node3D" unique_id=2129452457]
 
-[node name="FuseStatusDisplayTerminal" parent="." unique_id=1953974550 node_paths=PackedStringArray("fuses") instance=ExtResource("2_sh34q")]
+[node name="FuseStatusDisplayTerminal" parent="." unique_id=1953974550 node_paths=PackedStringArray("fuses", "success_button") instance=ExtResource("2_sh34q")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.4, 0.90000004, 1.7)
 fuses = [NodePath("../InteractableBreakerSwitch3"), NodePath("../InteractableBreakerSwitch5"), NodePath("../InteractableBreakerSwitch2"), NodePath("../InteractableBreakerSwitch6"), NodePath("../InteractableBreakerSwitch1"), NodePath("../InteractableBreakerSwitch4")]
+success_button = NodePath("../InteractableRoundButton")
 
 [node name="LevelBlockout" type="CSGCombiner3D" parent="." unique_id=575214815]
 use_collision = true
@@ -27,6 +29,11 @@ transform = Transform3D(-0.9659258, 0, 0.25881913, 0, 1, 0, -0.25881913, 0, -0.9
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=392436910]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.099999905, 2, -2.5)
+visible = false
+light_color = Color(0.79653347, 0.678786, 0.46144718, 1)
+light_energy = 2.194
+omni_range = 4.33
+omni_attenuation = 1.899
 
 [node name="InteractableBreakerSwitch1" parent="." unique_id=547640884 instance=ExtResource("3_6mleh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2, 0.8, -2.8)
@@ -73,3 +80,6 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.2,
 [node name="Label3D" type="Label3D" parent="InteractableBreakerSwitch6" unique_id=969466658]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0.099999905)
 text = "6"
+
+[node name="InteractableRoundButton" parent="." unique_id=2115933321 instance=ExtResource("4_7ghoc")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.7, 1, 1.46)
