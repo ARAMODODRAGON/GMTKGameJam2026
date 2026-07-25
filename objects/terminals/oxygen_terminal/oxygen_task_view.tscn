@@ -1,112 +1,181 @@
 [gd_scene format=3 uid="uid://btafxnhyu2oiu"]
 
-[ext_resource type="Texture2D" uid="uid://6kp64y8y47yc" path="res://objects/terminals/oxygen_terminal/Container.png" id="1_8fygp"]
 [ext_resource type="Script" uid="uid://b6nlyynwgl75r" path="res://objects/terminals/oxygen_terminal/oxygen_task.gd" id="1_73oae"]
-
-[sub_resource type="Gradient" id="Gradient_s0g6b"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.38113406, 0.61213297, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_hqytc"]
-gradient = SubResource("Gradient_s0g6b")
+[ext_resource type="Texture2D" uid="uid://buqyyeq0ysar5" path="res://objects/terminals/oxygen_terminal/oxygen_level_arrow_display.png" id="2_73oae"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0g6b"]
-size = Vector2(128.3785, 45.2381)
-
-[sub_resource type="Gradient" id="Gradient_n8qqy"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_38bbd"]
-gradient = SubResource("Gradient_n8qqy")
+size = Vector2(54.0541, 55.952393)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_73oae"]
-size = Vector2(128.3785, 11.90476)
+size = Vector2(54.0541, 4.761906)
 
-[sub_resource type="Gradient" id="Gradient_73oae"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 1, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_s0g6b"]
-gradient = SubResource("Gradient_73oae")
-
-[node name="OxygenTaskView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("red_bar", "green_zone", "_success_boxes")]
+[node name="OxygenTaskView" type="Control" unique_id=1846392335 node_paths=PackedStringArray("red_bar", "green_zone", "_success_boxes", "arrows")]
+custom_minimum_size = Vector2(320, 240)
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_73oae")
-red_bar = NodePath("Container/RedBar")
-green_zone = NodePath("Container/SafeZone")
+red_bar = NodePath("Background/Control/HBoxContainer/MarginContainer/HBoxContainer/RightSide/RedBar")
+green_zone = NodePath("Background/Control/HBoxContainer/MarginContainer/HBoxContainer/RightSide/SafeZone")
+_success_boxes = [NodePath("Background/Control/HBoxContainer/MarginContainer2/VBoxContainer/ColorRect"), NodePath("Background/Control/HBoxContainer/MarginContainer2/VBoxContainer/ColorRect2"), NodePath("Background/Control/HBoxContainer/MarginContainer2/VBoxContainer/ColorRect3")]
+arrows = [NodePath("Background/Control/HBoxContainer/MarginContainer/HBoxContainer/LeftSide/Arrow"), NodePath("Background/Control/HBoxContainer/MarginContainer/HBoxContainer/Control/Arrow")]
 move_speed = 150.0
 timer_initial = 0.5
 stat_success_amount = 50.0
-_upper_limits = -122.0
-_lower_limits = 122.0
-_success_boxes = [NodePath("Sucess Box"), NodePath("Sucess Box2"), NodePath("Sucess Box3")]
+_green_lower_limit = 153.0
+_red_lower_limit = 196.0
+green = Color(0.37254903, 0.70980394, 0.1764706, 1)
+red = Color(1, 0, 0, 1)
 
-[node name="Background" type="ColorRect" parent="." unique_id=1515351350]
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=629686406]
 custom_minimum_size = Vector2(320, 240)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 320.0
-offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1515351350]
+custom_minimum_size = Vector2(320, 240)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.083900005, 0.079, 0.1, 1)
 
-[node name="Container" type="Sprite2D" parent="." unique_id=1686386458]
-clip_children = 2
-position = Vector2(150.99998, 120)
-scale = Vector2(1.4799988, 0.84000003)
-texture = ExtResource("1_8fygp")
+[node name="Control" type="Control" parent="Background" unique_id=303634560]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="SafeZone" type="Area2D" parent="Container" unique_id=937682190]
-position = Vector2(1.0310002e-05, 105.95237)
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/Control" unique_id=1018530948]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Background/Control/HBoxContainer" unique_id=849431670]
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/Control/HBoxContainer/MarginContainer" unique_id=2129635982]
+layout_mode = 2
+theme_override_constants/separation = 1
+alignment = 1
+
+[node name="LeftSide" type="Control" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer" unique_id=692130704]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Arrow" type="TextureRect" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer/LeftSide" unique_id=324637575]
+modulate = Color(0.37254903, 0.70980394, 0.1764706, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = 166.0
+offset_right = 1.0
+offset_bottom = 190.0
+grow_horizontal = 2
+texture = ExtResource("2_73oae")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RightSide" type="ColorRect" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer" unique_id=427731657]
+clip_contents = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+color = Color(0.13569313, 0, 0.0047509596, 1)
+
+[node name="SafeZone" type="ColorRect" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer/RightSide" unique_id=1725772502]
+layout_mode = 0
+offset_top = 153.0
+offset_right = 80.0
+offset_bottom = 200.0
+color = Color(0.37254903, 0.70980394, 0.1764706, 1)
+
+[node name="SafeZone" type="Area2D" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer/RightSide/SafeZone" unique_id=937682190]
+scale = Vector2(1.4799988, 0.84000003)
 collision_layer = 16
 collision_mask = 16
 
-[node name="SafeZoneSprite" type="Sprite2D" parent="Container/SafeZone" unique_id=1533373217]
-scale = Vector2(1.0000001, 47.000004)
-texture = SubResource("GradientTexture1D_hqytc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/SafeZone" unique_id=958547984]
-scale = Vector2(0.9999999, 0.9999997)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer/RightSide/SafeZone/SafeZone" unique_id=958547984]
+position = Vector2(27.02705, 27.976181)
+scale = Vector2(0.9999999, 0.9999993)
 shape = SubResource("RectangleShape2D_s0g6b")
 
-[node name="RedBar" type="Area2D" parent="Container" unique_id=334005491]
-position = Vector2(1.031e-05, -117.85714)
+[node name="RedBar" type="ColorRect" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer/RightSide" unique_id=670289896]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 4.0
+color = Color(1, 0, 0, 1)
+
+[node name="RedBar" type="Area2D" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer/RightSide/RedBar" unique_id=334005491]
+scale = Vector2(1.4799988, 0.84000003)
 collision_layer = 16
 collision_mask = 16
 
-[node name="RedBarSprite" type="Sprite2D" parent="Container/RedBar" unique_id=1773551997]
-scale = Vector2(0.6756761, 11.666666)
-texture = SubResource("GradientTexture1D_38bbd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Container/RedBar" unique_id=1183486621]
-position = Vector2(0, -7.6293945e-06)
-scale = Vector2(0.9999999, 0.9999997)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer/RightSide/RedBar/RedBar" unique_id=1183486621]
+position = Vector2(27.027046, 2.380951)
+scale = Vector2(0.9999999, 0.99999934)
 shape = SubResource("RectangleShape2D_73oae")
 
-[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=629686406]
-custom_minimum_size = Vector2(320, 240)
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Control" type="Control" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer" unique_id=1216421877]
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Sucess Box" type="Sprite2D" parent="." unique_id=1138892994]
-visible = false
-position = Vector2(296, 14)
-scale = Vector2(-0.11999997, 16.919994)
-texture = SubResource("GradientTexture1D_s0g6b")
+[node name="Arrow" type="TextureRect" parent="Background/Control/HBoxContainer/MarginContainer/HBoxContainer/Control" unique_id=1287418391]
+modulate = Color(0.37254903, 0.70980394, 0.1764706, 1)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 1.0
+offset_top = 166.0
+offset_right = 1.0
+offset_bottom = 190.0
+grow_horizontal = 2
+texture = ExtResource("2_73oae")
+expand_mode = 4
+stretch_mode = 5
+flip_h = true
 
-[node name="Sucess Box2" type="Sprite2D" parent="." unique_id=599319559]
-visible = false
-position = Vector2(296.00003, 37)
-scale = Vector2(-0.11999997, 16.919994)
-texture = SubResource("GradientTexture1D_s0g6b")
+[node name="MarginContainer2" type="MarginContainer" parent="Background/Control/HBoxContainer" unique_id=896806838]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Sucess Box3" type="Sprite2D" parent="." unique_id=1567542999]
-visible = false
-position = Vector2(296.00003, 60)
-scale = Vector2(-0.11999997, 16.919994)
-texture = SubResource("GradientTexture1D_s0g6b")
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/Control/HBoxContainer/MarginContainer2" unique_id=208586281]
+layout_mode = 2
+theme_override_constants/separation = 20
 
-[connection signal="area_entered" from="Container/RedBar" to="." method="_on_red_bar_area_entered"]
-[connection signal="area_exited" from="Container/RedBar" to="." method="_on_red_bar_area_exited"]
+[node name="ColorRect" type="ColorRect" parent="Background/Control/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=2032342047]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.37274998, 0.71, 0.1775, 0)
+
+[node name="ColorRect2" type="ColorRect" parent="Background/Control/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=1008153580]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.37274998, 0.71, 0.1775, 0)
+
+[node name="ColorRect3" type="ColorRect" parent="Background/Control/HBoxContainer/MarginContainer2/VBoxContainer" unique_id=613463984]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.37274998, 0.71, 0.1775, 0)
+
+[connection signal="area_entered" from="Background/Control/HBoxContainer/MarginContainer/HBoxContainer/RightSide/RedBar/RedBar" to="." method="_on_red_bar_area_entered"]
+[connection signal="area_exited" from="Background/Control/HBoxContainer/MarginContainer/HBoxContainer/RightSide/RedBar/RedBar" to="." method="_on_red_bar_area_exited"]
