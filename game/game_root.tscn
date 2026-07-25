@@ -35,7 +35,6 @@ debug_display = NodePath("OutsideWorldUI/UI/MarginContainer/DebugDisplay")
 pause_screen = NodePath("OutsideWorldUI/UI/PauseScreen")
 game_layer = NodePath("GameLayer")
 screen_fade = NodePath("OutsideWorldUI/UI/ScreenFade")
-debug_shield_redux = 1.0
 
 [node name="GameLayer" type="CanvasLayer" parent="." unique_id=1216832409]
 
