@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c6hsu271tvy5s"]
+
+[ext_resource type="PackedScene" uid="uid://bbhu6701kuquw" path="res://objects/screens/4by3_crt.blend" id="1_yul8f"]
+[ext_resource type="PackedScene" uid="uid://4ij0qt2e0013" path="res://objects/terminals/shields_terminal/shields_task_view.tscn" id="2_12nta"]
+[ext_resource type="PackedScene" uid="uid://bya3nrm02dy7o" path="res://objects/buttons/interactable_triangle_button.tscn" id="2_p2kgb"]
+[ext_resource type="PackedScene" uid="uid://b41i5syd5gfe7" path="res://objects/buttons/interactable_breaker_switch.tscn" id="4_7va2e"]
+[ext_resource type="AudioStream" uid="uid://cwjw7exn16dmx" path="res://objects/terminals/shared/sounds/blip_select.mp3" id="5_iovc8"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_iovc8"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ed0kq"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syj30"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_iovc8")
+roughness = 0.12
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_ed0kq")
+
+[node name="ShieldsTerminal" unique_id=2010853883 instance=ExtResource("1_yul8f")]
+
+[node name="Cube" parent="." index="0" unique_id=867779040]
+surface_material_override/0 = SubResource("StandardMaterial3D_syj30")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1" unique_id=1333560045]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.20000005)
+light_energy = 0.1
+spot_angle = 90.0
+
+[node name="SubViewport" type="SubViewport" parent="." index="2" unique_id=578667375]
+disable_3d = true
+size = Vector2i(320, 240)
+
+[node name="ShieldsTaskView" parent="SubViewport" index="0" unique_id=1330622129 node_paths=PackedStringArray("buttons", "lockout_switch", "sfx_player") instance=ExtResource("2_12nta")]
+buttons = [NodePath("../../InteractableTriangleButton"), NodePath("../../InteractableTriangleButton2"), NodePath("../../InteractableTriangleButton3")]
+lockout_switch = NodePath("../../InteractableBreakerSwitch")
+sfx_player = NodePath("../../AudioStreamPlayer3D")
+shield_battery_drain_rate = 3.5
+shield_battery_refill_rate = 25.0
+
+[node name="InteractableTriangleButton" parent="." index="3" unique_id=2115933321 instance=ExtResource("2_p2kgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.99180317, -0.95852274, 0.9787911)
+
+[node name="InteractableTriangleButton2" parent="." index="4" unique_id=1615200884 instance=ExtResource("2_p2kgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.026273012, -0.95852274, 0.9787911)
+
+[node name="InteractableTriangleButton3" parent="." index="5" unique_id=802853854 instance=ExtResource("2_p2kgb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0115073, -0.95852274, 0.9787911)
+
+[node name="InteractableBreakerSwitch" parent="." index="6" unique_id=547640884 instance=ExtResource("4_7va2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6808493, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="7" unique_id=209452868]
+stream = ExtResource("5_iovc8")
+volume_db = -15.0

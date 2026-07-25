@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://4ij0qt2e0013"]
+
+[ext_resource type="Script" uid="uid://8awcedhujtio" path="res://objects/terminals/shields_terminal/shields_task.gd" id="1_iry80"]
+[ext_resource type="Texture2D" uid="uid://jyayb5je77kj" path="res://objects/terminals/shields_terminal/textures/shield_battery_clip.png" id="2_25nqg"]
+[ext_resource type="Texture2D" uid="uid://djpy4jvnucsgk" path="res://objects/terminals/shields_terminal/textures/shield_battery.png" id="2_iry80"]
+[ext_resource type="Texture2D" uid="uid://bj8ybkexrtefj" path="res://objects/terminals/shields_terminal/textures/shield_charged_incorrect.png" id="4_i64y4"]
+[ext_resource type="Texture2D" uid="uid://d24kw81et7tk1" path="res://objects/terminals/shields_terminal/textures/shield_charged_meh.png" id="5_5w8x5"]
+[ext_resource type="Texture2D" uid="uid://bh6faa6utonuv" path="res://objects/terminals/shields_terminal/textures/shield_charged_correct.png" id="6_a1qk7"]
+[ext_resource type="Texture2D" uid="uid://c8rnho51v68ph" path="res://objects/terminals/shields_terminal/textures/padlock_closed.png" id="7_a1qk7"]
+[ext_resource type="Texture2D" uid="uid://c6hi88fb2o7sl" path="res://objects/terminals/shields_terminal/textures/padlock_open.png" id="8_q6lm3"]
+[ext_resource type="Texture2D" uid="uid://dxuqdqvhkkawb" path="res://objects/terminals/shields_terminal/textures/locked_banner.png" id="9_q6lm3"]
+
+[sub_resource type="Gradient" id="Gradient_25nqg"]
+colors = PackedColorArray(0.65167266, 0.7670325, 1, 1, 0.3953498, 0.9822481, 0.9744517, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iry80"]
+gradient = SubResource("Gradient_25nqg")
+fill_from = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6lm3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_i64y4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5w8x5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a1qk7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pketl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_a1qk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q6lm3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ShieldsTaskView" type="Node2D" unique_id=1330622129 node_paths=PackedStringArray("_shield_batteries", "_shield_faces", "_padlock_icon", "_locked_banner")]
+script = ExtResource("1_iry80")
+stat_success_amount = 30.0
+stat_failure_amount = 20.0
+_shield_batteries = [NodePath("ShieldBatteryEnsemble/ShieldBatteryClip/BatteryFill"), NodePath("ShieldBatteryEnsemble2/ShieldBatteryClip/BatteryFill"), NodePath("ShieldBatteryEnsemble3/ShieldBatteryClip/BatteryFill")]
+_shield_faces = [NodePath("ShieldFace"), NodePath("ShieldFace2"), NodePath("ShieldFace3")]
+_padlock_icon = NodePath("PadlockIcon")
+_locked_banner = NodePath("LockedBanner")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=482048772]
+custom_minimum_size = Vector2(320, 240)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=1881041686]
+custom_minimum_size = Vector2(320, 240)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.083900005, 0.079, 0.1, 1)
+
+[node name="ShieldBatteryEnsemble" type="Node2D" parent="." unique_id=752877752]
+position = Vector2(40, 176)
+scale = Vector2(0.31249997, 1.40625)
+
+[node name="ShieldBatteryClip" type="Sprite2D" parent="ShieldBatteryEnsemble" unique_id=1532506643]
+clip_children = 1
+position = Vector2(0, -6.4000015)
+scale = Vector2(6.4, 1.4222221)
+texture = ExtResource("2_25nqg")
+
+[node name="BatteryFill" type="Sprite2D" parent="ShieldBatteryEnsemble/ShieldBatteryClip" unique_id=447780284]
+position = Vector2(0, 4.5)
+scale = Vector2(0.15624999, 0.703125)
+texture = SubResource("GradientTexture2D_iry80")
+
+[node name="ShieldBattery" type="Sprite2D" parent="ShieldBatteryEnsemble" unique_id=821929898]
+position = Vector2(0, -6.4000015)
+scale = Vector2(6.4, 1.4222221)
+texture = ExtResource("2_iry80")
+
+[node name="ShieldBatteryEnsemble2" type="Node2D" parent="." unique_id=823856792]
+position = Vector2(112.00001, 176)
+scale = Vector2(0.31249997, 1.40625)
+
+[node name="ShieldBatteryClip" type="Sprite2D" parent="ShieldBatteryEnsemble2" unique_id=1278735025]
+clip_children = 1
+position = Vector2(0, -6.4000015)
+scale = Vector2(6.4, 1.4222221)
+texture = ExtResource("2_25nqg")
+
+[node name="BatteryFill" type="Sprite2D" parent="ShieldBatteryEnsemble2/ShieldBatteryClip" unique_id=1523797721]
+position = Vector2(0, 4.5)
+scale = Vector2(0.15624999, 0.703125)
+texture = SubResource("GradientTexture2D_iry80")
+
+[node name="ShieldBattery" type="Sprite2D" parent="ShieldBatteryEnsemble2" unique_id=1052534310]
+position = Vector2(0, -6.4000015)
+scale = Vector2(6.4, 1.4222221)
+texture = ExtResource("2_iry80")
+
+[node name="ShieldBatteryEnsemble3" type="Node2D" parent="." unique_id=1608764458]
+position = Vector2(184, 176.00002)
+scale = Vector2(0.31249997, 1.40625)
+
+[node name="ShieldBatteryClip" type="Sprite2D" parent="ShieldBatteryEnsemble3" unique_id=1328390852]
+clip_children = 1
+position = Vector2(0, -6.4000015)
+scale = Vector2(6.4, 1.4222221)
+texture = ExtResource("2_25nqg")
+
+[node name="BatteryFill" type="Sprite2D" parent="ShieldBatteryEnsemble3/ShieldBatteryClip" unique_id=1816527072]
+position = Vector2(0, 4.5)
+scale = Vector2(0.15624999, 0.703125)
+texture = SubResource("GradientTexture2D_iry80")
+
+[node name="ShieldBattery" type="Sprite2D" parent="ShieldBatteryEnsemble3" unique_id=756772720]
+position = Vector2(0, -6.4000015)
+scale = Vector2(6.4, 1.4222221)
+texture = ExtResource("2_iry80")
+
+[node name="ShieldFace" type="AnimatedSprite2D" parent="." unique_id=283077414]
+position = Vector2(40, 55)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_q6lm3")
+speed_scale = 0.0
+
+[node name="ShieldFace2" type="AnimatedSprite2D" parent="." unique_id=1207986293]
+position = Vector2(112, 55)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_q6lm3")
+speed_scale = 0.0
+
+[node name="ShieldFace3" type="AnimatedSprite2D" parent="." unique_id=575645858]
+position = Vector2(184, 55)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_q6lm3")
+speed_scale = 0.0
+
+[node name="PadlockIcon" type="AnimatedSprite2D" parent="." unique_id=110956079]
+position = Vector2(270, 117)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pketl")
+speed_scale = 0.0
+
+[node name="LockedBanner" type="Sprite2D" parent="." unique_id=129727658]
+position = Vector2(112, 175)
+scale = Vector2(3, 3)
+texture = ExtResource("9_q6lm3")
