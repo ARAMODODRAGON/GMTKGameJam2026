@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bv2gh0fxa2knv"]
+
+[ext_resource type="PackedScene" uid="uid://bbhu6701kuquw" path="res://objects/screens/4by3_crt.blend" id="1_vvqyn"]
+[ext_resource type="PackedScene" uid="uid://drjbrys3v6612" path="res://objects/terminals/light_terminal/light_task_view.tscn" id="2_lwebi"]
+[ext_resource type="PackedScene" uid="uid://b41i5syd5gfe7" path="res://objects/buttons/interactable_breaker_switch.tscn" id="2_wdr0d"]
+[ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_round_button.tscn" id="3_b000g"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vv3f8"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_fx3mf"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ls24"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_vv3f8")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_fx3mf")
+
+[node name="LightTerminal" unique_id=1564582219 instance=ExtResource("1_vvqyn")]
+
+[node name="Cube" parent="." index="0" unique_id=1599189902]
+surface_material_override/0 = SubResource("StandardMaterial3D_0ls24")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Cube" index="0" unique_id=2040171212]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.20000005)
+light_energy = 0.1
+spot_angle = 90.0
+
+[node name="SubViewport" type="SubViewport" parent="." index="1" unique_id=482558649]
+disable_3d = true
+size = Vector2i(320, 240)
+
+[node name="LightTaskView" parent="SubViewport" index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_switch", "oxygen_switch", "shield_switch", "energy_switch", "main_breaker", "auxiliary_breaker") instance=ExtResource("2_lwebi")]
+nav_switch = NodePath("../../NavSwitch")
+oxygen_switch = NodePath("../../O2Switch")
+shield_switch = NodePath("../../ShieldSwitch")
+energy_switch = NodePath("../../EnergySwitch")
+main_breaker = NodePath("../../MainBreaker")
+auxiliary_breaker = NodePath("../../AuxiliaryBreaker")
+
+[node name="NavSwitch" parent="." index="2" unique_id=547640884 instance=ExtResource("2_wdr0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7232113, -0.48641095, 0.23712927)
+
+[node name="O2Switch" parent="." index="3" unique_id=1191667856 instance=ExtResource("2_wdr0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23963356, -0.48641095, 0.23712927)
+
+[node name="EnergySwitch" parent="." index="4" unique_id=2073703464 instance=ExtResource("2_wdr0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25490025, -0.48641095, 0.23712927)
+
+[node name="ShieldSwitch" parent="." index="5" unique_id=2116648874 instance=ExtResource("2_wdr0d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7073388, -0.48641095, 0.23712927)
+
+[node name="MainBreaker" parent="." index="6" unique_id=2115933321 instance=ExtResource("3_b000g")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.0955633, 0, 0.23553073)
+
+[node name="AuxiliaryBreaker" parent="." index="7" unique_id=545657359 instance=ExtResource("3_b000g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23483798, 0, 1.4293798)
+visible = false

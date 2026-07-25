@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://drjbrys3v6612"]
+
+[ext_resource type="Script" uid="uid://dgoymmpp5ebmw" path="res://objects/terminals/light_terminal/light_task_view.gd" id="1_vufoi"]
+[ext_resource type="Texture2D" uid="uid://e1hhohumdaji" path="res://objects/gauges/shield_symbol.png" id="2_vufoi"]
+[ext_resource type="Texture2D" uid="uid://b8xgli425pwt" path="res://objects/gauges/oxygen_symbol.png" id="3_e178k"]
+[ext_resource type="Texture2D" uid="uid://xnsp88xup6fg" path="res://objects/gauges/electrical_symbol.png" id="4_fv57n"]
+[ext_resource type="Texture2D" uid="uid://1qe23y3ke7i2" path="res://objects/gauges/nav_symbol.png" id="5_bb8wh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy28c"]
+atlas = ExtResource("2_vufoi")
+region = Rect2(30, 29, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jefgf"]
+atlas = ExtResource("3_e178k")
+region = Rect2(30, 29, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1frfa"]
+atlas = ExtResource("4_fv57n")
+region = Rect2(30, 29, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ictx"]
+atlas = ExtResource("5_bb8wh")
+region = Rect2(30, 29, 36, 36)
+
+[node name="LightTaskView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("nav_rect", "shield_rect", "oxygen_rect", "energy_rect")]
+script = ExtResource("1_vufoi")
+nav_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer4/NavRect")
+shield_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer/ShieldRect")
+oxygen_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer2/OxygenRect")
+energy_rect = NodePath("ReferenceRect/HBoxContainer/VBoxContainer3/EnergyRect")
+on_colour = Color(0, 1, 0, 1)
+selected_colour = Color(1, 1, 0, 1)
+off_colour = Color(1, 0, 0, 1)
+button_hold_timer = 2.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=1795928623]
+custom_minimum_size = Vector2(320, 240)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.083900005, 0.079, 0.1, 1)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=629686406]
+custom_minimum_size = Vector2(320, 240)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ReferenceRect" unique_id=419592127]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ReferenceRect/HBoxContainer" unique_id=625483781]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ReferenceRect/HBoxContainer/VBoxContainer" unique_id=2098951902]
+layout_mode = 2
+texture = SubResource("AtlasTexture_iy28c")
+stretch_mode = 5
+
+[node name="ShieldRect" type="ColorRect" parent="ReferenceRect/HBoxContainer/VBoxContainer" unique_id=475446285]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ReferenceRect/HBoxContainer" unique_id=1847813201]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="ReferenceRect/HBoxContainer/VBoxContainer2" unique_id=591207653]
+layout_mode = 2
+texture = SubResource("AtlasTexture_jefgf")
+stretch_mode = 5
+
+[node name="OxygenRect" type="ColorRect" parent="ReferenceRect/HBoxContainer/VBoxContainer2" unique_id=2008294437]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ReferenceRect/HBoxContainer" unique_id=53273989]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="ReferenceRect/HBoxContainer/VBoxContainer3" unique_id=1003105069]
+layout_mode = 2
+texture = SubResource("AtlasTexture_1frfa")
+stretch_mode = 5
+
+[node name="EnergyRect" type="ColorRect" parent="ReferenceRect/HBoxContainer/VBoxContainer3" unique_id=1491441116]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="ReferenceRect/HBoxContainer" unique_id=1090261293]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="TextureRect4" type="TextureRect" parent="ReferenceRect/HBoxContainer/VBoxContainer4" unique_id=1043870103]
+layout_mode = 2
+texture = SubResource("AtlasTexture_4ictx")
+stretch_mode = 5
+
+[node name="NavRect" type="ColorRect" parent="ReferenceRect/HBoxContainer/VBoxContainer4" unique_id=1350753767]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 0, 0, 1)
