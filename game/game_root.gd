@@ -98,6 +98,7 @@ func _unhandled_input(event: InputEvent) -> void:
 ## Private Methods
 
 func _on_game_win() -> void:
+	game_layer.process_mode = Node.PROCESS_MODE_DISABLED
 	screen_fade.color.a = 0.0
 
 	var tween := create_tween()
@@ -110,6 +111,7 @@ func _on_game_win() -> void:
 
 
 func _on_game_lose() -> void:
+	game_layer.process_mode = Node.PROCESS_MODE_DISABLED
 	screen_fade.color.a = 0.0
 
 	var tween := create_tween()

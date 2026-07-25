@@ -7,11 +7,12 @@
 shader = ExtResource("1_q6qqd")
 shader_parameter/warp_amount = 5.0
 
-[node name="LoseScreen" type="Node" unique_id=517787205 node_paths=PackedStringArray("fade_in_rect", "focus_item", "debug_display")]
+[node name="LoseScreen" type="Node" unique_id=517787205 node_paths=PackedStringArray("fade_in_rect", "focus_item", "death_description", "debug_display")]
 script = ExtResource("1_ssoma")
 fade_in_rect = NodePath("UILayer/FadeIn")
 focus_item = NodePath("UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect/Button")
-debug_display = NodePath("ScreenEffect/MarginContainer/DebugDisplay")
+death_description = NodePath("UILayer/Background/CenterContainer/VBoxContainer/SmallText")
+debug_display = NodePath("ScreenEffect/Control/MarginContainer/DebugDisplay")
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=380821810]
 
@@ -84,8 +85,8 @@ color = Color(0, 0, 0, 0)
 
 [node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=1154508416]
 
-[node name="CRTEffect" type="ColorRect" parent="ScreenEffect" unique_id=1138580800]
-material = SubResource("ShaderMaterial_ssoma")
+[node name="Control" type="Control" parent="ScreenEffect" unique_id=709638992]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -94,7 +95,19 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_behavior_recursive = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="ScreenEffect" unique_id=953831807]
+[node name="CRTEffect" type="ColorRect" parent="ScreenEffect/Control" unique_id=1138580800]
+material = SubResource("ShaderMaterial_ssoma")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenEffect/Control" unique_id=953831807]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -105,7 +118,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="DebugDisplay" type="RichTextLabel" parent="ScreenEffect/MarginContainer" unique_id=1976688253]
+[node name="DebugDisplay" type="RichTextLabel" parent="ScreenEffect/Control/MarginContainer" unique_id=1976688253]
 visible = false
 layout_mode = 2
 mouse_filter = 1

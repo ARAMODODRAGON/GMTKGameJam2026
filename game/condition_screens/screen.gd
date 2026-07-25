@@ -2,6 +2,7 @@ extends Node
 
 @export var fade_in_rect: ColorRect
 @export var focus_item: Control
+@export var death_description: RichTextLabel
 
 @export var debug_display: RichTextLabel
 
@@ -24,6 +25,28 @@ func _ready() -> void:
 
 	focus_item.grab_focus.call_deferred()
 
+	if death_description:
+		_updated_death_description()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	var keyevent := event as InputEventKey
+	if keyevent and keyevent.keycode == KEY_F7 and keyevent.pressed:
+		debug_display.visible = not debug_display.visible
+
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file(&"uid://b305heht0etyb")
+
+func _updated_death_description() -> void:
+	if is_equal_approx(ShipStats.shield_amount, 0.0):
+		death_description.text = "The ship was hit by an asteroid"
+
+	elif is_equal_approx(ShipStats.oxygen_amount, 0.0):
+		death_description.text = "Died of hypoxia"
+
+	elif is_equal_approx(ShipStats.energy_amount, 0.0):
+		death_description.text = "You were plunged into darkness"
+
+	elif is_equal_approx(ShipStats.alignment_amount, 0.0):
+		death_description.text = "The ship veered right into a black hole"
