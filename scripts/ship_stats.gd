@@ -35,10 +35,10 @@ var game_timer: float:
 
 ## Should the game timer be counting down?
 ## Use this to pause / play
-var count_down: bool = false
+var pause_timer: bool = true
 
 ## Also stops the timer but tells you when the games over
-var game_ended: bool = false
+var game_ended: bool = true
 
 
 ## Modify these and not the initial amount
@@ -49,7 +49,7 @@ var shield_amount: float = 0.0:
 
 		## lose condition
 		if is_equal_approx(shield_amount, 0.0):
-			game_ended = false
+			game_ended = true
 			on_lose.emit()
 
 var oxygen_amount: float = 0.0:
@@ -58,8 +58,8 @@ var oxygen_amount: float = 0.0:
 		on_oxygen_amount_changed.emit(oxygen_amount)
 
 		## lose condition
-		if is_equal_approx(shield_amount, 0.0):
-			game_ended = false
+		if is_equal_approx(oxygen_amount, 0.0):
+			game_ended = true
 			on_lose.emit()
 
 var energy_amount: float = 0.0:
@@ -68,8 +68,8 @@ var energy_amount: float = 0.0:
 		on_energy_amount_changed.emit(energy_amount)
 
 		## lose condition
-		if is_equal_approx(shield_amount, 0.0):
-			game_ended = false
+		if is_equal_approx(energy_amount, 0.0):
+			game_ended = true
 			on_lose.emit()
 
 var alignment_amount: float = 0.0:
@@ -78,8 +78,8 @@ var alignment_amount: float = 0.0:
 		on_alignment_amount_changed.emit(alignment_amount)
 
 		## lose condition
-		if is_equal_approx(shield_amount, 0.0):
-			game_ended = false
+		if is_equal_approx(alignment_amount, 0.0):
+			game_ended = true
 			on_lose.emit()
 
 
@@ -92,7 +92,7 @@ func start_new_game(new_timer: float = -1.0) -> void:
 		game_timer = new_timer
 
 	game_ended = false
-	count_down = true
+	pause_timer = false
 
 
 ## Private Methods
@@ -110,5 +110,5 @@ func _setup_initial_values() -> void:
 
 
 func _process(delta: float) -> void:
-	if count_down and not game_ended:
+	if not pause_timer and not game_ended:
 		game_timer -= delta

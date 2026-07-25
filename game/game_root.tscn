@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://dectrirnwri80" path="res://game/game_root.gd" id="1_d8wum"]
 [ext_resource type="Shader" uid="uid://lp7iex54587y" path="res://game/blur_effect_shader.gdshader" id="1_hup1c"]
 [ext_resource type="Shader" uid="uid://bn8x131ttqbpr" path="res://game/pointer_shader.gdshader" id="2_5sefw"]
+[ext_resource type="PackedScene" uid="uid://cafko6h8pse7a" path="res://game/condition_screens/win_screen.tscn" id="2_g5d3f"]
 [ext_resource type="Script" uid="uid://dnr5t465snnl6" path="res://game/blur_effect.gd" id="3_2suya"]
+[ext_resource type="PackedScene" uid="uid://dtqt70yqks8p4" path="res://game/condition_screens/lose_screen.tscn" id="3_i6pox"]
 [ext_resource type="Script" uid="uid://dd0ndd3oawlep" path="res://game/reticle_texture.gd" id="3_lh3ym"]
 [ext_resource type="Texture2D" uid="uid://4b0wm87slhrq" path="res://game/reticle_interactable.png" id="4_bwd2a"]
 [ext_resource type="Texture2D" uid="uid://0sqv4t6nmxro" path="res://game/reticle.png" id="4_h7acg"]
@@ -24,17 +26,21 @@ fractal_lacunarity = 2.895
 fractal_gain = 5.48
 fractal_weighted_strength = 1.0
 
-[node name="GameRoot" type="Node" unique_id=540067338 node_paths=PackedStringArray("debug_display")]
+[node name="GameRoot" type="Node" unique_id=540067338 node_paths=PackedStringArray("debug_display", "pause_screen", "game_layer")]
 script = ExtResource("1_d8wum")
-debug_display = NodePath("CanvasLayer/Control/MarginContainer/DebugDisplay")
+win_scene = ExtResource("2_g5d3f")
+lose_scene = ExtResource("3_i6pox")
+debug_display = NodePath("OutsideWorldUI/UI/MarginContainer/DebugDisplay")
+pause_screen = NodePath("OutsideWorldUI/UI/PauseScreen")
+game_layer = NodePath("GameLayer")
 
 [node name="GameLayer" type="CanvasLayer" parent="." unique_id=1216832409]
 
 [node name="TestMapA" parent="GameLayer" unique_id=15633260 instance=ExtResource("1_clt6a")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1188786871]
+[node name="InsideWorldUI" type="CanvasLayer" parent="." unique_id=1188786871]
 
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=219922716]
+[node name="UI" type="Control" parent="InsideWorldUI" unique_id=219922716]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,7 +50,7 @@ grow_vertical = 2
 mouse_filter = 2
 mouse_behavior_recursive = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control" unique_id=750237928]
+[node name="CenterContainer" type="CenterContainer" parent="InsideWorldUI/UI" unique_id=750237928]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -52,7 +58,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ReticleTexture" type="TextureRect" parent="CanvasLayer/Control/CenterContainer" unique_id=1497501116]
+[node name="ReticleTexture" type="TextureRect" parent="InsideWorldUI/UI/CenterContainer" unique_id=1497501116]
 texture_filter = 1
 material = SubResource("ShaderMaterial_d8wum")
 custom_minimum_size = Vector2(30, 30)
@@ -62,7 +68,64 @@ script = ExtResource("3_lh3ym")
 normal_reticle = ExtResource("4_h7acg")
 interact_reticle = ExtResource("4_bwd2a")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control" unique_id=1143845471]
+[node name="ScreenEffectsLayer" type="CanvasLayer" parent="." unique_id=1840538123]
+
+[node name="Effects" type="Control" parent="ScreenEffectsLayer" unique_id=1915023846]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlurEffect" type="ColorRect" parent="ScreenEffectsLayer/Effects" unique_id=731158398]
+material = SubResource("ShaderMaterial_clt6a")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_2suya")
+blur_noise = SubResource("FastNoiseLite_h7acg")
+
+[node name="OutsideWorldUI" type="CanvasLayer" parent="." unique_id=652346581]
+
+[node name="UI" type="Control" parent="OutsideWorldUI" unique_id=983855835]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="PauseScreen" type="ColorRect" parent="OutsideWorldUI/UI" unique_id=1577436361]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6901961)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OutsideWorldUI/UI/PauseScreen" unique_id=1612795975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 70
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="OutsideWorldUI/UI" unique_id=1143845471]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,31 +137,8 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="DebugDisplay" type="RichTextLabel" parent="CanvasLayer/Control/MarginContainer" unique_id=1526536451]
+[node name="DebugDisplay" type="RichTextLabel" parent="OutsideWorldUI/UI/MarginContainer" unique_id=1526536451]
 visible = false
 layout_mode = 2
 mouse_filter = 1
 text = "time:"
-
-[node name="ScreenEffectsLayer" type="CanvasLayer" parent="." unique_id=1840538123]
-
-[node name="Control" type="Control" parent="ScreenEffectsLayer" unique_id=1915023846]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="BlurEffect" type="ColorRect" parent="ScreenEffectsLayer/Control" unique_id=731158398]
-material = SubResource("ShaderMaterial_clt6a")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("3_2suya")
-blur_noise = SubResource("FastNoiseLite_h7acg")

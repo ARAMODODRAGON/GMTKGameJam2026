@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cafko6h8pse7a"]
+
+[node name="WinScreen" type="Control" unique_id=683243695]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=795957104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.083900005, 0.079, 0.1, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Background" unique_id=1138799568]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/CenterContainer" unique_id=367543554]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 72
+text = "YOU WIN!"
+horizontal_alignment = 1
+vertical_alignment = 1

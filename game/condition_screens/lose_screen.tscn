@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dtqt70yqks8p4"]
+
+[node name="LoseScreen" type="Control" unique_id=1985747954]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1522267270]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.083900005, 0.079, 0.1, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Background" unique_id=1660604175]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Background/CenterContainer" unique_id=538791268]
+custom_minimum_size = Vector2(500, 200)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 72
+text = "YOU LOSE!"
+horizontal_alignment = 1
+vertical_alignment = 1
