@@ -10,10 +10,11 @@
 [ext_resource type="Script" uid="uid://dd0ndd3oawlep" path="res://game/reticle_texture.gd" id="3_lh3ym"]
 [ext_resource type="Texture2D" uid="uid://4b0wm87slhrq" path="res://game/reticle_interactable.png" id="4_bwd2a"]
 [ext_resource type="Texture2D" uid="uid://0sqv4t6nmxro" path="res://game/reticle.png" id="4_h7acg"]
+[ext_resource type="Script" uid="uid://cnyd7r1prpgi1" path="res://game/asteroid_handler.gd" id="5_i6pox"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d8wum"]
 shader = ExtResource("2_5sefw")
-shader_parameter/cutoff = 1.0
+shader_parameter/cutoff = 0.2270000107825
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_clt6a"]
 shader = ExtResource("1_hup1c")
@@ -28,17 +29,20 @@ fractal_weighted_strength = 1.0
 
 [node name="GameRoot" type="Node" unique_id=540067338 node_paths=PackedStringArray("debug_display", "pause_screen", "game_layer", "screen_fade")]
 script = ExtResource("1_d8wum")
-game_length = 5.0
 win_scene = ExtResource("2_g5d3f")
 lose_scene = ExtResource("3_i6pox")
 debug_display = NodePath("OutsideWorldUI/UI/MarginContainer/DebugDisplay")
 pause_screen = NodePath("OutsideWorldUI/UI/PauseScreen")
 game_layer = NodePath("GameLayer")
 screen_fade = NodePath("OutsideWorldUI/UI/ScreenFade")
+debug_shield_redux = 1.0
 
 [node name="GameLayer" type="CanvasLayer" parent="." unique_id=1216832409]
 
 [node name="TestMapA" parent="GameLayer" unique_id=15633260 instance=ExtResource("1_clt6a")]
+
+[node name="AsteroidHandler" type="Node" parent="GameLayer" unique_id=721860510]
+script = ExtResource("5_i6pox")
 
 [node name="InsideWorldUI" type="CanvasLayer" parent="." unique_id=1188786871]
 

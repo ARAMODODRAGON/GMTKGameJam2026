@@ -9,11 +9,20 @@ extends Node
 @export var win_scene: PackedScene
 @export var lose_scene: PackedScene
 
+@export_group("Stat Overrides")
+@export var shield_stat_override: float = -1.0
+@export var oxygen_stat_override: float = -1.0
+@export var energy_stat_override: float = -1.0
+@export var alignment_stat_override: float = -1.0
+
 @export_group("References")
 @export var debug_display: RichTextLabel
 @export var pause_screen: Control
 @export var game_layer: Node
 @export var screen_fade: ColorRect
+@export_group("")
+
+@export var debug_shield_redux: float = -1.0
 
 
 var game_paused: bool = false:
@@ -38,19 +47,40 @@ func _ready() -> void:
 	ShipStats.on_win.connect(_on_game_win)
 	ShipStats.start_new_game(game_length)
 
+	## Override stats
+
+	if shield_stat_override > 0.0:
+		ShipStats.shield_amount = shield_stat_override
+
+	if oxygen_stat_override > 0.0:
+		ShipStats.oxygen_amount = oxygen_stat_override
+
+	if energy_stat_override > 0.0:
+		ShipStats.energy_amount = energy_stat_override
+
+	if alignment_stat_override > 0.0:
+		ShipStats.alignment_amount = alignment_stat_override
+
+	## fade in
 	screen_fade.color.a = 1.0
 
 	var tween := create_tween()
 	tween.tween_property(screen_fade, "color:a", 0.0, transition_in_fade_time)
 
-	await tween.finished
+	#await tween.finished
 
 
 func _process(delta: float) -> void:
 
+	## handle pause
 	if Input.is_action_just_pressed(&"Pause"):
 		game_paused = not game_paused
 
+
+	## debug stuff
+
+	if debug_shield_redux > 0.0:
+		ShipStats.shield_amount -= delta * debug_shield_redux
 
 	if not debug_display.visible:
 		return
@@ -65,6 +95,7 @@ func _process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	## debug
 	var keyevent := event as InputEventKey
 	if keyevent and keyevent.keycode == KEY_F7 and keyevent.pressed and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		debug_display.visible = !debug_display.visible
@@ -80,6 +111,7 @@ func _on_game_win() -> void:
 	await tween.finished
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().change_scene_to_packed(win_scene)
+
 
 func _on_game_lose() -> void:
 	var tween := create_tween()
