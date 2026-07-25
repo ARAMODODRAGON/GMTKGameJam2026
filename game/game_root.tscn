@@ -31,6 +31,7 @@ fractal_weighted_strength = 1.0
 script = ExtResource("1_d8wum")
 win_scene = ExtResource("2_g5d3f")
 lose_scene = ExtResource("3_i6pox")
+shield_stat_override = 10.0
 debug_display = NodePath("OutsideWorldUI/UI/MarginContainer/DebugDisplay")
 pause_screen = NodePath("OutsideWorldUI/UI/PauseScreen")
 game_layer = NodePath("GameLayer")
@@ -42,6 +43,7 @@ screen_fade = NodePath("OutsideWorldUI/UI/ScreenFade")
 
 [node name="AsteroidHandler" type="Node" parent="GameLayer" unique_id=721860510]
 script = ExtResource("5_i6pox")
+frequency_redux_at_low_shield = 0.25
 big_asteroid_chance = 20.0
 min_required_oxygen = 40.0
 min_required_shield = 40.0
