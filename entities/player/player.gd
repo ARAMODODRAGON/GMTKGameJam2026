@@ -7,11 +7,18 @@ extends CharacterBody3D
 @export var move_speed: float = 10.0
 @export var acceleration: float = 5.0
 
+@export_group("Sprint")
+@export var sprint_speed: float = 7.0
+@export var sprint_time: float = 5.0
+@export var sprint_delay: float = 3.0
+
 @export_group("Camera")
 @export_range(0.0, 10.0) var mouse_sensitivity: float = 1.0
 @export_range(0.0, 10.0) var controller_sensitivity: float = 1.0
 @export var min_camera_pitch: float = -90.0
 @export var max_camera_pitch: float = 90.0
+@onready var normal_camera_fov: float = camera.fov
+@export var sprinting_camera_fov: float = 65.0
 
 
 ## Private Variables
@@ -20,6 +27,18 @@ var _mouse_captured: bool:
 	get:
 		return Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 var _interactable: BaseInteractable = null
+var _is_sprinting: bool = false:
+	set(value):
+		if _is_sprinting != value:
+			_is_sprinting = value
+			var tween := camera.create_tween()
+			if value:
+				tween.tween_property(camera, "fov", sprinting_camera_fov, 0.1)
+			else:
+				tween.tween_property(camera, "fov", normal_camera_fov, 0.1)
+
+var _sprint_timer: float = 0.0
+var _sprint_delay: float = 0.0
 
 
 ## Public Methods
@@ -67,14 +86,37 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	var move_vector := get_move_vector()
+	var sprint := Input.is_action_pressed(&"Sprint")
 
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	## start sprinting
+	if sprint and not _is_sprinting and _sprint_delay <= 0.0 and velocity.length() > 1.0:
+		_is_sprinting = true
+
+	## stop if not moving
+	if _is_sprinting and velocity.length() < 1.0:
+		_is_sprinting = false
+
+	## stop if sprinting for too long
+	if _is_sprinting and _sprint_timer >= sprint_time:
+		_is_sprinting = false
+		_sprint_delay = sprint_delay
+		_sprint_timer = 0.0
+
+	if _sprint_delay > 0.0:
+		_sprint_delay -= delta
+	if _is_sprinting and _sprint_timer < sprint_time:
+		_sprint_timer += delta
+	elif not _is_sprinting and _sprint_timer > 0.0:
+		_sprint_timer -= delta
+
 
 	## Move
-	var direction := (transform.basis * Vector3(move_vector.x, 0, move_vector.y)).normalized() * move_speed
+	var speed := move_speed if not _is_sprinting else sprint_speed
+	var direction := (transform.basis * Vector3(move_vector.x, 0, move_vector.y)).normalized() * speed
 	var flat_vel := Vector3(velocity.x, 0.0, velocity.z)
 
 	flat_vel = flat_vel.move_toward(direction, acceleration * delta)
