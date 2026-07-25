@@ -3,15 +3,17 @@ extends Node2D
 
 
 ## Public variables
-@export var player_crosshair: CharacterBody2D
-@export var target_crosshair: Area2D
-
-@export var move_speed: float
 
 @export var pos_x: InteractableButton
 @export var neg_x: InteractableButton
 @export var pos_y: InteractableButton
 @export var neg_y: InteractableButton
+
+@export var player_crosshair: CharacterBody2D
+@export var player_sprite: Sprite2D
+@export var target_crosshair: Area2D
+
+@export var move_speed: float
 
 @export_custom(PROPERTY_HINT_NONE, "suffix:/s")
 var stat_usage_rate: float = 1.0
@@ -24,7 +26,12 @@ var stat_usage_rate: float = 1.0
 @export var _right_bounds: float
 @export var _left_bounds: float
 
+@export var green: Color
+
 var movement_vector: Vector2 = Vector2.ZERO
+
+var _can_move: bool = true
+var _flashing_timer: float = 0.0
 
 ## Signals
 signal on_nav_terminal_completion()
@@ -54,24 +61,66 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	ShipStats.alignment_amount -= stat_usage_rate * delta
 
+
 func _physics_process(delta: float) -> void:
 	_move_player_crosshair(delta, movement_vector)
 
+	if not _can_move:
+		return
+
+	_flashing_timer -= delta
+	if _flashing_timer <= 0.0:
+		_flashing_timer = 0.5
+		target_crosshair.visible = not target_crosshair.visible
+
+
 func _move_player_crosshair(delta: float, movement: Vector2) -> void:
+	if not _can_move:
+		return
 	var final_movement: Vector2 = movement * move_speed * delta
 	player_crosshair.move_and_collide(final_movement)
-	
-func _select_new_target_location() -> void:
 
+
+func _select_new_target_location() -> void:
 	for i in 10:
 		var result: Vector2 = Vector2(randf_range(_left_bounds, _right_bounds), randf_range(_upper_bounds, _lower_bounds))
 		if result.distance_to(player_crosshair.position) >= 150:
 			target_crosshair.position = result
 			break
 
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	on_nav_terminal_completion.emit()
+	ShipStats.alignment_amount += stat_success_amount
+
+	_can_move = false
+	target_crosshair.visible = false
+
+	player_sprite.modulate = green
+	player_sprite.modulate.a = 0.0
+
+	var tween := create_tween()
+	tween.tween_interval(0.1)
+
+	for i in 3:
+		tween.tween_property(player_sprite, "modulate:a", 1.0, 0.0)
+		tween.tween_interval(0.1)
+		tween.tween_property(player_sprite, "modulate:a", 0.0, 0.0)
+		tween.tween_interval(0.1)
+
+	await tween.finished
+
+	player_sprite.modulate = Color.WHITE
+	player_sprite.modulate.a = 1.0
+
+	_select_new_target_location()
+	_can_move = true
+	target_crosshair.visible = true
+
+
 func _positive_x_pressed() -> void:
 	movement_vector.x = 1.0
-	
+
 func _positive_x_released() -> void:
 	movement_vector.x = 0.0
 
@@ -92,8 +141,3 @@ func _negative_y_pressed() -> void:
 
 func _negative_y_released() -> void:
 	movement_vector.y = 0.0
-
-func _on_area_2d_area_entered(area: Area2D) -> void:
-	on_nav_terminal_completion.emit()
-	ShipStats.alignment_amount += stat_success_amount
-	_select_new_target_location()
