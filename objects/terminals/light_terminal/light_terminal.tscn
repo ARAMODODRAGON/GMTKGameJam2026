@@ -19,7 +19,7 @@ emission_texture = SubResource("ViewportTexture_fx3mf")
 
 [node name="LightTerminal" unique_id=1564582219 instance=ExtResource("1_vvqyn")]
 
-[node name="Cube" parent="." index="0" unique_id=1599189902]
+[node name="Cube" parent="." index="0" unique_id=156791562]
 surface_material_override/0 = SubResource("StandardMaterial3D_0ls24")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Cube" index="0" unique_id=2040171212]
@@ -31,11 +31,12 @@ spot_angle = 90.0
 disable_3d = true
 size = Vector2i(320, 240)
 
-[node name="LightTaskView" parent="SubViewport" index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_switch", "oxygen_switch", "shield_switch", "energy_switch", "main_breaker", "auxiliary_breaker") instance=ExtResource("2_lwebi")]
+[node name="LightTaskView" parent="SubViewport" index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_switch", "oxygen_switch", "shield_switch", "energy_switch", "audioplayer", "main_breaker", "auxiliary_breaker") instance=ExtResource("2_lwebi")]
 nav_switch = NodePath("../../NavSwitch")
 oxygen_switch = NodePath("../../O2Switch")
 shield_switch = NodePath("../../ShieldSwitch")
 energy_switch = NodePath("../../EnergySwitch")
+audioplayer = NodePath("../../AudioStreamPlayer3D")
 main_breaker = NodePath("../../MainBreaker")
 auxiliary_breaker = NodePath("../../AuxiliaryBreaker")
 
@@ -57,3 +58,5 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.09
 [node name="AuxiliaryBreaker" parent="." index="7" unique_id=545657359 instance=ExtResource("3_b000g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23483798, 0, 1.4293798)
 visible = false
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="8" unique_id=486820089]

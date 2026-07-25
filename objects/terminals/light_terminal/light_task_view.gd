@@ -18,10 +18,15 @@ enum PowerState
 @export var shield_switch: InteractableSwitch
 @export var energy_switch: InteractableSwitch
 
+
 @export var nav_door: ShipDoor
 @export var energy_door: ShipDoor
 @export var oxygen_door: ShipDoor
 @export var shield_door: ShipDoor
+
+@export var audioplayer: AudioStreamPlayer3D
+@export var success_sound: AudioStream
+@export var failure_sound: AudioStream
 
 @export var nav_rect: ColorRect
 @export var shield_rect: ColorRect
@@ -251,6 +256,8 @@ func update_success_boxes() -> void:
 			success_indicators[i].color.a = 0.0
 
 func reset_success_boxes() -> void:
+	audioplayer.stream = success_sound
+	audioplayer.play()
 
 	_block_process = true
 
@@ -284,6 +291,9 @@ func reset_success_boxes() -> void:
 
 
 func fail_success_boxes() -> void:
+	audioplayer.stream = failure_sound
+	audioplayer.play()
+
 	_block_process = true
 
 	for box in success_indicators:

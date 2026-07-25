@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://drjbrys3v6612"]
 
 [ext_resource type="Script" uid="uid://dgoymmpp5ebmw" path="res://objects/terminals/light_terminal/light_task_view.gd" id="1_vufoi"]
+[ext_resource type="AudioStream" uid="uid://cab4rl0hpp5v7" path="res://objects/terminals/shared/sounds/small_good.mp3" id="2_fv57n"]
 [ext_resource type="Texture2D" uid="uid://e1hhohumdaji" path="res://objects/gauges/shield_symbol.png" id="2_vufoi"]
+[ext_resource type="AudioStream" uid="uid://bh1q53g23i8gi" path="res://objects/terminals/shared/sounds/small_bad.mp3" id="3_bb8wh"]
 [ext_resource type="Texture2D" uid="uid://b8xgli425pwt" path="res://objects/gauges/oxygen_symbol.png" id="3_e178k"]
 [ext_resource type="Texture2D" uid="uid://xnsp88xup6fg" path="res://objects/gauges/electrical_symbol.png" id="4_fv57n"]
 [ext_resource type="Texture2D" uid="uid://1qe23y3ke7i2" path="res://objects/gauges/nav_symbol.png" id="5_bb8wh"]
@@ -24,6 +26,8 @@ region = Rect2(30, 29, 36, 36)
 
 [node name="LightTaskView" type="Node2D" unique_id=2007830041 node_paths=PackedStringArray("nav_rect", "shield_rect", "oxygen_rect", "energy_rect", "success_indicators", "error_text")]
 script = ExtResource("1_vufoi")
+success_sound = ExtResource("2_fv57n")
+failure_sound = ExtResource("3_bb8wh")
 nav_rect = NodePath("ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer4/NavRect")
 shield_rect = NodePath("ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer/ShieldRect")
 oxygen_rect = NodePath("ReferenceRect/VBoxContainer/HBoxContainer/VBoxContainer2/OxygenRect")
