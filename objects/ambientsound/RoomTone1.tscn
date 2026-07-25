@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://d3g5f0lcnbo74"]
+
+[ext_resource type="AudioStream" uid="uid://d3fxyawbx327a" path="res://objects/ambientsound/sounds/roomtone_01.mp3" id="1_qgjtk"]
+
+[node name="RoomTone1" type="Node3D" unique_id=1302090609]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1978618002]
+stream = ExtResource("1_qgjtk")
+unit_size = 20.0
+pitch_scale = 0.25
+autoplay = true
+panning_strength = 0.5
