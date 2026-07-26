@@ -4,23 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://drjbrys3v6612" path="res://objects/terminals/light_terminal/light_task_view.tscn" id="2_lwebi"]
 [ext_resource type="PackedScene" uid="uid://b41i5syd5gfe7" path="res://objects/buttons/interactable_breaker_switch.tscn" id="2_wdr0d"]
 [ext_resource type="PackedScene" uid="uid://dnuwutp7epok7" path="res://objects/buttons/interactable_round_button.tscn" id="3_b000g"]
+[ext_resource type="PackedScene" uid="uid://2qrt6fadjp87" path="res://objects/buttons/interactable_frankenstein_switch.tscn" id="5_fx3mf"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vv3f8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0ls24"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_fx3mf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xm5qw"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ls24"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i16ot"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_vv3f8")
+albedo_texture = SubResource("ViewportTexture_0ls24")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_fx3mf")
+emission_texture = SubResource("ViewportTexture_xm5qw")
 
 [node name="LightTerminal" unique_id=1564582219 instance=ExtResource("1_vvqyn")]
 
-[node name="Cube" parent="." index="0" unique_id=156791562]
-surface_material_override/0 = SubResource("StandardMaterial3D_0ls24")
+[node name="Cube" parent="." index="0" unique_id=1599189902]
+surface_material_override/0 = SubResource("StandardMaterial3D_i16ot")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Cube" index="0" unique_id=2040171212]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.20000005)
@@ -37,7 +38,7 @@ oxygen_switch = NodePath("../../O2Switch")
 shield_switch = NodePath("../../ShieldSwitch")
 energy_switch = NodePath("../../EnergySwitch")
 audioplayer = NodePath("../../AudioStreamPlayer3D")
-main_breaker = NodePath("../../MainBreaker")
+main_breaker = NodePath("../../MainSwitch")
 auxiliary_breaker = NodePath("../../AuxiliaryBreaker")
 
 [node name="NavSwitch" parent="." index="2" unique_id=547640884 instance=ExtResource("2_wdr0d")]
@@ -52,12 +53,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25490025, -0.48641095, 0.23
 [node name="ShieldSwitch" parent="." index="5" unique_id=2116648874 instance=ExtResource("2_wdr0d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7073388, -0.48641095, 0.23712927)
 
-[node name="MainBreaker" parent="." index="6" unique_id=2115933321 instance=ExtResource("3_b000g")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.0955633, 0, 0.23553073)
-
-[node name="AuxiliaryBreaker" parent="." index="7" unique_id=545657359 instance=ExtResource("3_b000g")]
+[node name="AuxiliaryBreaker" parent="." index="6" unique_id=545657359 instance=ExtResource("3_b000g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23483798, 0, 1.4293798)
 visible = false
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="8" unique_id=486820089]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="7" unique_id=486820089]
 volume_db = -20.0
+
+[node name="MainSwitch" parent="." index="8" unique_id=1798362421 instance=ExtResource("5_fx3mf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2318656, 0, 0.93242216)
