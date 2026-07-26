@@ -23,54 +23,54 @@
 [ext_resource type="PackedScene" uid="uid://c6hsu271tvy5s" path="res://objects/terminals/shields_terminal/ShieldsTerminal.tscn" id="21_8qttc"]
 [ext_resource type="AudioStream" uid="uid://bdg7mevlkr0l0" path="res://objects/ambientsound/sounds/melted_saw.mp3" id="22_kemwa"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_kemwa"]
+viewport_path = NodePath("SubViewport")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_7jvy2"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3wpkd"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iqn3b"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wpkd"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_7jvy2")
+albedo_texture = SubResource("ViewportTexture_kemwa")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_3wpkd")
+emission_texture = SubResource("ViewportTexture_7jvy2")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_iqn3b"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_io5uv"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_l21h2"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8qttc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l21h2"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_io5uv")
+albedo_texture = SubResource("ViewportTexture_iqn3b")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_l21h2")
+emission_texture = SubResource("ViewportTexture_io5uv")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8qttc"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2kcds"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5mjo3"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbrs5"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mjo3"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_2kcds")
+albedo_texture = SubResource("ViewportTexture_8qttc")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_5mjo3")
+emission_texture = SubResource("ViewportTexture_2kcds")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dbrs5"]
+viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2obkp"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bkog6"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fk3g3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkog6"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_2obkp")
+albedo_texture = SubResource("ViewportTexture_dbrs5")
 roughness = 0.12
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_bkog6")
+emission_texture = SubResource("ViewportTexture_2obkp")
 
 [node name="BlockoutShip" unique_id=1609120507 instance=ExtResource("1_hucus")]
 
@@ -122,9 +122,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.187988, -2.6776915, 0)
 [node name="LightTerminal" parent="GameContent/LightTerminalArea" index="0" unique_id=1564582219 instance=ExtResource("14_qkg1b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.221062, 2.8101995, -0.14879167)
 
-[node name="Cube" parent="GameContent/LightTerminalArea/LightTerminal" index="0" unique_id=867779040]
+[node name="Cube" parent="GameContent/LightTerminalArea/LightTerminal" index="0" unique_id=156791562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3667264, 0)
-surface_material_override/0 = SubResource("StandardMaterial3D_iqn3b")
+surface_material_override/0 = SubResource("StandardMaterial3D_3wpkd")
 
 [node name="LightTaskView" parent="GameContent/LightTerminalArea/LightTerminal/SubViewport" parent_id_path=PackedInt32Array(1564582219, 482558649) index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_door", "energy_door", "oxygen_door", "shield_door")]
 nav_door = NodePath("../../../NavDoor")
@@ -222,7 +222,7 @@ time_to_succeed = 2.0
 energy_usage_rate = 0.5
 
 [node name="Cube" parent="GameContent/EnergyArea/FuseStatusDisplayTerminal" index="0" unique_id=156791562]
-surface_material_override/0 = SubResource("StandardMaterial3D_8qttc")
+surface_material_override/0 = SubResource("StandardMaterial3D_l21h2")
 
 [node name="DomedGauge6" parent="GameContent/EnergyArea" index="1" unique_id=284149311 instance=ExtResource("15_kemwa")]
 transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 25.117928, 2.60468, 10.709879)
@@ -318,9 +318,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.01229, -3.5181637, -3.020
 [node name="OxygenTerminal" parent="GameContent/OxygenArea" index="0" unique_id=529739217 instance=ExtResource("20_l21h2")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 67.90816, 2.639717, 5.6017385)
 
-[node name="Cube" parent="GameContent/OxygenArea/OxygenTerminal" index="0" unique_id=867779040]
+[node name="Cube" parent="GameContent/OxygenArea/OxygenTerminal" index="0" unique_id=156791562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85701776, 3.9083562)
-surface_material_override/0 = SubResource("StandardMaterial3D_dbrs5")
+surface_material_override/0 = SubResource("StandardMaterial3D_5mjo3")
 
 [node name="OxygenTaskView" parent="GameContent/OxygenArea/OxygenTerminal/SubViewport" parent_id_path=PackedInt32Array(529739217, 482558649) index="0" unique_id=2007830041]
 stat_success_amount = 30.0
@@ -353,8 +353,8 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 [node name="ShieldsTerminal" parent="GameContent/ShieldArea" index="0" unique_id=1908341797 instance=ExtResource("21_8qttc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5827546, 2.5612304, -0.23403645)
 
-[node name="Cube" parent="GameContent/ShieldArea/ShieldsTerminal" index="0" unique_id=867779040]
-surface_material_override/0 = SubResource("StandardMaterial3D_fk3g3")
+[node name="Cube" parent="GameContent/ShieldArea/ShieldsTerminal" index="0" unique_id=156791562]
+surface_material_override/0 = SubResource("StandardMaterial3D_bkog6")
 
 [node name="ShieldsTaskView" parent="GameContent/ShieldArea/ShieldsTerminal/SubViewport" parent_id_path=PackedInt32Array(1908341797, 578667375) index="0" unique_id=1330622129]
 stat_usage_rate = 0.5
@@ -521,7 +521,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.049263, 1.8457892, -0
 [node name="MeltedSawAudio" type="AudioStreamPlayer3D" parent="." index="48" unique_id=853286145]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.427085, 9.764038)
 stream = ExtResource("22_kemwa")
-volume_db = -1.0
+volume_db = -18.0
 autoplay = true
 
 [editable path="GameContent/LightTerminalArea/LightTerminal"]
