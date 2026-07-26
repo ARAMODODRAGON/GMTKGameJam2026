@@ -95,7 +95,7 @@ volume_db = -25.0
 transform = Transform3D(0.6985903, 0, 0.71552193, 0, 1, 0, -0.71552193, 0, 0.6985903, -1.9923787, -0.48153156, -20.554394)
 
 [node name="WallFan" parent="." index="5" unique_id=1554156394 instance=ExtResource("8_k0lse")]
-transform = Transform3D(-0.35355332, -1.6420282e-15, 0.35355344, 3.090862e-08, -0.5, 3.0908616e-08, 0.35355344, 4.3711385e-08, 0.35355332, -3.0893974, 1.6804409, -3.0407372)
+transform = Transform3D(-0.35355332, -1.6420282e-15, 0.35355344, 3.090862e-08, -0.5, 3.0908616e-08, 0.35355344, 4.3711385e-08, 0.35355332, -3.0893974, 1.2905608, -3.0407372)
 
 [node name="LightmapGI" type="LightmapGI" parent="." index="8" unique_id=488127251]
 quality = 2
@@ -125,15 +125,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.221062, 2.8101995, -0.1487
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3667264, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_7jvy2")
 
-[node name="LightTaskView" parent="GameContent/LightTerminalArea/LightTerminal/SubViewport" parent_id_path=PackedInt32Array(1564582219, 482558649) index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_door", "energy_door", "oxygen_door", "shield_door", "nav_lights", "oxygen_lights", "shield_lights", "energy_lights")]
+[node name="LightTaskView" parent="GameContent/LightTerminalArea/LightTerminal/SubViewport" parent_id_path=PackedInt32Array(1564582219, 482558649) index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_door", "energy_door", "oxygen_door", "shield_door")]
 nav_door = NodePath("../../../NavDoor")
 energy_door = NodePath("../../../EnergyDoor")
 oxygen_door = NodePath("../../../OxygenDoor")
 shield_door = NodePath("../../../ShieldDoor")
-nav_lights = [NodePath("../../../../../NavLights/FluorescentLamp3/OmniLight3D"), NodePath("../../../../../NavLights/FluorescentLamp3/OmniLight3D2"), NodePath("../../../../../NavLights/FluorescentLamp5/OmniLight3D"), NodePath("../../../../../NavLights/FluorescentLamp5/OmniLight3D2"), NodePath("../../../../../NavLights/FluorescentLamp4/OmniLight3D"), NodePath("../../../../../NavLights/FluorescentLamp4/OmniLight3D2"), NodePath("../../../../../NavLights/FluorescentLamp2/OmniLight3D"), NodePath("../../../../../NavLights/FluorescentLamp2/OmniLight3D2")]
-oxygen_lights = [NodePath("../../../../../OxygenLights/FluorescentLamp9/OmniLight3D"), NodePath("../../../../../OxygenLights/FluorescentLamp9/OmniLight3D2"), NodePath("../../../../../OxygenLights/FluorescentLamp10/OmniLight3D"), NodePath("../../../../../OxygenLights/FluorescentLamp10/OmniLight3D2"), NodePath("../../../../../OxygenLights/FluorescentLamp11/OmniLight3D"), NodePath("../../../../../OxygenLights/FluorescentLamp12/OmniLight3D2"), NodePath("../../../../../OxygenLights/FluorescentLamp12/OmniLight3D"), NodePath("../../../../../OxygenLights/FluorescentLamp12/OmniLight3D2"), NodePath("../../../../../OxygenLights/FluorescentLamp15/OmniLight3D"), NodePath("../../../../../OxygenLights/FluorescentLamp15/OmniLight3D2")]
-shield_lights = [NodePath("../../../../../ShieldLights/BulbLamp3/OmniLight3D"), NodePath("../../../../../ShieldLights/FluorescentLamp6/OmniLight3D"), NodePath("../../../../../ShieldLights/FluorescentLamp6/OmniLight3D2"), NodePath("../../../../../ShieldLights/FluorescentLamp7/OmniLight3D"), NodePath("../../../../../ShieldLights/FluorescentLamp7/OmniLight3D2"), NodePath("../../../../../ShieldLights/FluorescentLamp8/OmniLight3D"), NodePath("../../../../../ShieldLights/FluorescentLamp8/OmniLight3D2")]
-energy_lights = [NodePath("../../../../../ShieldLights/BulbLamp3/OmniLight3D")]
 
 [node name="NavSwitch" parent="GameContent/LightTerminalArea/LightTerminal" index="2" unique_id=547640884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7232113, -1.5022631, 0.65437204)
@@ -148,7 +144,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25489998, -1.5022631, 0.663
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70733833, -1.5022631, 0.65699935)
 
 [node name="MainBreaker" parent="GameContent/LightTerminalArea/LightTerminal" index="6" unique_id=2115933321]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2401619, -0.2992208, 0.766973)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2401619, -0.2992208, 0.67537737)
 
 [node name="Label3D" type="Label3D" parent="GameContent/LightTerminalArea/LightTerminal/MainBreaker" index="4" unique_id=1371803182]
 transform = Transform3D(1, 8.742278e-08, -8.742277e-08, 8.742278e-08, 4.3711395e-08, 1, 8.7422784e-08, -1, 4.371139e-08, 1.9726684e-08, 9.863344e-09, -0.22564697)
@@ -510,7 +506,13 @@ transform = Transform3D(-0.70710695, 0, 0.7071066, 0, 1, 0, -0.7071066, 0, -0.70
 
 [node name="OmniLight3D2" parent="CenterLights/FluorescentLamp14" index="3" unique_id=472740513 groups=["flickering_lights"]]
 
-[node name="BulbLamp2" parent="CenterLights" index="2" unique_id=451378809 groups=["flickering_lights"] instance=ExtResource("12_4ils4")]
+[node name="FluorescentLamp15" parent="CenterLights" index="2" unique_id=15643432 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-0.70710653, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.70710653, 3.201489, 2.0857885, 3.2619336)
+
+[node name="FluorescentLamp16" parent="CenterLights" index="3" unique_id=2055428578 instance=ExtResource("9_twnuv")]
+transform = Transform3D(0.7071066, 0, 0.70710695, 0, 1, 0, -0.70710695, 0, 0.7071066, -3.3305817, 2.1369224, -3.0651746)
+
+[node name="BulbLamp2" parent="CenterLights" index="4" unique_id=451378809 groups=["flickering_lights"] instance=ExtResource("12_4ils4")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.049263, 1.8457892, -0.1413126)
 
 [node name="OmniLight3D" parent="CenterLights/BulbLamp2" index="1" unique_id=824679274 groups=["flickering_lights"]]
@@ -536,4 +538,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.049263, 1.8457892, -0
 [editable path="OxygenLights/FluorescentLamp15"]
 [editable path="CenterLights/FluorescentLamp13"]
 [editable path="CenterLights/FluorescentLamp14"]
+[editable path="CenterLights/FluorescentLamp15"]
+[editable path="CenterLights/FluorescentLamp16"]
 [editable path="CenterLights/BulbLamp2"]

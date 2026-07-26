@@ -31,7 +31,13 @@ var _flicker_timer: float = 100000.0
 ## Virtual Methods
 
 func _ready() -> void:
-	_lights.assign(get_tree().get_nodes_in_group(light_group))
+	##_lights.assign(get_tree().get_nodes_in_group(light_group))
+	var node_group := get_tree().get_nodes_in_group(light_group)
+	for l in node_group:
+		if l is Light3D:
+			_lights.push_back(l)
+
+
 	_set_timer.call_deferred()
 
 
@@ -60,6 +66,10 @@ func _apply_flicker() -> void:
 	var flicker_amount := randf_range(min_flicker_amount, max_flicker_amount)
 
 	for light in _lights:
+
+		if not light is Light3D:
+			continue
+
 		if randf_range(0.0, 100.0) > flicker_amount:
 			continue
 
