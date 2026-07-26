@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://2qrt6fadjp87"]
+
+[ext_resource type="Script" uid="uid://cboaa8082wkgf" path="res://objects/buttons/interactable_frankenstein_switch.gd" id="1_38kon"]
+[ext_resource type="PackedScene" uid="uid://dk26xnbc3i04p" path="res://objects/buttons/frankenstein_switch.tscn" id="2_38kon"]
+[ext_resource type="AudioStream" uid="uid://6dp2qtmjxk85" path="res://objects/buttons/sounds/frankenstein_switch_down.mp3" id="3_dgjwx"]
+[ext_resource type="AudioStream" uid="uid://hswd1dl8lypb" path="res://objects/buttons/sounds/frankenstein_switch_up_fast.mp3" id="4_84ucn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0j0ew"]
+size = Vector3(0.5499194, 0.7833887, 0.3551758)
+
+[node name="InteractableFrankensteinSwitch" type="Area3D" unique_id=547640884 node_paths=PackedStringArray("anim", "sound_down", "sound_up_fast")]
+script = ExtResource("1_38kon")
+anim = NodePath("frankenstein_switch/AnimationPlayer")
+sound_down = NodePath("SoundDown")
+sound_up_fast = NodePath("SoundUp")
+metadata/_custom_type_script = "uid://b0gqbdatntww1"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1219909879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003490001, 0.006440431, 0.14700195)
+shape = SubResource("BoxShape3D_0j0ew")
+
+[node name="frankenstein_switch" parent="." unique_id=1549683583 instance=ExtResource("2_38kon")]
+
+[node name="Skeleton3D" parent="frankenstein_switch/Armature" parent_id_path=PackedInt32Array(1549683583, 1264917406) index="0" unique_id=515784300]
+bones/1/rotation = Quaternion(-0.014706554, -7.548973e-08, 1.1102977e-09, 0.99989194)
+
+[node name="SoundDown" type="AudioStreamPlayer3D" parent="." unique_id=1938105290]
+stream = ExtResource("3_dgjwx")
+volume_db = -20.0
+
+[node name="SoundUp" type="AudioStreamPlayer3D" parent="." unique_id=96931819]
+stream = ExtResource("4_84ucn")
+volume_db = -20.0
+
+[editable path="frankenstein_switch"]

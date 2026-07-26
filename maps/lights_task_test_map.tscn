@@ -2,18 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://gs3sx0ub2i8q" path="res://entities/player/player.tscn" id="1_35b56"]
 [ext_resource type="PackedScene" uid="uid://bv2gh0fxa2knv" path="res://objects/terminals/light_terminal/light_terminal.tscn" id="2_w6yvf"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_w6yvf"]
-viewport_path = NodePath("SubViewport")
+[ext_resource type="PackedScene" uid="uid://2qrt6fadjp87" path="res://objects/buttons/interactable_frankenstein_switch.tscn" id="3_35b56"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_35b56"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nra4u"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nra4u"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mx6qi"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_w6yvf")
+albedo_texture = SubResource("ViewportTexture_35b56")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_35b56")
+emission_texture = SubResource("ViewportTexture_nra4u")
 
 [node name="LightsTestMap" type="Node3D" unique_id=15633260]
 
@@ -41,8 +42,8 @@ transform = Transform3D(-0.25881904, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.25
 [node name="LightTerminal" parent="." unique_id=1564582219 instance=ExtResource("2_w6yvf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40181905, 0.8828207, -2.602758)
 
-[node name="Cube" parent="LightTerminal" index="0" unique_id=1599189902]
-surface_material_override/0 = SubResource("StandardMaterial3D_nra4u")
+[node name="Cube" parent="LightTerminal" index="0" unique_id=867779040]
+surface_material_override/0 = SubResource("StandardMaterial3D_mx6qi")
 
 [node name="LightTaskView" parent="LightTerminal/SubViewport" parent_id_path=PackedInt32Array(1564582219, 482558649) index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_lights", "oxygen_lights", "shield_lights", "energy_lights")]
 nav_lights = [NodePath("../../../NavLight")]
@@ -69,5 +70,8 @@ light_color = Color(1, 1, 0, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2089598, -3.0469155)
 visible = false
 light_color = Color(0, 1, 0, 1)
+
+[node name="InteractableFrankensteinSwitch" parent="." unique_id=547640884 instance=ExtResource("3_35b56")]
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 3.0411692, 1.1411846, -1.071693)
 
 [editable path="LightTerminal"]

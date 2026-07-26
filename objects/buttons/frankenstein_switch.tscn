@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dk26xnbc3i04p"]
+
+[ext_resource type="PackedScene" uid="uid://cmdqap05mk23g" path="res://objects/buttons/frankenstein_switch.blend" id="1_uvler"]
+
+[node name="frankenstein_switch" unique_id=1549683583 instance=ExtResource("1_uvler")]
+
+[node name="Skeleton3D" parent="Armature" parent_id_path=PackedInt32Array(1264917406) index="0" unique_id=515784300]
+bones/1/rotation = Quaternion(-0.014706554, -7.548973e-08, 1.1102977e-09, 0.99989194)
