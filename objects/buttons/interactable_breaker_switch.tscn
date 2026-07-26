@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dtksdcnsc5nba" path="res://objects/buttons/interactable_breaker_switch.gd" id="1_0j0ew"]
 [ext_resource type="PackedScene" uid="uid://bv6cvego3n17k" path="res://objects/buttons/breaker_switch.tscn" id="2_mqtnq"]
 [ext_resource type="Shader" uid="uid://cqt326gasnvax" path="res://scripts/shaders/glow_shader.gdshader" id="3_mqtnq"]
+[ext_resource type="AudioStream" uid="uid://dv4lume7o48vx" path="res://objects/buttons/sounds/metal_switch.mp3" id="4_ho8xv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ho8xv"]
 render_priority = 0
@@ -16,15 +17,16 @@ shader_parameter/max_glow = 0.3
 [sub_resource type="BoxShape3D" id="BoxShape3D_0j0ew"]
 size = Vector3(0.12, 0.24, 0.1)
 
-[node name="InteractableBreakerSwitch" type="Area3D" unique_id=547640884 node_paths=PackedStringArray("anim")]
+[node name="InteractableBreakerSwitch" type="Area3D" unique_id=547640884 node_paths=PackedStringArray("anim", "audioplayer")]
 script = ExtResource("1_0j0ew")
 anim = NodePath("breaker_switch/AnimationPlayer")
+audioplayer = NodePath("AudioStreamPlayer3D")
 metadata/_custom_type_script = "uid://b0gqbdatntww1"
 
 [node name="breaker_switch" parent="." unique_id=447602379 instance=ExtResource("2_mqtnq")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="breaker_switch/Armature/Skeleton3D" parent_id_path=PackedInt32Array(447602379, 1218978786) index="1" unique_id=1394400461]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="breaker_switch/Armature/Skeleton3D" parent_id_path=PackedInt32Array(447602379, 881137901) index="1" unique_id=1394400461]
 transform = Transform3D(0.054, 0, 0, 0, 0.10875001, 0, 0, 0, 0.0074999975, 0, 0, -0.003)
 material_override = SubResource("ShaderMaterial_ho8xv")
 mesh = SubResource("BoxMesh_0j0ew")
@@ -32,5 +34,9 @@ mesh = SubResource("BoxMesh_0j0ew")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1219909879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8626451e-09, 7.450581e-09, 0.01941406)
 shape = SubResource("BoxShape3D_0j0ew")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1087495439]
+stream = ExtResource("4_ho8xv")
+volume_db = -27.0
 
 [editable path="breaker_switch"]

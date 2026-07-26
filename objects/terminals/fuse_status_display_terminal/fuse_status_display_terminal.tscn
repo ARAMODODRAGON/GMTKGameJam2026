@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dbfhtpvinakbl" path="res://objects/screens/textures/dummy_screen_4by3.png" id="1_w3ui8"]
 [ext_resource type="Texture2D" uid="uid://snh7kdkoa6an" path="res://objects/screens/textures/screen_shell.png" id="2_1uhie"]
 [ext_resource type="PackedScene" uid="uid://bjf6pofy1pbl2" path="res://objects/terminals/fuse_status_display_terminal/fuse_status_display_ui.tscn" id="3_1uhie"]
+[ext_resource type="AudioStream" uid="uid://cwjw7exn16dmx" path="res://objects/terminals/shared/sounds/blip_select.mp3" id="4_16uqg"]
+[ext_resource type="AudioStream" uid="uid://cab4rl0hpp5v7" path="res://objects/terminals/shared/sounds/small_good.mp3" id="5_prmak"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8vtt"]
 resource_name = "Screen"
@@ -107,10 +109,17 @@ light_energy = 0.1
 spot_angle = 90.0
 
 [node name="LowBlip" type="AudioStreamPlayer3D" parent="Cube" unique_id=782661503]
+stream = ExtResource("4_16uqg")
+volume_db = -20.0
+pitch_scale = 0.5
 
 [node name="NormalBlip" type="AudioStreamPlayer3D" parent="Cube" unique_id=485666490]
+stream = ExtResource("4_16uqg")
+volume_db = -20.0
 
 [node name="SuccessSound" type="AudioStreamPlayer3D" parent="Cube" unique_id=2045608884]
+stream = ExtResource("5_prmak")
+volume_db = -20.0
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1919338044]
 size = Vector2i(320, 240)

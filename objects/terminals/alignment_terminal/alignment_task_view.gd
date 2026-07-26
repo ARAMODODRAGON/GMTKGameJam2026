@@ -11,6 +11,7 @@ extends Node2D
 
 @export var success_player: AudioStreamPlayer3D
 @export var blip_player: AudioStreamPlayer3D
+@export var hold_click: AudioStreamPlayer3D
 
 @export var player_crosshair: CharacterBody2D
 @export var player_sprite: Sprite2D
@@ -63,6 +64,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	ShipStats.alignment_amount -= stat_usage_rate * delta
+
+	if movement_vector.length() > 0.1 and not hold_click.playing:
+		print("play")
+		hold_click.play()
+	elif movement_vector.length() <= 0.1 and hold_click.playing:
+		print("stop")
+		hold_click.stop()
 
 
 func _physics_process(delta: float) -> void:

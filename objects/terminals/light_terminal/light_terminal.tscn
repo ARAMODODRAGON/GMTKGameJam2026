@@ -60,3 +60,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23483798, 0, 1.4293798)
 visible = false
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="8" unique_id=486820089]
+volume_db = -20.0

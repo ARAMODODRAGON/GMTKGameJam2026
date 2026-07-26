@@ -133,10 +133,10 @@ func _set_fuse_display(value: bool, fuse: InteractableSwitch) -> void:
 	fuse_items[index].state = value
 	_count_matching()
 
-	if fuse_items[index].state == fuse_targets[index].state:
-		normal_blip.play()
-	else:
-		low_blip.play()
+	# if fuse_items[index].state == fuse_targets[index].state:
+	# 	normal_blip.play()
+	# else:
+	# 	low_blip.play()
 
 
 func _randomize_values() -> void:
