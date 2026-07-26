@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://dectrirnwri80" path="res://game/game_root.gd" id="1_d8wum"]
 [ext_resource type="Shader" uid="uid://lp7iex54587y" path="res://game/blur_effect_shader.gdshader" id="1_hup1c"]
 [ext_resource type="Shader" uid="uid://bn8x131ttqbpr" path="res://game/pointer_shader.gdshader" id="2_5sefw"]
-[ext_resource type="PackedScene" uid="uid://cafko6h8pse7a" path="res://game/condition_screens/win_screen.tscn" id="2_g5d3f"]
+[ext_resource type="AudioStream" uid="uid://x4t75jsmtwfc" path="res://objects/ambientsound/sounds/power_outtage.mp3" id="2_pdngg"]
 [ext_resource type="Script" uid="uid://dnr5t465snnl6" path="res://game/blur_effect.gd" id="3_2suya"]
-[ext_resource type="PackedScene" uid="uid://dtqt70yqks8p4" path="res://game/condition_screens/lose_screen.tscn" id="3_i6pox"]
 [ext_resource type="Script" uid="uid://dd0ndd3oawlep" path="res://game/reticle_texture.gd" id="3_lh3ym"]
 [ext_resource type="Texture2D" uid="uid://4b0wm87slhrq" path="res://game/reticle_interactable.png" id="4_bwd2a"]
+[ext_resource type="AudioStream" uid="uid://cgnos56rgw2y5" path="res://objects/ambientsound/sounds/asteroid_explosion.mp3" id="4_dmhgs"]
 [ext_resource type="Texture2D" uid="uid://0sqv4t6nmxro" path="res://game/reticle.png" id="4_h7acg"]
 [ext_resource type="Script" uid="uid://cnyd7r1prpgi1" path="res://game/asteroid_handler.gd" id="5_i6pox"]
 [ext_resource type="Script" uid="uid://bbjcpn5o0ebbi" path="res://game/light_flicker_handler.gd" id="5_xk365"]
@@ -39,14 +39,23 @@ fractal_lacunarity = 2.895
 fractal_gain = 5.48
 fractal_weighted_strength = 1.0
 
-[node name="GameRoot" type="Node" unique_id=540067338 node_paths=PackedStringArray("debug_display", "pause_screen", "game_layer", "screen_fade")]
+[node name="GameRoot" type="Node" unique_id=540067338 node_paths=PackedStringArray("debug_display", "pause_screen", "game_layer", "screen_fade", "asteroid_death_sound", "power_down_sound")]
 script = ExtResource("1_d8wum")
-win_scene = ExtResource("2_g5d3f")
-lose_scene = ExtResource("3_i6pox")
+alignment_stat_override = 3.0
 debug_display = NodePath("OutsideWorldUI/UI/MarginContainer/DebugDisplay")
 pause_screen = NodePath("OutsideWorldUI/UI/PauseScreen")
 game_layer = NodePath("PausableGameLayer")
 screen_fade = NodePath("OutsideWorldUI/UI/ScreenFade")
+asteroid_death_sound = NodePath("AsteroidDeathSound")
+power_down_sound = NodePath("PowerDownSound")
+
+[node name="PowerDownSound" type="AudioStreamPlayer" parent="." unique_id=1639787370]
+stream = ExtResource("2_pdngg")
+volume_db = -10.0
+
+[node name="AsteroidDeathSound" type="AudioStreamPlayer" parent="." unique_id=1896368612]
+stream = ExtResource("4_dmhgs")
+volume_db = -10.0
 
 [node name="PausableGameLayer" type="CanvasLayer" parent="." unique_id=1216832409]
 

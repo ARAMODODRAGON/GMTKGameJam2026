@@ -6,9 +6,6 @@ extends Node
 @export var transition_in_fade_time: float = 4.0
 @export var transition_next_fade_time: float = 2.0
 
-@export var win_scene: PackedScene
-@export var lose_scene: PackedScene
-
 @export_group("Stat Overrides")
 @export var shield_stat_override: float = -1.0
 @export var oxygen_stat_override: float = -1.0
@@ -20,6 +17,9 @@ extends Node
 @export var pause_screen: Control
 @export var game_layer: Node
 @export var screen_fade: ColorRect
+
+@export var asteroid_death_sound: AudioStreamPlayer
+@export var power_down_sound: AudioStreamPlayer
 @export_group("")
 
 var game_paused: bool = false:
@@ -107,17 +107,45 @@ func _on_game_win() -> void:
 
 	await tween.finished
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	get_tree().change_scene_to_packed(win_scene)
+	get_tree().change_scene_to_file(&"uid://cafko6h8pse7a")
 
 
 func _on_game_lose() -> void:
 	game_layer.process_mode = Node.PROCESS_MODE_DISABLED
-	screen_fade.color.a = 0.0
 
-	var tween := create_tween()
-	tween.tween_property(screen_fade, "color:a", 1.0, transition_next_fade_time)
-	tween.tween_interval(2.0)
+	if  is_equal_approx(ShipStats.shield_amount, 0.0):
 
-	await tween.finished
+		## blackout
+		screen_fade.color.a = 1.0
+		asteroid_death_sound.play()
+		await asteroid_death_sound.finished
+
+	elif is_equal_approx(ShipStats.oxygen_amount, 0.0):
+
+		## fade out
+		screen_fade.color.a = 0.0
+
+		var tween := create_tween()
+		tween.tween_property(screen_fade, "color:a", 1.0, transition_next_fade_time)
+		tween.tween_interval(2.0)
+
+		await tween.finished
+
+	elif is_equal_approx(ShipStats.energy_amount, 0.0):
+
+		## blackout
+		screen_fade.color.a = 1.0
+		power_down_sound.play()
+		await power_down_sound.finished
+
+	elif is_equal_approx(ShipStats.alignment_amount, 0.0):
+
+		## blackout
+		screen_fade.color.a = 1.0
+		asteroid_death_sound.play()
+		await asteroid_death_sound.finished
+
+	## happens regardless
+
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	get_tree().change_scene_to_packed(lose_scene)
+	get_tree().change_scene_to_file(&"uid://dtqt70yqks8p4")

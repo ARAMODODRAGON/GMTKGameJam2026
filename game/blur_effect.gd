@@ -15,3 +15,8 @@ func _process(delta: float) -> void:
 	_time += delta
 	var blur_amount := blur_noise.get_noise_1d(_time)
 	material.set("shader_parameter/blur_amount", remap(blur_amount, -1.0, 1.0, 0.0, 1.0) * _amount)
+
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), 1.0 - _amount)
+
+func _exit_tree() -> void:
+	AudioServer.set_bus_volume_linear(AudioServer.get_bus_index("Master"), 1.0)

@@ -2,17 +2,23 @@
 
 [ext_resource type="Shader" uid="uid://dejy83qcigs02" path="res://scripts/shaders/crt_shader.gdshader" id="1_q6qqd"]
 [ext_resource type="Script" uid="uid://6r8um1yg8b5y" path="res://game/condition_screens/screen.gd" id="1_ssoma"]
+[ext_resource type="AudioStream" uid="uid://cqxkmn4e0vfr" path="res://objects/ambientsound/sounds/lightbulb_buzzing.mp3" id="2_057le"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ssoma"]
 shader = ExtResource("1_q6qqd")
 shader_parameter/warp_amount = 5.0
 
-[node name="LoseScreen" type="Node" unique_id=517787205 node_paths=PackedStringArray("fade_in_rect", "focus_item", "death_description", "debug_display")]
+[node name="LoseScreen" type="Node" unique_id=517787205 node_paths=PackedStringArray("fade_in_rect", "focus_item", "death_description", "audioplayer", "debug_display")]
 script = ExtResource("1_ssoma")
 fade_in_rect = NodePath("UILayer/FadeIn")
 focus_item = NodePath("UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect/Button")
 death_description = NodePath("UILayer/Background/CenterContainer/VBoxContainer/SmallText")
+audioplayer = NodePath("AudioStreamPlayer")
 debug_display = NodePath("ScreenEffect/Control/MarginContainer/DebugDisplay")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=393170037]
+stream = ExtResource("2_057le")
+autoplay = true
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=380821810]
 

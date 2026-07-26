@@ -2,16 +2,22 @@
 
 [ext_resource type="Script" uid="uid://6r8um1yg8b5y" path="res://game/condition_screens/screen.gd" id="1_hpb0u"]
 [ext_resource type="Shader" uid="uid://dejy83qcigs02" path="res://scripts/shaders/crt_shader.gdshader" id="2_21j8j"]
+[ext_resource type="AudioStream" uid="uid://cqxkmn4e0vfr" path="res://objects/ambientsound/sounds/lightbulb_buzzing.mp3" id="2_pdggw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ssoma"]
 shader = ExtResource("2_21j8j")
 shader_parameter/warp_amount = 5.0
 
-[node name="WinScreen" type="Node" unique_id=517787205 node_paths=PackedStringArray("fade_in_rect", "focus_item", "debug_display")]
+[node name="WinScreen" type="Node" unique_id=517787205 node_paths=PackedStringArray("fade_in_rect", "focus_item", "audioplayer", "debug_display")]
 script = ExtResource("1_hpb0u")
 fade_in_rect = NodePath("UILayer/FadeIn")
 focus_item = NodePath("UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect/Button")
+audioplayer = NodePath("AudioStreamPlayer")
 debug_display = NodePath("ScreenEffect/Control/MarginContainer/DebugDisplay")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2030049893]
+stream = ExtResource("2_pdggw")
+autoplay = true
 
 [node name="UILayer" type="CanvasLayer" parent="." unique_id=380821810]
 
