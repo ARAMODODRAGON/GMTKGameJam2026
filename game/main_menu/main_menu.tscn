@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://cto3wh80pmb0w"]
+
+[ext_resource type="AudioStream" uid="uid://cqxkmn4e0vfr" path="res://objects/ambientsound/sounds/lightbulb_buzzing.mp3" id="1_rlutr"]
+[ext_resource type="Script" uid="uid://cnub32l7dyidg" path="res://game/main_menu/main_menu.gd" id="1_sp5am"]
+[ext_resource type="Shader" uid="uid://dejy83qcigs02" path="res://scripts/shaders/crt_shader.gdshader" id="2_sp5am"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rlneu"]
+shader = ExtResource("2_sp5am")
+shader_parameter/warp_amount = 5.0
+
+[node name="MainMenu" type="Control" unique_id=1059685282 node_paths=PackedStringArray("button", "fade_in_rect", "audioplayer", "focus_item")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sp5am")
+game_scene = "uid://b305heht0etyb"
+button = NodePath("UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect/Button")
+fade_in_rect = NodePath("UILayer/Background/FadeIn")
+audioplayer = NodePath("AudioStreamPlayer")
+focus_item = NodePath("UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect/Button")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1957366244]
+stream = ExtResource("1_rlutr")
+autoplay = true
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1850357691]
+
+[node name="Background" type="ColorRect" parent="UILayer" unique_id=678736680]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+color = Color(0.083900005, 0.079, 0.1, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="UILayer/Background" unique_id=735267991]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/Background/CenterContainer" unique_id=1190726961]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="BigText" type="RichTextLabel" parent="UILayer/Background/CenterContainer/VBoxContainer" unique_id=600538456]
+custom_minimum_size = Vector2(1000, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 108
+text = "The Quasar"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UILayer/Background/CenterContainer/VBoxContainer" unique_id=398939182]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_right = 300
+
+[node name="ColorRect" type="ColorRect" parent="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer" unique_id=1304054128]
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.045654945, 0.2616436, 0, 1)
+
+[node name="Button" type="Button" parent="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect" unique_id=905314301]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+flat = true
+
+[node name="FadeIn" type="ColorRect" parent="UILayer/Background" unique_id=663265889]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="ScreenEffect" type="CanvasLayer" parent="." unique_id=955729588]
+
+[node name="Control" type="Control" parent="ScreenEffect" unique_id=1335397037]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_behavior_recursive = 1
+
+[node name="CRTEffect" type="ColorRect" parent="ScreenEffect/Control" unique_id=1197984147]
+material = SubResource("ShaderMaterial_rlneu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect/Button" to="." method="_on_button_pressed"]

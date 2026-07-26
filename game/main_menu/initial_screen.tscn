@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cfefxq0g6g0tf"]
+
+[ext_resource type="Script" uid="uid://s8lmnff1j554" path="res://game/main_menu/initial_screen.gd" id="1_t54i2"]
+
+[node name="InitialScreen" type="Control" unique_id=298438884 node_paths=PackedStringArray("fade_rect", "warning_text", "recommendation_text")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t54i2")
+fade_rect = NodePath("ColorRect")
+warning_text = NodePath("Warning")
+recommendation_text = NodePath("Recommendations")
+
+[node name="Warning" type="RichTextLabel" parent="." unique_id=973478319]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 37
+bbcode_enabled = true
+text = "Warning, this game contains flashing lights."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Recommendations" type="RichTextLabel" parent="." unique_id=2136618858]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 37
+text = "Headphones are recommended"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2132172801]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
