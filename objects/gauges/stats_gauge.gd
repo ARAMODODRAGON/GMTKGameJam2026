@@ -36,4 +36,4 @@ func _process(delta: float) -> void:
 			display_variable = ShipStats.shield_amount
 	
 #	90deg is 0%, -90deg 100%
-	dial.rotation.y = deg_to_rad(remap(display_variable, 0.0, 100.0, -90.0, 90.0))
+	dial.rotation.y = deg_to_rad(remap(display_variable, 0.0, 100.0, 90.0, -90.0))

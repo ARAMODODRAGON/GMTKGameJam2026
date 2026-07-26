@@ -54,6 +54,7 @@ var big_asteroid_chance: float = 10.0
 @export var big_hit_shake_min: float = 10.0
 @export var big_hit_shake_max: float = 10.0
 
+@export var sound_player: AudioStreamPlayer3D
 
 ## Private Variables
 
@@ -121,6 +122,7 @@ func _handle_small_rock() -> void:
 	var shake_amount := randf_range(small_hit_shake_min, small_hit_shake_max) * low_shield_hit_strength_multiplier
 	EffectsManager.shake_screen(shake_amount)
 	on_small_hit.emit(shake_amount)
+	_play_asteroid_sound(-4.0)
 
 
 func _handle_asteroid() -> void:
@@ -128,6 +130,7 @@ func _handle_asteroid() -> void:
 	var shake_amount := randf_range(big_hit_shake_min, big_hit_shake_max) * low_shield_hit_strength_multiplier
 	EffectsManager.shake_screen(shake_amount)
 	on_big_hit.emit(shake_amount)
+	_play_asteroid_sound(4.0)
 
 	## handle stat changes
 
@@ -142,3 +145,8 @@ func _handle_asteroid() -> void:
 
 	if alignment_reduction_enabled:
 		ShipStats.alignment_amount -= randf_range(alignment_reduction_min, alignment_reduction_max)
+
+func _play_asteroid_sound(vol: float) -> void:
+	sound_player.volume_db = vol
+	sound_player.position = Vector3(randf_range(-30, 30), randf_range(-10, 10), randf_range(-30, 30))
+	sound_player.play()

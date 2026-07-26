@@ -76,14 +76,14 @@ emission_texture = SubResource("ViewportTexture_dbrs5")
 [node name="Player" parent="." index="1" unique_id=1162497877 instance=ExtResource("2_yqli5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3087504, -1.1881082, 3.3055296)
 
-[node name="4by3_crt" parent="." index="2" unique_id=2010853883 instance=ExtResource("3_d0ixs")]
+[node name="4by3_crt" parent="." index="3" unique_id=2010853883 instance=ExtResource("3_d0ixs")]
 transform = Transform3D(0.35355338, 0, 0.35355338, 0, 0.5, 0, -0.35355338, 0, 0.35355338, -2.664083, -0.11259556, -20.51736)
 label_string = "ERROR"
 
 [node name="CRTWhine" parent="4by3_crt" index="2" unique_id=276462580 instance=ExtResource("4_4ccfq")]
 volume_db = -25.0
 
-[node name="4by3_crt2" parent="." index="3" unique_id=134732014 instance=ExtResource("3_d0ixs")]
+[node name="4by3_crt2" parent="." index="4" unique_id=134732014 instance=ExtResource("3_d0ixs")]
 transform = Transform3D(0.30892295, 0, -0.3931496, 0, 0.5, 0, 0.3931496, 0, 0.30892295, 2.5150595, -0.1125958, -20.587683)
 label_string = "Cockpit Lockdown"
 
@@ -91,7 +91,7 @@ label_string = "Cockpit Lockdown"
 transform = Transform3D(-0.23822898, 0, 1.9857612, 0, 2, 0, -1.9857612, 0, -0.23822898, 0.011890411, 4.7683716e-07, 0.21250534)
 volume_db = -25.0
 
-[node name="cheap_radio" parent="." index="4" unique_id=703107636 instance=ExtResource("4_e6m4r")]
+[node name="cheap_radio" parent="." index="5" unique_id=703107636 instance=ExtResource("4_e6m4r")]
 transform = Transform3D(0.6985903, 0, 0.71552193, 0, 1, 0, -0.71552193, 0, 0.6985903, -1.9923787, -0.48153156, -20.554394)
 
 [node name="WallFan" parent="." index="5" unique_id=1554156394 instance=ExtResource("8_k0lse")]
