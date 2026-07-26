@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://4b0wm87slhrq" path="res://game/reticle_interactable.png" id="4_bwd2a"]
 [ext_resource type="Texture2D" uid="uid://0sqv4t6nmxro" path="res://game/reticle.png" id="4_h7acg"]
 [ext_resource type="Script" uid="uid://cnyd7r1prpgi1" path="res://game/asteroid_handler.gd" id="5_i6pox"]
-[ext_resource type="PackedScene" uid="uid://cuhit0v3xav5" path="res://maps/BlockoutShip/blockout_ship_gameloop_test.tscn" id="5_qud3c"]
 [ext_resource type="Script" uid="uid://bbjcpn5o0ebbi" path="res://game/light_flicker_handler.gd" id="5_xk365"]
+[ext_resource type="PackedScene" uid="uid://clf6knhf7ywmp" path="res://maps/BlockoutShip/blockout_ship.tscn" id="6_qud3c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d8wum"]
 shader = ExtResource("2_5sefw")
@@ -62,7 +62,7 @@ flicker_frequency_min = 30.0
 flicker_frequency_max = 60.0
 low_energy_flicker_frequency_multipler = 30.0
 
-[node name="BlockoutShipGameloopTest" parent="PausableGameLayer" unique_id=1609120507 instance=ExtResource("5_qud3c")]
+[node name="BlockoutShip" parent="PausableGameLayer" unique_id=1609120507 instance=ExtResource("6_qud3c")]
 
 [node name="InsideWorldUI" type="CanvasLayer" parent="." unique_id=1188786871]
 

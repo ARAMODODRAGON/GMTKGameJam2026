@@ -13,11 +13,68 @@
 [ext_resource type="PackedScene" uid="uid://ce4f1oj0pxynm" path="res://maps/ship_door_01.tscn" id="11_8sbg5"]
 [ext_resource type="PackedScene" uid="uid://curec3utb0vca" path="res://objects/ambientsound/bulb_lamp.tscn" id="12_4ils4"]
 [ext_resource type="PackedScene" uid="uid://d3g5f0lcnbo74" path="res://objects/ambientsound/RoomTone1.tscn" id="13_6060q"]
+[ext_resource type="PackedScene" uid="uid://bv2gh0fxa2knv" path="res://objects/terminals/light_terminal/light_terminal.tscn" id="14_qkg1b"]
+[ext_resource type="PackedScene" uid="uid://cjugs1yx6f7vg" path="res://objects/gauges/stats_gauge.tscn" id="15_kemwa"]
+[ext_resource type="PackedScene" uid="uid://dsxwgtposamdx" path="res://objects/terminals/countdown_timer_terminal/countdown_terminal.tscn" id="16_7jvy2"]
+[ext_resource type="PackedScene" uid="uid://bb1ow6olvw86a" path="res://objects/terminals/alignment_terminal/alignment_terminal.tscn" id="17_3wpkd"]
+[ext_resource type="PackedScene" uid="uid://ctwkhl3yls86" path="res://objects/terminals/fuse_status_display_terminal/fuse_status_display_terminal.tscn" id="18_iqn3b"]
+[ext_resource type="PackedScene" uid="uid://b41i5syd5gfe7" path="res://objects/buttons/interactable_breaker_switch.tscn" id="19_io5uv"]
+[ext_resource type="PackedScene" uid="uid://crm4glme3gtl8" path="res://objects/terminals/oxygen_terminal/oxygen_terminal.tscn" id="20_l21h2"]
+[ext_resource type="PackedScene" uid="uid://c6hsu271tvy5s" path="res://objects/terminals/shields_terminal/ShieldsTerminal.tscn" id="21_8qttc"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qkg1b"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kemwa"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jvy2"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_qkg1b")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_kemwa")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3wpkd"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_iqn3b"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_io5uv"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_3wpkd")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_iqn3b")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_l21h2"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8qttc"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kcds"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_l21h2")
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_8qttc")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5mjo3"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dbrs5"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2obkp"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_5mjo3")
+roughness = 0.12
+emission_enabled = true
+emission_texture = SubResource("ViewportTexture_dbrs5")
 
 [node name="BlockoutShip" unique_id=1609120507 instance=ExtResource("1_hucus")]
 
 [node name="Player" parent="." index="1" unique_id=1162497877 instance=ExtResource("2_yqli5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2420774, 0, 6.681638)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3087504, -1.1881082, 3.3055296)
 
 [node name="4by3_crt" parent="." index="2" unique_id=2010853883 instance=ExtResource("3_d0ixs")]
 transform = Transform3D(0.35355338, 0, 0.35355338, 0, 0.5, 0, -0.35355338, 0, 0.35355338, -2.664083, -0.11259556, -20.51736)
@@ -40,76 +97,443 @@ transform = Transform3D(0.6985903, 0, 0.71552193, 0, 1, 0, -0.71552193, 0, 0.698
 [node name="WallFan" parent="." index="5" unique_id=1554156394 instance=ExtResource("8_k0lse")]
 transform = Transform3D(-0.35355332, -1.6420282e-15, 0.35355344, 3.090862e-08, -0.5, 3.0908616e-08, 0.35355344, 4.3711385e-08, 0.35355332, -3.0893974, 1.6804409, -3.0407372)
 
-[node name="FluorescentLamp6" parent="." index="6" unique_id=170286567 instance=ExtResource("9_twnuv")]
-transform = Transform3D(-0.3202328, 0, 0.947339, 0, 1, 0, -0.947339, 0, -0.3202328, -20.709345, 1.2595094, 6.750938)
-
-[node name="FluorescentLamp7" parent="." index="7" unique_id=412475393 instance=ExtResource("9_twnuv")]
-transform = Transform3D(0.46583074, 0, 0.88487387, 0, 1, 0, -0.88487387, 0, 0.46583074, -18.201187, 1.2595096, -12.6914425)
-
-[node name="FluorescentLamp8" parent="." index="8" unique_id=136678071 instance=ExtResource("9_twnuv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.972642, 1.0229607, -1.1473218)
-
-[node name="FluorescentLamp9" parent="." index="9" unique_id=1500520429 instance=ExtResource("9_twnuv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.879474, 1.0229607, -1.1473218)
-
-[node name="FluorescentLamp10" parent="." index="10" unique_id=1996656448 instance=ExtResource("9_twnuv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.750759, 1.0229607, -5.7092614)
-
-[node name="FluorescentLamp11" parent="." index="11" unique_id=278940174 instance=ExtResource("9_twnuv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.004122, 1.0229607, -9.411636)
-
-[node name="FluorescentLamp12" parent="." index="12" unique_id=1211458448 instance=ExtResource("9_twnuv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.354425, 1.3821301, -14.576713)
-
-[node name="FluorescentLamp3" parent="." index="13" unique_id=813436647 instance=ExtResource("9_twnuv")]
-transform = Transform3D(-4.126266e-08, 0.3300037, 0.9439798, 1.4424922e-08, 0.9439798, -0.3300037, -1, 9.922104e-17, -4.3711392e-08, -4.9630656, 1.9873912, -17.30006)
-
-[node name="FluorescentLamp5" parent="." index="14" unique_id=395271602 instance=ExtResource("9_twnuv")]
-transform = Transform3D(1.0000001, -1.4424921e-08, 2.4487221e-09, 1.4424922e-08, 0.9439799, -0.33000374, 2.4487292e-09, 0.3300037, 0.9439798, 0.039132595, 1.9331033, -21.205885)
-
-[node name="FluorescentLamp4" parent="." index="15" unique_id=1086677157 instance=ExtResource("9_twnuv")]
-transform = Transform3D(1.2336376e-07, -0.3391156, -0.94074476, 4.4469637e-08, 0.94074476, -0.3391156, 1, 0, 1.3113416e-07, 5.0283213, 1.9046938, -17.243124)
-
-[node name="FluorescentLamp2" parent="." index="16" unique_id=1922757565 instance=ExtResource("9_twnuv")]
-transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.2319547, 0.9739928, -10.302993)
-
-[node name="FluorescentLamp13" parent="." index="17" unique_id=845391486 instance=ExtResource("9_twnuv")]
-transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 3.4924212, 1.9583707, -3.5277238)
-
-[node name="FluorescentLamp14" parent="." index="18" unique_id=302958369 instance=ExtResource("9_twnuv")]
-transform = Transform3D(-0.70710695, 0, 0.7071066, 0, 1, 0, -0.7071066, 0, -0.70710695, -3.4926207, 2.0857885, 3.2619336)
-
-[node name="LightmapGI" type="LightmapGI" parent="." index="21" unique_id=488127251]
+[node name="LightmapGI" type="LightmapGI" parent="." index="8" unique_id=488127251]
 quality = 2
 supersampling = true
 bounces = 5
 light_data = ExtResource("10_1auym")
 
-[node name="ShipDoor_01" parent="." index="22" unique_id=905237972 node_paths=PackedStringArray("button_1", "button_2") instance=ExtResource("11_8sbg5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0007866025, 0.021915436, -7.3121915)
-button_1 = NodePath("../DoorButton_01")
-button_2 = NodePath("../DoorButton_02")
-
-[node name="DoorButton_01" parent="." index="23" unique_id=1735068422 instance=ExtResource("6_k0lse")]
-transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, -1.6505706, -0.050095856, -9.863648)
-
-[node name="DoorButton_02" parent="." index="24" unique_id=264580780 instance=ExtResource("6_k0lse")]
-transform = Transform3D(-1, -8.742278e-08, -3.821371e-15, 0, -4.371139e-08, 1, -8.742278e-08, 1, 4.371139e-08, -2.0021663, -0.1084688, -5.354125)
-
-[node name="ShieldGenerator" parent="." index="52" unique_id=1074581999 instance=ExtResource("11_4ils4")]
+[node name="ShieldGenerator" parent="." index="36" unique_id=1074581999 instance=ExtResource("11_4ils4")]
 transform = Transform3D(0.10112579, 0, 0.22863413, 0, 0.25, 0, -0.22863413, 0, 0.10112579, -19.032755, -0.75, -6.5941124)
 
-[node name="ShieldGenerator2" parent="." index="53" unique_id=252313111 instance=ExtResource("11_4ils4")]
+[node name="ShieldGenerator2" parent="." index="37" unique_id=252313111 instance=ExtResource("11_4ils4")]
 transform = Transform3D(0.10112579, 0, 0.22863413, 0, 0.25, 0, -0.22863413, 0, 0.10112579, -18.295265, -0.7500001, -9.748626)
 
-[node name="BulbLamp" parent="." index="60" unique_id=1102362660 instance=ExtResource("12_4ils4")]
+[node name="RoomTone1" parent="." index="41" unique_id=1302090609 instance=ExtResource("13_6060q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8330817, 25.322575)
+
+[node name="GameContent" type="Node3D" parent="." index="42" unique_id=807627135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.070349455, 0.58971834, 0)
+
+[node name="LightTerminalArea" type="Node3D" parent="GameContent" index="0" unique_id=1483217432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.187988, -2.6776915, 0)
+
+[node name="LightTerminal" parent="GameContent/LightTerminalArea" index="0" unique_id=1564582219 instance=ExtResource("14_qkg1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.221062, 2.8101995, -0.14879167)
+
+[node name="Cube" parent="GameContent/LightTerminalArea/LightTerminal" index="0" unique_id=1599189902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3667264, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_7jvy2")
+
+[node name="LightTaskView" parent="GameContent/LightTerminalArea/LightTerminal/SubViewport" parent_id_path=PackedInt32Array(1564582219, 482558649) index="0" unique_id=2007830041 node_paths=PackedStringArray("nav_door", "energy_door", "oxygen_door", "shield_door", "nav_lights", "oxygen_lights", "shield_lights", "energy_lights")]
+nav_door = NodePath("../../../NavDoor")
+energy_door = NodePath("../../../EnergyDoor")
+oxygen_door = NodePath("../../../OxygenDoor")
+shield_door = NodePath("../../../ShieldDoor")
+nav_lights = [NodePath("../../../../../NavLights/FluorescentLamp3/OmniLight3D"), NodePath("../../../../../NavLights/FluorescentLamp3/OmniLight3D2"), NodePath("../../../../../NavLights/FluorescentLamp5/OmniLight3D"), NodePath("../../../../../NavLights/FluorescentLamp5/OmniLight3D2"), NodePath("../../../../../NavLights/FluorescentLamp4/OmniLight3D"), NodePath("../../../../../NavLights/FluorescentLamp4/OmniLight3D2"), NodePath("../../../../../NavLights/FluorescentLamp2/OmniLight3D"), NodePath("../../../../../NavLights/FluorescentLamp2/OmniLight3D2")]
+oxygen_lights = [NodePath("../../../../../OxygenLights/FluorescentLamp9/OmniLight3D"), NodePath("../../../../../OxygenLights/FluorescentLamp9/OmniLight3D2"), NodePath("../../../../../OxygenLights/FluorescentLamp10/OmniLight3D"), NodePath("../../../../../OxygenLights/FluorescentLamp10/OmniLight3D2"), NodePath("../../../../../OxygenLights/FluorescentLamp11/OmniLight3D"), NodePath("../../../../../OxygenLights/FluorescentLamp12/OmniLight3D2"), NodePath("../../../../../OxygenLights/FluorescentLamp12/OmniLight3D"), NodePath("../../../../../OxygenLights/FluorescentLamp12/OmniLight3D2"), NodePath("../../../../../OxygenLights/FluorescentLamp15/OmniLight3D"), NodePath("../../../../../OxygenLights/FluorescentLamp15/OmniLight3D2")]
+shield_lights = [NodePath("../../../../../ShieldLights/BulbLamp3/OmniLight3D"), NodePath("../../../../../ShieldLights/FluorescentLamp6/OmniLight3D"), NodePath("../../../../../ShieldLights/FluorescentLamp6/OmniLight3D2"), NodePath("../../../../../ShieldLights/FluorescentLamp7/OmniLight3D"), NodePath("../../../../../ShieldLights/FluorescentLamp7/OmniLight3D2"), NodePath("../../../../../ShieldLights/FluorescentLamp8/OmniLight3D"), NodePath("../../../../../ShieldLights/FluorescentLamp8/OmniLight3D2")]
+energy_lights = [NodePath("../../../../../ShieldLights/BulbLamp3/OmniLight3D")]
+
+[node name="NavSwitch" parent="GameContent/LightTerminalArea/LightTerminal" index="2" unique_id=547640884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7232113, -1.5022631, 0.65437204)
+
+[node name="O2Switch" parent="GameContent/LightTerminalArea/LightTerminal" index="3" unique_id=1191667856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23963356, -1.5022631, 0.6676033)
+
+[node name="EnergySwitch" parent="GameContent/LightTerminalArea/LightTerminal" index="4" unique_id=2073703464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25489998, -1.5022631, 0.6631587)
+
+[node name="ShieldSwitch" parent="GameContent/LightTerminalArea/LightTerminal" index="5" unique_id=2116648874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.70733833, -1.5022631, 0.65699935)
+
+[node name="MainBreaker" parent="GameContent/LightTerminalArea/LightTerminal" index="6" unique_id=2115933321]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.2401619, -0.2992208, 0.766973)
+
+[node name="Label3D" type="Label3D" parent="GameContent/LightTerminalArea/LightTerminal/MainBreaker" index="4" unique_id=1371803182]
+transform = Transform3D(1, 8.742278e-08, -8.742277e-08, 8.742278e-08, 4.3711395e-08, 1, 8.7422784e-08, -1, 4.371139e-08, 1.9726684e-08, 9.863344e-09, -0.22564697)
+text = "Power Diverter"
+
+[node name="AudioStreamPlayer3D" parent="GameContent/LightTerminalArea/LightTerminal" index="8" unique_id=486820089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2293687, 0)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="GameContent/LightTerminalArea" index="1" unique_id=1907381322]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.297102, 0.8032414, 0)
+use_collision = true
+size = Vector3(2.625061, 1.5455933, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="GameContent/LightTerminalArea" index="2" unique_id=1176599529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.453827, 1.6830174, -0.0018920898)
+use_collision = true
+size = Vector3(1.3549881, 3.3051453, 0.9962158)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="GameContent/LightTerminalArea" index="3" unique_id=1526472682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.637135, 0.98936045, 0)
+use_collision = true
+size = Vector3(2.051529, 1.9178314, 1)
+
+[node name="DomedGauge2" parent="GameContent/LightTerminalArea" index="4" unique_id=642379518 instance=ExtResource("15_kemwa")]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 32.119736, 1.6665227, 0.5326724)
+gauge_type = 1
+
+[node name="DomedGauge3" parent="GameContent/LightTerminalArea" index="5" unique_id=1441836799 instance=ExtResource("15_kemwa")]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 33.103626, 1.6665227, 0.5326724)
+
+[node name="DomedGauge4" parent="GameContent/LightTerminalArea" index="6" unique_id=1879356160 instance=ExtResource("15_kemwa")]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 33.103626, 1.018979, 0.5326724)
+gauge_type = 2
+
+[node name="DomedGauge5" parent="GameContent/LightTerminalArea" index="7" unique_id=457853358 instance=ExtResource("15_kemwa")]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 32.07963, 1.018979, 0.5326724)
+gauge_type = 3
+
+[node name="CountdownTerminal" parent="GameContent/LightTerminalArea" index="8" unique_id=1748717777 instance=ExtResource("16_7jvy2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.576935, 2.783702, 0.13396406)
+
+[node name="EnergyDoor" parent="GameContent/LightTerminalArea" index="9" unique_id=731965124 instance=ExtResource("11_8sbg5")]
+transform = Transform3D(1.5947154, 0, 0, 0, 1.3045336, 0, 0, 0, 1, 30.099104, 2.39127, 10.527555)
+
+[node name="NavDoor" parent="GameContent/LightTerminalArea" index="10" unique_id=2072265149 instance=ExtResource("11_8sbg5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.997465, 2.1355648, -6.9779854)
+
+[node name="OxygenDoor" parent="GameContent/LightTerminalArea" index="11" unique_id=2006078388 instance=ExtResource("11_8sbg5")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 37.036648, 2.0851834, 0.119611114)
+
+[node name="ShieldDoor" parent="GameContent/LightTerminalArea" index="12" unique_id=1985815447 instance=ExtResource("11_8sbg5")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.062798, 2.1574624, 0.05636424)
+
+[node name="NavigationArea" type="Node3D" parent="GameContent" index="1" unique_id=1078358885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.187988, -2.6776915, -3.7682047)
+
+[node name="AlignmentTerminal" parent="GameContent/NavigationArea" index="0" unique_id=1117198952 instance=ExtResource("17_3wpkd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.189695, 2.7719283, -17.56697)
+
+[node name="DomedGauge" parent="GameContent/NavigationArea" index="1" unique_id=960373226 instance=ExtResource("15_kemwa")]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 28.441727, 2.525219, -17.503197)
+gauge_type = 1
+
+[node name="EnergyArea" type="Node3D" parent="GameContent" index="2" unique_id=925870084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.977013, -2.6776915, 0)
+
+[node name="FuseStatusDisplayTerminal" parent="GameContent/EnergyArea" index="0" unique_id=1953974550 node_paths=PackedStringArray("fuses", "success_button") instance=ExtResource("18_iqn3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.870098, 2.4413784, 10.263296)
+fuses = [NodePath("../Buttons/InteractableBreakerSwitch"), NodePath("../Buttons/InteractableBreakerSwitch2"), NodePath("../Buttons/InteractableBreakerSwitch3"), NodePath("../Buttons/InteractableBreakerSwitch4"), NodePath("../Buttons/InteractableBreakerSwitch5"), NodePath("../Buttons/InteractableBreakerSwitch6")]
+success_button = NodePath("../Buttons/InteractableRoundButton")
+success_energy_amount = 30.0
+time_to_succeed = 2.0
+energy_usage_rate = 0.5
+
+[node name="Cube" parent="GameContent/EnergyArea/FuseStatusDisplayTerminal" index="0" unique_id=156791562]
+surface_material_override/0 = SubResource("StandardMaterial3D_io5uv")
+
+[node name="DomedGauge6" parent="GameContent/EnergyArea" index="1" unique_id=284149311 instance=ExtResource("15_kemwa")]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 25.117928, 2.60468, 10.709879)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="GameContent/EnergyArea" index="2" unique_id=684149889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.845556, 2.03402, 10.941424)
+use_collision = true
+size = Vector3(2.7156982, 1.7075195, 1)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="GameContent/EnergyArea" index="3" unique_id=612721588]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 26.839104, 0.8200073, 10.299353)
+use_collision = true
+size = Vector3(0.70474243, 1.7075195, 2.3748474)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="GameContent/EnergyArea" index="4" unique_id=832102444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.215502, 1.6321572, 16.58919)
+use_collision = true
+size = Vector3(2.7156982, 1.7075195, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="GameContent/EnergyArea" index="5" unique_id=735410468]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 26.231361, 1.8810523, 14.942096)
+use_collision = true
+size = Vector3(2.7156982, 1.7075195, 1)
+
+[node name="Buttons" type="Node3D" parent="GameContent/EnergyArea" index="6" unique_id=1870499000]
+
+[node name="InteractableRoundButton" parent="GameContent/EnergyArea/Buttons" index="0" unique_id=1147983613 instance=ExtResource("6_k0lse")]
+transform = Transform3D(1.9106855e-15, 4.371139e-08, 1, 1, -4.371139e-08, 0, 4.371139e-08, 1, -4.371139e-08, 26.847446, 1.4610254, 10.658421)
+
+[node name="Label3D" type="Label3D" parent="GameContent/EnergyArea/Buttons/InteractableRoundButton" index="4" unique_id=385659089]
+transform = Transform3D(-3.821371e-15, 1, 0, -8.742278e-08, 0, 1, 1, 7.374084e-15, 8.742278e-08, 0.21937317, 0, 0)
+text = "Main Breaker"
+
+[node name="InteractableBreakerSwitch" parent="GameContent/EnergyArea/Buttons" index="1" unique_id=1401155624 instance=ExtResource("19_io5uv")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 27.288609, 2.071305, 14.392554)
+
+[node name="Label3D" type="Label3D" parent="GameContent/EnergyArea/Buttons/InteractableBreakerSwitch" index="2" unique_id=485380992]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28265238, 0)
+text = "1"
+
+[node name="InteractableBreakerSwitch2" parent="GameContent/EnergyArea/Buttons" index="2" unique_id=1463943635 instance=ExtResource("19_io5uv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.874733, 2.3905435, 11.5128565)
+
+[node name="Label3D" type="Label3D" parent="GameContent/EnergyArea/Buttons/InteractableBreakerSwitch2" index="2" unique_id=135415572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27822638, 0)
+text = "2"
+
+[node name="InteractableBreakerSwitch3" parent="GameContent/EnergyArea/Buttons" index="3" unique_id=140834966 instance=ExtResource("19_io5uv")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 18.925295, 1.9886808, 16.069601)
+
+[node name="Label3D" type="Label3D" parent="GameContent/EnergyArea/Buttons/InteractableBreakerSwitch3" index="2" unique_id=320585412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22486591, 0)
+text = "3"
+
+[node name="InteractableBreakerSwitch4" parent="GameContent/EnergyArea/Buttons" index="4" unique_id=1980032078 instance=ExtResource("19_io5uv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.789381, 1.865918, 11.495136)
+
+[node name="Label3D" type="Label3D" parent="GameContent/EnergyArea/Buttons/InteractableBreakerSwitch4" index="2" unique_id=1668442436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29369485, 0)
+text = "4"
+
+[node name="InteractableBreakerSwitch5" parent="GameContent/EnergyArea/Buttons" index="5" unique_id=283258290 instance=ExtResource("19_io5uv")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 17.586298, 1.9886808, 16.075779)
+
+[node name="Label3D" type="Label3D" parent="GameContent/EnergyArea/Buttons/InteractableBreakerSwitch5" index="2" unique_id=1244880291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23172033, 0)
+text = "5"
+
+[node name="InteractableBreakerSwitch6" parent="GameContent/EnergyArea/Buttons" index="6" unique_id=1022711874 instance=ExtResource("19_io5uv")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 25.268768, 1.5049859, 14.401595)
+
+[node name="Label3D" type="Label3D" parent="GameContent/EnergyArea/Buttons/InteractableBreakerSwitch6" index="2" unique_id=722442623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3021636, 0)
+text = "6"
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="GameContent/EnergyArea" index="7" unique_id=1749194246 groups=["flickering_lights"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.632088, 4.228924, 13.975969)
+visible = false
+light_energy = 3.0
+omni_range = 11.777
+omni_attenuation = 0.313
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="GameContent/EnergyArea" index="8" unique_id=1623971110 groups=["flickering_lights"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.609005, 4.228924, 16.313135)
+visible = false
+light_energy = 3.0
+omni_range = 11.777
+omni_attenuation = 0.313
+
+[node name="OxygenArea" type="Node3D" parent="GameContent" index="3" unique_id=1796926515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.01229, -3.5181637, -3.020481)
+
+[node name="OxygenTerminal" parent="GameContent/OxygenArea" index="0" unique_id=529739217 instance=ExtResource("20_l21h2")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 67.90816, 2.639717, 5.6017385)
+
+[node name="Cube" parent="GameContent/OxygenArea/OxygenTerminal" index="0" unique_id=1599189902]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85701776, 3.9083562)
+surface_material_override/0 = SubResource("StandardMaterial3D_2kcds")
+
+[node name="OxygenTaskView" parent="GameContent/OxygenArea/OxygenTerminal/SubViewport" parent_id_path=PackedInt32Array(529739217, 482558649) index="0" unique_id=2007830041]
+stat_success_amount = 30.0
+stat_usage_rate = 0.5
+
+[node name="InteractableRoundButton" parent="GameContent/OxygenArea/OxygenTerminal" index="2" unique_id=2115933321]
+transform = Transform3D(1, 8.742278e-08, -8.742278e-08, -8.742278e-08, -4.371139e-08, -1, -8.742278e-08, 1, -4.371138e-08, 1.4453049, 0.6492164, 4.1945944)
+
+[node name="Label3D" type="Label3D" parent="GameContent/OxygenArea/OxygenTerminal/InteractableRoundButton" index="4" unique_id=892809206]
+transform = Transform3D(1, -1.7484555e-07, 5.081262e-14, -2.8959026e-14, 4.3711374e-08, 1, -1.7484557e-07, -1, 4.371138e-08, 0, -2.9802322e-08, -0.3153174)
+text = "Oxygen Pump Switch"
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="GameContent/OxygenArea" index="1" unique_id=1418434025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.971664, 1.5189176, 1.9214038)
+use_collision = true
+size = Vector3(8.168518, 2.1018677, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="GameContent/OxygenArea" index="2" unique_id=1887093275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.31674, 3.043137, 1.9214038)
+use_collision = true
+size = Vector3(2.858673, 1.3075027, 1)
+
+[node name="DomedGauge6" parent="GameContent/OxygenArea" index="3" unique_id=1291934445 instance=ExtResource("15_kemwa")]
+transform = Transform3D(-0.5, -4.371139e-08, 1.9106855e-15, 0, -2.1855694e-08, -0.5, 4.371139e-08, -0.5, 2.1855694e-08, 66.31586, 2.3314605, 1.3219925)
+gauge_type = 2
+
+[node name="ShieldArea" type="Node3D" parent="GameContent" index="4" unique_id=1990235534]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -19.473513, -2.6776915, -7.407623)
+
+[node name="ShieldsTerminal" parent="GameContent/ShieldArea" index="0" unique_id=1908341797 instance=ExtResource("21_8qttc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5827546, 2.5612304, -0.23403645)
+
+[node name="Cube" parent="GameContent/ShieldArea/ShieldsTerminal" index="0" unique_id=1599189902]
+surface_material_override/0 = SubResource("StandardMaterial3D_2obkp")
+
+[node name="ShieldsTaskView" parent="GameContent/ShieldArea/ShieldsTerminal/SubViewport" parent_id_path=PackedInt32Array(1908341797, 578667375) index="0" unique_id=1330622129]
+stat_usage_rate = 0.5
+
+[node name="InteractableTriangleButton" parent="GameContent/ShieldArea/ShieldsTerminal" index="3" unique_id=2115933321]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.99180317, -1.0227066, 0.40335578)
+
+[node name="InteractableTriangleButton2" parent="GameContent/ShieldArea/ShieldsTerminal" index="4" unique_id=1615200884]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.026273012, -1.0227066, 0.40335578)
+
+[node name="InteractableTriangleButton3" parent="GameContent/ShieldArea/ShieldsTerminal" index="5" unique_id=802853854]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1.0115073, -1.0227066, 0.40335578)
+
+[node name="InteractableBreakerSwitch" parent="GameContent/ShieldArea/ShieldsTerminal" index="6" unique_id=547640884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3663714, 0, 0.56809473)
+
+[node name="Label3D" type="Label3D" parent="GameContent/ShieldArea/ShieldsTerminal/InteractableBreakerSwitch" index="2" unique_id=2116551121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26508713, 0)
+text = "Lock Shield Generator"
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="GameContent/ShieldArea" index="1" unique_id=1102686046]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8462029, 0.8383789, -0.6203289)
+use_collision = true
+size = Vector3(7.9045258, 1.7442627, 1.6240082)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="GameContent/ShieldArea" index="2" unique_id=853339053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2935867, 2.442215, -0.6203289)
+use_collision = true
+size = Vector3(3.009758, 1.9429626, 1.6240082)
+
+[node name="DomedGauge6" parent="GameContent/ShieldArea" index="3" unique_id=1349043190 instance=ExtResource("15_kemwa")]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 5.654912, 2.7397432, 0.23870549)
+gauge_type = 3
+
+[node name="NavLights" type="Node3D" parent="." index="43" unique_id=2031998937]
+
+[node name="FluorescentLamp3" parent="NavLights" index="0" unique_id=813436647 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-4.126266e-08, 0.3300037, 0.9439798, 1.4424922e-08, 0.9439798, -0.3300037, -1, 9.922104e-17, -4.3711392e-08, -4.9630656, 1.9873912, -17.30006)
+
+[node name="OmniLight3D" parent="NavLights/FluorescentLamp3" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="NavLights/FluorescentLamp3" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp5" parent="NavLights" index="1" unique_id=395271602 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1.0000001, -1.4424921e-08, 2.4487221e-09, 1.4424922e-08, 0.9439799, -0.33000374, 2.4487292e-09, 0.3300037, 0.9439798, 0.039132595, 1.9331033, -21.205885)
+
+[node name="OmniLight3D" parent="NavLights/FluorescentLamp5" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="NavLights/FluorescentLamp5" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp4" parent="NavLights" index="2" unique_id=1086677157 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1.2336376e-07, -0.3391156, -0.94074476, 4.4469637e-08, 0.94074476, -0.3391156, 1, 0, 1.3113416e-07, 5.0283213, 1.9046938, -17.243124)
+
+[node name="OmniLight3D" parent="NavLights/FluorescentLamp4" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="NavLights/FluorescentLamp4" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp2" parent="NavLights" index="3" unique_id=1922757565 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 1.2319547, 0.9739928, -10.302993)
+
+[node name="OmniLight3D" parent="NavLights/FluorescentLamp2" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="NavLights/FluorescentLamp2" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="EnergyLights" type="Node3D" parent="." index="44" unique_id=1941828088]
+
+[node name="BulbLamp" parent="EnergyLights" index="0" unique_id=1102362660 instance=ExtResource("12_4ils4")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.049263, 1.4641924, 13.201715)
 
-[node name="BulbLamp2" parent="." index="61" unique_id=451378809 instance=ExtResource("12_4ils4")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.049263, 1.4641924, -0.1413126)
+[node name="OmniLight3D" parent="EnergyLights/BulbLamp" index="1" unique_id=824679274 groups=["flickering_lights"]]
 
-[node name="BulbLamp3" parent="." index="62" unique_id=2110109247 instance=ExtResource("12_4ils4")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -19.328707, 1.0515509, -0.19397068)
+[node name="ShieldLights" type="Node3D" parent="." index="45" unique_id=495608993]
 
-[node name="RoomTone1" parent="." index="63" unique_id=1302090609 instance=ExtResource("13_6060q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8330817, 25.322575)
+[node name="BulbLamp3" parent="ShieldLights" index="0" unique_id=2110109247 instance=ExtResource("12_4ils4")]
+transform = Transform3D(0.35355338, 0, 0.35355338, 0, 0.5, 0, -0.35355338, 0, 0.35355338, -19.328707, 1.0515509, -0.19397068)
+
+[node name="OmniLight3D" parent="ShieldLights/BulbLamp3" index="1" unique_id=824679274 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp6" parent="ShieldLights" index="1" unique_id=170286567 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-0.3202328, 0, 0.947339, 0, 1, 0, -0.947339, 0, -0.3202328, -20.709345, 1.2595094, 6.750938)
+
+[node name="OmniLight3D" parent="ShieldLights/FluorescentLamp6" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="ShieldLights/FluorescentLamp6" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp7" parent="ShieldLights" index="2" unique_id=412475393 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-0.6789801, 0, -0.7341567, 0, 1, 0, 0.7341567, 0, -0.6789801, -13.666445, 1.2423108, -9.289552)
+
+[node name="OmniLight3D" parent="ShieldLights/FluorescentLamp7" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="ShieldLights/FluorescentLamp7" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp8" parent="ShieldLights" index="3" unique_id=136678071 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.972642, 1.0229607, -1.1473218)
+
+[node name="OmniLight3D" parent="ShieldLights/FluorescentLamp8" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="ShieldLights/FluorescentLamp8" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="OxygenLights" type="Node3D" parent="." index="46" unique_id=1648184293]
+
+[node name="FluorescentLamp9" parent="OxygenLights" index="0" unique_id=1500520429 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.879474, 1.0229607, -1.1473218)
+
+[node name="OmniLight3D" parent="OxygenLights/FluorescentLamp9" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="OxygenLights/FluorescentLamp9" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp10" parent="OxygenLights" index="1" unique_id=1996656448 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.750759, 1.0229607, -5.7092614)
+
+[node name="OmniLight3D" parent="OxygenLights/FluorescentLamp10" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="OxygenLights/FluorescentLamp10" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp11" parent="OxygenLights" index="2" unique_id=278940174 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.004122, 1.0229607, -9.411636)
+
+[node name="OmniLight3D" parent="OxygenLights/FluorescentLamp11" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="OxygenLights/FluorescentLamp11" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp12" parent="OxygenLights" index="3" unique_id=1211458448 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.354425, 1.3821301, -14.576713)
+
+[node name="OmniLight3D" parent="OxygenLights/FluorescentLamp12" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="OxygenLights/FluorescentLamp12" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp15" parent="OxygenLights" index="4" unique_id=1608089528 instance=ExtResource("9_twnuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.354425, 1.3821301, -7.015099)
+
+[node name="OmniLight3D" parent="OxygenLights/FluorescentLamp15" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="OxygenLights/FluorescentLamp15" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="CenterLights" type="Node3D" parent="." index="47" unique_id=1092576244]
+
+[node name="FluorescentLamp13" parent="CenterLights" index="0" unique_id=845391486 instance=ExtResource("9_twnuv")]
+transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 3.4924212, 1.9583707, -3.5277238)
+
+[node name="OmniLight3D" parent="CenterLights/FluorescentLamp13" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="CenterLights/FluorescentLamp13" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="FluorescentLamp14" parent="CenterLights" index="1" unique_id=302958369 instance=ExtResource("9_twnuv")]
+transform = Transform3D(-0.70710695, 0, 0.7071066, 0, 1, 0, -0.7071066, 0, -0.70710695, -3.4926207, 2.0857885, 3.2619336)
+
+[node name="OmniLight3D" parent="CenterLights/FluorescentLamp14" index="2" unique_id=749858441 groups=["flickering_lights"]]
+
+[node name="OmniLight3D2" parent="CenterLights/FluorescentLamp14" index="3" unique_id=472740513 groups=["flickering_lights"]]
+
+[node name="BulbLamp2" parent="CenterLights" index="2" unique_id=451378809 groups=["flickering_lights"] instance=ExtResource("12_4ils4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.049263, 1.8457892, -0.1413126)
+
+[node name="OmniLight3D" parent="CenterLights/BulbLamp2" index="1" unique_id=824679274 groups=["flickering_lights"]]
+
+[editable path="GameContent/LightTerminalArea/LightTerminal"]
+[editable path="GameContent/EnergyArea/FuseStatusDisplayTerminal"]
+[editable path="GameContent/EnergyArea/FuseStatusDisplayTerminal/SubViewport/Screen"]
+[editable path="GameContent/OxygenArea/OxygenTerminal"]
+[editable path="GameContent/ShieldArea/ShieldsTerminal"]
+[editable path="NavLights/FluorescentLamp3"]
+[editable path="NavLights/FluorescentLamp5"]
+[editable path="NavLights/FluorescentLamp4"]
+[editable path="NavLights/FluorescentLamp2"]
+[editable path="EnergyLights/BulbLamp"]
+[editable path="ShieldLights/BulbLamp3"]
+[editable path="ShieldLights/FluorescentLamp6"]
+[editable path="ShieldLights/FluorescentLamp7"]
+[editable path="ShieldLights/FluorescentLamp8"]
+[editable path="OxygenLights/FluorescentLamp9"]
+[editable path="OxygenLights/FluorescentLamp10"]
+[editable path="OxygenLights/FluorescentLamp11"]
+[editable path="OxygenLights/FluorescentLamp12"]
+[editable path="OxygenLights/FluorescentLamp15"]
+[editable path="CenterLights/FluorescentLamp13"]
+[editable path="CenterLights/FluorescentLamp14"]
+[editable path="CenterLights/BulbLamp2"]
