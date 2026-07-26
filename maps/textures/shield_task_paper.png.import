@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drsvyea1wiopi"
-path.s3tc="res://.godot/imported/number_labels.png-9d00ae7258c3f99eda728e394ee0224c.s3tc.ctex"
+uid="uid://ds0e7g1iwvxe0"
+path.s3tc="res://.godot/imported/shield_task_paper.png-d125b717fe8e7bf7598ce793bfd67c7b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/textures/number_labels.png"
-dest_files=["res://.godot/imported/number_labels.png-9d00ae7258c3f99eda728e394ee0224c.s3tc.ctex"]
+source_file="res://maps/textures/shield_task_paper.png"
+dest_files=["res://.godot/imported/shield_task_paper.png-d125b717fe8e7bf7598ce793bfd67c7b.s3tc.ctex"]
 
 [params]
 

@@ -7,22 +7,22 @@
 [ext_resource type="AudioStream" uid="uid://cab4rl0hpp5v7" path="res://objects/terminals/shared/sounds/small_good.mp3" id="3_ps508"]
 [ext_resource type="AudioStream" uid="uid://bh1q53g23i8gi" path="res://objects/terminals/shared/sounds/small_bad.mp3" id="4_ps508"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pij46"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ps508"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ifx76"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_jw5nj"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb5e7"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_csvsb"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_pij46")
+albedo_texture = SubResource("ViewportTexture_ps508")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_ifx76")
+emission_texture = SubResource("ViewportTexture_jw5nj")
 
 [node name="OxygenTerminal" unique_id=1564582219 instance=ExtResource("1_a2h6s")]
 
-[node name="Cube" parent="." index="0" unique_id=156791562]
-surface_material_override/0 = SubResource("StandardMaterial3D_mb5e7")
+[node name="Cube" parent="." index="0" unique_id=867779040]
+surface_material_override/0 = SubResource("StandardMaterial3D_csvsb")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Cube" index="0" unique_id=225014658]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.20000005)

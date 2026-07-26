@@ -90,16 +90,20 @@ func _process(delta: float) -> void:
 		update_success_boxes()
 		_timer += delta
 		if _timer >= button_hold_timer:
-			_reroute_power()
-			_timer = 0.0
-			reset_success_boxes()
+			if _current_selections.size() > 1 or _current_selections.size() <= 0:
+				fail_success_boxes()
+			else:
+				_reroute_power()
+				_timer = 0.0
+				reset_success_boxes()
 
 
 func _on_button_held() -> void:
 	if _block_process:
 		return
 
-	if not _current_selections.size() > 1 and not _current_selections.size() <= 0:
+	#if not _current_selections.size() > 1 and not _current_selections.size() <= 0:
+	if true:
 		_is_held = true
 		var index: float = remap(_timer, 0.0, button_hold_timer, 0.0, 6.0)
 
@@ -113,7 +117,8 @@ func _on_button_held() -> void:
 				success_indicators[i].color.a = 0.0
 		print("Main power held")
 	else:
-		fail_success_boxes()
+		#fail_success_boxes()
+		pass
 
 func _on_button_released() -> void:
 	_is_held = false

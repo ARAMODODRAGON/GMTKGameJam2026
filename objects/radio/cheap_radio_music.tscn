@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dcryru73vp5mr"]
+
+[ext_resource type="PackedScene" uid="uid://d320v2gjgoups" path="res://objects/radio/cheap_radio.blend" id="1_a0gqr"]
+[ext_resource type="AudioStream" uid="uid://ds3d0obql3ouk" path="res://objects/radio/sounds/GMTK2026RadioMusic.mp3" id="2_a0gqr"]
+[ext_resource type="Script" uid="uid://cwnuail3ahiir" path="res://objects/radio/radio_crap_out.gd" id="3_mimd4"]
+
+[node name="cheap_radio" unique_id=703107636 instance=ExtResource("1_a0gqr")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1" unique_id=1924165844]
+stream = ExtResource("2_a0gqr")
+volume_db = -30.0
+unit_size = 13.0
+autoplay = true
+script = ExtResource("3_mimd4")

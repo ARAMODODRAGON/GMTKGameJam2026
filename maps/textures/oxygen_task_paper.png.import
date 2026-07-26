@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drsvyea1wiopi"
-path.s3tc="res://.godot/imported/number_labels.png-9d00ae7258c3f99eda728e394ee0224c.s3tc.ctex"
+uid="uid://ti0fwddy0h7r"
+path.s3tc="res://.godot/imported/oxygen_task_paper.png-1ce207c73fe1925cc2320994dcc441b3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/textures/number_labels.png"
-dest_files=["res://.godot/imported/number_labels.png-9d00ae7258c3f99eda728e394ee0224c.s3tc.ctex"]
+source_file="res://maps/textures/oxygen_task_paper.png"
+dest_files=["res://.godot/imported/oxygen_task_paper.png-1ce207c73fe1925cc2320994dcc441b3.s3tc.ctex"]
 
 [params]
 
