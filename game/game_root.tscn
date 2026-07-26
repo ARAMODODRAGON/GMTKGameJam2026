@@ -41,7 +41,6 @@ fractal_weighted_strength = 1.0
 
 [node name="GameRoot" type="Node" unique_id=540067338 node_paths=PackedStringArray("debug_display", "pause_screen", "game_layer", "screen_fade", "asteroid_death_sound", "power_down_sound")]
 script = ExtResource("1_d8wum")
-alignment_stat_override = 3.0
 debug_display = NodePath("OutsideWorldUI/UI/MarginContainer/DebugDisplay")
 pause_screen = NodePath("OutsideWorldUI/UI/PauseScreen")
 game_layer = NodePath("PausableGameLayer")
