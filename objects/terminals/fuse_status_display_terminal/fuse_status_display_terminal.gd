@@ -3,6 +3,10 @@ extends Node3D
 @export var fuses: Array[InteractableSwitch]
 @export var success_button: InteractableButton
 
+@export var low_blip: AudioStreamPlayer3D
+@export var normal_blip: AudioStreamPlayer3D
+@export var success: AudioStreamPlayer3D
+
 @export_group("Minigame")
 @export_range(0.0, 100.0, 0.001, "suffix:%")
 var randomizer_fuse_state_chance: float = 40.0
@@ -70,6 +74,8 @@ func _process(delta: float) -> void:
 	if _success_timer > time_to_succeed:
 		_success_timer -= time_to_succeed
 
+		success.play()
+
 		#print("Success")
 		ShipStats.energy_amount	+= success_energy_amount
 
@@ -106,7 +112,10 @@ func _update_success_display() -> void:
 	#print(_success_timer)
 
 	for i in range(success_indicators.size() - 1, -1, -1):
-		success_indicators[i].color.a = 1.0 if float(i + 1) <= value else 0.0
+		var new_value := 1.0 if float(i + 1) <= value else 0.0
+		if not is_equal_approx(success_indicators[i].color.a, new_value):
+			normal_blip.play()
+		success_indicators[i].color.a = new_value
 
 func _button_state_changed(state: bool) -> void:
 	_button_held = state
@@ -123,6 +132,12 @@ func _set_fuse_display(value: bool, fuse: InteractableSwitch) -> void:
 	#print("name ", fuse.name, ", set ", index, " to ", value)
 	fuse_items[index].state = value
 	_count_matching()
+
+	if fuse_items[index].state == fuse_targets[index].state:
+		normal_blip.play()
+	else:
+		low_blip.play()
+
 
 func _randomize_values() -> void:
 	for i in fuses.size():

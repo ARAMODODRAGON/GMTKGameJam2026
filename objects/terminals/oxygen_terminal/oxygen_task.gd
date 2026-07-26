@@ -9,6 +9,11 @@ signal on_oxygen_terminal_failure()
 
 ## Public variables
 @export var button: InteractableButton
+@export var low_blip: AudioStreamPlayer3D
+@export var normal_blip: AudioStreamPlayer3D
+@export var success_sound: AudioStreamPlayer3D
+@export var fail_sound: AudioStreamPlayer3D
+
 @export var red_bar: Control
 @export var green_zone: Control
 @export var _success_boxes: Array[ColorRect] = []
@@ -68,8 +73,10 @@ func _move_red_bar(delta: float) -> void:
 
 	if red_bar.position.y <= 0.0:
 		_is_moving_down = true
+		low_blip.play()
 	elif red_bar.position.y >= _red_lower_limit:
 		_is_moving_down = false
+		low_blip.play()
 
 	if _is_moving_down:
 		red_bar.position.y += move_speed * delta
@@ -90,14 +97,16 @@ func _stop_red_bar() -> void:
 	_timer = timer_initial
 
 	if _is_colliding:
-		print("Success")
 		_choose_new_green_location()
 		_success_boxes[_successes].color.a = 1.0
 		_successes += 1
 		on_oxygen_terminal_success.emit()
 
 		if _successes < 3:
+			normal_blip.play()
 			return
+
+		success_sound.play()
 
 		ShipStats.oxygen_amount += stat_success_amount
 		print(ShipStats.oxygen_amount)
@@ -124,7 +133,8 @@ func _stop_red_bar() -> void:
 			)
 
 	else:
-		print("Fail")
+		fail_sound.play()
+
 		_choose_new_green_location()
 		_successes = 0
 		on_oxygen_terminal_failure.emit()

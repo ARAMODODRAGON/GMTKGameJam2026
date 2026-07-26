@@ -105,6 +105,9 @@ func _on_button_held() -> void:
 
 		for i in success_indicators.size() - 1:
 			if i + 1 <= index:
+				if success_indicators[i].color.a < 1.0:
+					audioplayer.stream = blip_sound
+					audioplayer.play()
 				success_indicators[i].color.a = 1.0
 			else:
 				success_indicators[i].color.a = 0.0
@@ -264,6 +267,9 @@ func update_success_boxes() -> void:
 
 	for i in success_indicators.size() - 1:
 		if float(i + 1) <= index:
+			if success_indicators[i].color.a < 1.0:
+				audioplayer.stream = blip_sound
+				audioplayer.play()
 			success_indicators[i].color.a = 1.0
 		else:
 			success_indicators[i].color.a = 0.0
