@@ -57,7 +57,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	## Reduce energy
-	ShipStats.energy_amount -= energy_usage_rate * delta
+	ShipStats.energy_amount -= energy_usage_rate * delta * ShipStats.difficulty_multiplier
 	#print(ShipStats.energy_amount)
 
 	if _block_process:

@@ -8,7 +8,7 @@
 shader = ExtResource("2_sp5am")
 shader_parameter/warp_amount = 5.0
 
-[node name="MainMenu" type="Control" unique_id=1059685282 node_paths=PackedStringArray("button", "fade_in_rect", "audioplayer", "focus_item")]
+[node name="MainMenu" type="Control" unique_id=1059685282 node_paths=PackedStringArray("fade_in_rect", "audioplayer", "focus_item")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,10 +17,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sp5am")
 game_scene = "uid://b305heht0etyb"
-button = NodePath("UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect/Button")
 fade_in_rect = NodePath("UILayer/Background/FadeIn")
 audioplayer = NodePath("AudioStreamPlayer")
-focus_item = NodePath("UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect/Button")
+focus_item = NodePath("UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/ColorRect/EasyButton")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1957366244]
 stream = ExtResource("1_rlutr")
@@ -65,19 +64,43 @@ layout_mode = 2
 theme_override_constants/margin_left = 300
 theme_override_constants/margin_right = 300
 
-[node name="ColorRect" type="ColorRect" parent="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer" unique_id=1304054128]
+[node name="VBoxContainer" type="VBoxContainer" parent="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer" unique_id=66761813]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ColorRect" type="ColorRect" parent="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1304054128]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 mouse_filter = 2
 color = Color(0.045654945, 0.2616436, 0, 1)
 
-[node name="Button" type="Button" parent="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect" unique_id=905314301]
+[node name="EasyButton" type="Button" parent="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/ColorRect" unique_id=905314301]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 20
 text = "Play"
+flat = true
+
+[node name="ColorRect2" type="ColorRect" parent="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer" unique_id=1023330121]
+visible = false
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.26, 0, 0, 1)
+
+[node name="HardButton" type="Button" parent="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/ColorRect2" unique_id=672338670]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Play Hard Mode"
 flat = true
 
 [node name="FadeIn" type="ColorRect" parent="UILayer/Background" unique_id=663265889]
@@ -111,4 +134,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="pressed" from="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/ColorRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/ColorRect/EasyButton" to="." method="_on_easy_button_pressed"]
+[connection signal="pressed" from="UILayer/Background/CenterContainer/VBoxContainer/MarginContainer/VBoxContainer/ColorRect2/HardButton" to="." method="_on_hard_button_pressed"]

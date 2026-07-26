@@ -62,7 +62,7 @@ func _ready() -> void:
 	if (not _shield_batteries[0]) or (not _shield_batteries[1]) or (not _shield_batteries[2]):
 		print("a shield battery was found to be null")
 		return
-	
+
 	if (not _shield_faces[0]) or (not _shield_faces[1]) or (not _shield_faces[2]):
 		print("a shield face was found to be null")
 		return
@@ -81,8 +81,8 @@ func _process(delta: float) -> void:
 	# 	if _timer <= 0:
 	# 		_can_move = true
 
-	
-	ShipStats.shield_amount -= stat_usage_rate * delta # drain the overall shield stat at a constant rate
+
+	ShipStats.shield_amount -= stat_usage_rate * delta * ShipStats.difficulty_multiplier # drain the overall shield stat at a constant rate
 
 	# update the battery charge fill amounts (approx 7/10 is the green line)
 	for i in 3:
@@ -106,7 +106,7 @@ func _process(delta: float) -> void:
 		if _shield_battery_fill_amounts[i] > 60.0 and _shield_battery_fill_amounts[i] < 90.0:
 			_shield_faces[i].frame = 2 # happy face if in the good zone
 
-		# clamp it. 
+		# clamp it.
 		if _shield_battery_fill_amounts[i] > 100.0:
 			_shield_battery_fill_amounts[i] = 100.0
 		elif _shield_battery_fill_amounts[i] < 0.0:
@@ -139,7 +139,7 @@ func _end_fill(index: int) -> void:
 
 		sfx_player.stream = load("res://objects/terminals/shared/sounds/small_good.mp3") # good noise
 		sfx_player.play()
-	
+
 
 	sfx_player.stop()
 
@@ -180,9 +180,9 @@ func _lock_task() -> void:
 
 		ShipStats.shield_amount += stat_success_amount
 
-		
 
-		
+
+
 	else:
 		# something's wrong bub. failed the task.
 		on_shields_terminal_failure.emit()

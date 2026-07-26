@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 		if _timer <= 0:
 			_can_move = true
 
-	ShipStats.oxygen_amount -= stat_usage_rate * delta
+	ShipStats.oxygen_amount -= stat_usage_rate * delta * ShipStats.difficulty_multiplier
 
 
 func _move_red_bar(delta: float) -> void:

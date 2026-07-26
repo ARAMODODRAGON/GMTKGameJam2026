@@ -63,7 +63,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	ShipStats.alignment_amount -= stat_usage_rate * delta
+	ShipStats.alignment_amount -= stat_usage_rate * delta * ShipStats.difficulty_multiplier
 
 	if movement_vector.length() > 0.1 and not hold_click.playing:
 		print("play")

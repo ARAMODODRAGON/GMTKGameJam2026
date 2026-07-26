@@ -40,7 +40,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		debug_display.visible = not debug_display.visible
 
 
-func _on_button_pressed() -> void:
+func _on_try_again_button_pressed() -> void:
 	if _exiting:
 		return
 	_exiting = true
@@ -65,3 +65,17 @@ func _updated_death_description() -> void:
 
 	elif is_equal_approx(ShipStats.alignment_amount, 0.0):
 		death_description.text = "The ship had a fatal collision"
+
+
+func _on_main_menu_button_pressed() -> void:
+	if _exiting:
+		return
+	_exiting = true
+
+	var tween := create_tween()
+	tween.tween_property(fade_in_rect, "color:a", 1.0, 3.0)
+	tween.parallel().tween_property(audioplayer, "volume_linear", 0.0, 3.0)
+
+	await tween.finished
+
+	get_tree().change_scene_to_file(&"uid://cto3wh80pmb0w")

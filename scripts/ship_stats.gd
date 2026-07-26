@@ -23,6 +23,9 @@ const _GAME_TIMER_AMOUNT_INITIAL: float = 5.0 * 60.0 ## 5 minutes
 
 ## Public variables
 
+var difficulty_multiplier: float = 1.0
+var timer_multiplier: float = 1.0
+
 ## The timer itself
 var game_timer: float:
 	set(value):
@@ -92,7 +95,7 @@ func start_new_game(new_timer: float = -1.0) -> void:
 	_setup_initial_values()
 
 	if new_timer > 0.0:
-		game_timer = new_timer
+		game_timer = new_timer * timer_multiplier
 
 	game_ended = false
 	pause_timer = false

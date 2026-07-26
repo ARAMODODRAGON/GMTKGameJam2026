@@ -44,6 +44,9 @@ func _ready() -> void:
 	ShipStats.on_win.connect(_on_game_win)
 	ShipStats.start_new_game(game_length)
 
+	print_rich("[color=red]Difficulty Multiplier[/color]: %.1f" % ShipStats.difficulty_multiplier)
+	print_rich("[color=red]Timer Multiplier[/color]: %.1f" % ShipStats.timer_multiplier)
+
 	## Override stats
 
 	if shield_stat_override > 0.0:
