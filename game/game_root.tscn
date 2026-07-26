@@ -12,6 +12,17 @@
 [ext_resource type="Script" uid="uid://cnyd7r1prpgi1" path="res://game/asteroid_handler.gd" id="5_i6pox"]
 [ext_resource type="Script" uid="uid://bbjcpn5o0ebbi" path="res://game/light_flicker_handler.gd" id="5_xk365"]
 [ext_resource type="PackedScene" uid="uid://clf6knhf7ywmp" path="res://maps/BlockoutShip/blockout_ship.tscn" id="6_qud3c"]
+[ext_resource type="AudioStream" uid="uid://bropcmx7fynof" path="res://objects/ambientsound/sounds/asteroid_impact_01.mp3" id="7_pdngg"]
+[ext_resource type="AudioStream" uid="uid://1l3agnju1lub" path="res://objects/ambientsound/sounds/asteroid_impact_02.mp3" id="8_dmhgs"]
+[ext_resource type="AudioStream" uid="uid://cn6uu4741gqup" path="res://objects/ambientsound/sounds/asteroid_impact_03.mp3" id="9_3i5b3"]
+[ext_resource type="AudioStream" uid="uid://q7ct1aujk7v8" path="res://objects/ambientsound/sounds/asteroid_impact_04.mp3" id="10_lpijp"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xddx6"]
+streams_count = 4
+stream_0/stream = ExtResource("7_pdngg")
+stream_1/stream = ExtResource("8_dmhgs")
+stream_2/stream = ExtResource("9_3i5b3")
+stream_3/stream = ExtResource("10_lpijp")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d8wum"]
 shader = ExtResource("2_5sefw")
@@ -63,6 +74,9 @@ flicker_frequency_max = 60.0
 low_energy_flicker_frequency_multipler = 30.0
 
 [node name="BlockoutShip" parent="PausableGameLayer" unique_id=1609120507 instance=ExtResource("6_qud3c")]
+
+[node name="AsteroidSoundPlayer" type="AudioStreamPlayer3D" parent="PausableGameLayer" unique_id=920475580]
+stream = SubResource("AudioStreamRandomizer_xddx6")
 
 [node name="InsideWorldUI" type="CanvasLayer" parent="." unique_id=1188786871]
 

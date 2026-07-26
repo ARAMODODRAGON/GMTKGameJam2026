@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbmnnxxqtk6rm"
-path.s3tc="res://.godot/imported/wall_4by4_03.png-155805b9c8e71b7fb1d7e654e6f29220.s3tc.ctex"
+uid="uid://dgx2fhdnmds70"
+path.s3tc="res://.godot/imported/hang_in_there_poster.png-a3c0ab3341edf3a5d8fa7ad21c20035e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://maps/textures/wall_4by4_03.png"
-dest_files=["res://.godot/imported/wall_4by4_03.png-155805b9c8e71b7fb1d7e654e6f29220.s3tc.ctex"]
+source_file="res://maps/textures/hang_in_there_poster.png"
+dest_files=["res://.godot/imported/hang_in_there_poster.png-a3c0ab3341edf3a5d8fa7ad21c20035e.s3tc.ctex"]
 
 [params]
 
