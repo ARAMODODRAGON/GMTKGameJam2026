@@ -75,7 +75,7 @@ emission_texture = SubResource("ViewportTexture_2obkp")
 [node name="BlockoutShip" unique_id=1609120507 instance=ExtResource("1_hucus")]
 
 [node name="Player" parent="." index="1" unique_id=1162497877 instance=ExtResource("2_yqli5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3087504, -1.1881082, 3.3055296)
+transform = Transform3D(0.49999997, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.49999997, -3.6912494, -1.3360714, 2.9055295)
 
 [node name="4by3_crt" parent="." index="3" unique_id=2010853883 instance=ExtResource("3_d0ixs")]
 transform = Transform3D(0.35355338, 0, 0.35355338, 0, 0.5, 0, -0.35355338, 0, 0.35355338, -2.664083, -0.11259556, -20.51736)
@@ -120,7 +120,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.070349455, 0.58971834, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.187988, -2.6776915, 0)
 
 [node name="LightTerminal" parent="GameContent/LightTerminalArea" index="0" unique_id=1564582219 instance=ExtResource("14_qkg1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.221062, 2.8101995, -0.14879167)
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 34.525646, 2.8101995, -3.4213052)
 
 [node name="Cube" parent="GameContent/LightTerminalArea/LightTerminal" index="0" unique_id=156791562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3667264, 0)
@@ -156,37 +156,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2293687, 0)
 visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="GameContent/LightTerminalArea" index="1" unique_id=1907381322]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.297102, 0.8032414, 0)
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 34.474205, 0.8032414, -3.2623236)
 use_collision = true
 size = Vector3(2.625061, 1.5455933, 1)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="GameContent/LightTerminalArea" index="2" unique_id=1176599529]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.453827, 1.6830174, -0.0018920898)
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 33.172146, 1.6830174, -4.567055)
 use_collision = true
 size = Vector3(1.3549881, 3.3051453, 0.9962158)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="GameContent/LightTerminalArea" index="3" unique_id=1526472682]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.637135, 0.98936045, 0)
+transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, 34.266434, 0.98936045, 3.959904)
 use_collision = true
 size = Vector3(2.051529, 1.9178314, 1)
 
 [node name="DomedGauge2" parent="GameContent/LightTerminalArea" index="4" unique_id=642379518 instance=ExtResource("15_kemwa")]
-transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 32.119736, 1.6665227, 0.5326724)
+transform = Transform3D(-0.17677669, -0.17677669, 7.727155e-09, 0, -1.0927847e-08, -0.25, 0.17677669, -0.17677669, 7.727155e-09, 34.255634, 1.6665227, 3.2173917)
 gauge_type = 1
 
 [node name="DomedGauge3" parent="GameContent/LightTerminalArea" index="5" unique_id=1441836799 instance=ExtResource("15_kemwa")]
-transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 33.103626, 1.6665227, 0.5326724)
+transform = Transform3D(-0.17677669, -0.17677669, 7.727155e-09, 0, -1.0927847e-08, -0.25, 0.17677669, -0.17677669, 7.727155e-09, 33.559917, 1.6665227, 3.9131072)
 
 [node name="DomedGauge4" parent="GameContent/LightTerminalArea" index="6" unique_id=1879356160 instance=ExtResource("15_kemwa")]
-transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 33.103626, 1.018979, 0.5326724)
+transform = Transform3D(-0.17677669, -0.17677669, 7.727155e-09, 0, -1.0927847e-08, -0.25, 0.17677669, -0.17677669, 7.727155e-09, 33.559917, 1.018979, 3.9131072)
 gauge_type = 2
 
 [node name="DomedGauge5" parent="GameContent/LightTerminalArea" index="7" unique_id=457853358 instance=ExtResource("15_kemwa")]
-transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 32.07963, 1.018979, 0.5326724)
+transform = Transform3D(-0.17677669, -0.17677669, 7.727155e-09, 0, -1.0927847e-08, -0.25, 0.17677669, -0.17677669, 7.727155e-09, 34.283993, 1.018979, 3.189034)
 gauge_type = 3
 
 [node name="CountdownTerminal" parent="GameContent/LightTerminalArea" index="8" unique_id=1748717777 instance=ExtResource("16_7jvy2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.576935, 2.783702, 0.13396406)
+transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, 34.164776, 2.783702, 3.8721068)
 
 [node name="EnergyDoor" parent="GameContent/LightTerminalArea" index="9" unique_id=731965124 instance=ExtResource("11_8sbg5")]
 transform = Transform3D(1.5947154, 0, 0, 0, 1.3045336, 0, 0, 0, 1, 30.099104, 2.39127, 10.527555)
