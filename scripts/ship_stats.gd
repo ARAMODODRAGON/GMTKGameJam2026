@@ -29,9 +29,12 @@ var game_timer: float:
 		game_timer = maxf(value, 0.0)
 		on_game_timer_amount_changed.emit(game_timer)
 
-		if is_equal_approx(game_timer, 0.0):
-			game_ended = false
-			on_win.emit()
+		# if is_equal_approx(game_timer, 0.0):
+		# 	game_ended = false
+		# 	on_win.emit()
+
+func trigger_the_win() -> void:
+	on_win.emit()
 
 ## Should the game timer be counting down?
 ## Use this to pause / play

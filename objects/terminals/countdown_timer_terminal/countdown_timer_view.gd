@@ -12,7 +12,15 @@ func _ready() -> void:
 
 func update_timer_text(value: float) -> void:
 	var time := int(value)
-	timer_text.text = str(time)
+	if ShipStats.game_timer < 1:
+		timer_text.text = "Rescue vessel arrived! Head to O2 room airlock immediately."
+	else:
+		timer_text.text = str(time)
 	if _last_count != time:
 		_last_count = time
-		audioplayer.play()
+		if ShipStats.game_timer < 1:
+			timer_text.text = "Rescue vessel arrived! Head to O2 room airlock immediately."
+			audioplayer.stream = load("res://objects/terminals/shared/sounds/escape_now.mp3")
+			audioplayer.play()
+		else:
+			audioplayer.play()

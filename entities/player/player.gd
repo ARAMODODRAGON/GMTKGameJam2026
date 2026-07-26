@@ -176,3 +176,15 @@ func _released() -> void:
 	if _interactable:
 		_interactable._released()
 		_interactable = null
+
+
+#this is not the win zone
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	pass
+
+#actual win zone
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	#pass # Replace with function body.
+	print(body.name)
+	if body.name == "Player":
+		ShipStats.trigger_the_win.call_deferred()

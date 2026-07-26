@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b3jo1ve3507k7"]
 
 [ext_resource type="Script" uid="uid://cp4kdesmlabu7" path="res://objects/terminals/alignment_terminal/alignment_task_view.gd" id="1_e1rx0"]
+[ext_resource type="Texture2D" uid="uid://cgyfnjqs2wh1a" path="res://objects/terminals/alignment_terminal/background_grid.png" id="2_l7fg5"]
 [ext_resource type="Texture2D" uid="uid://bic0m6a2xejs5" path="res://objects/terminals/alignment_terminal/PlayerTarget.png" id="2_uwhcn"]
 [ext_resource type="Texture2D" uid="uid://s64ilh606ukt" path="res://objects/terminals/alignment_terminal/TargetDestination.png" id="3_xfoti"]
 
@@ -49,6 +50,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.083900005, 0.079, 0.1, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="Background" unique_id=1492284367]
+position = Vector2(160, 120)
+texture = ExtResource("2_l7fg5")
+
 [node name="ReferenceRect" type="ReferenceRect" parent="." unique_id=629686406]
 custom_minimum_size = Vector2(320, 240)
 offset_right = 40.0
@@ -58,6 +63,7 @@ offset_bottom = 40.0
 position = Vector2(160, 120)
 
 [node name="Sprite2D" type="Sprite2D" parent="PlayerCrosshair" unique_id=201734915]
+z_index = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_uwhcn")
 
@@ -78,6 +84,7 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="TargetCrosshair" unique_id=92269346]
+z_index = 1
 position = Vector2(1, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_xfoti")

@@ -4,22 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://du41l1u7weyc6" path="res://objects/terminals/countdown_timer_terminal/countdown_timer_view.tscn" id="2_58iwr"]
 [ext_resource type="AudioStream" uid="uid://cwjw7exn16dmx" path="res://objects/terminals/shared/sounds/blip_select.mp3" id="3_6vb37"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_6vb37"]
+viewport_path = NodePath("SubViewport")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_b5ybq"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wo2yw"]
-viewport_path = NodePath("SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b42ov"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wo2yw"]
 resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_b5ybq")
+albedo_texture = SubResource("ViewportTexture_6vb37")
 emission_enabled = true
-emission_texture = SubResource("ViewportTexture_wo2yw")
+emission_texture = SubResource("ViewportTexture_b5ybq")
 
 [node name="CountdownTerminal" unique_id=1564582219 instance=ExtResource("1_l6v6k")]
 
-[node name="Cube" parent="." index="0" unique_id=156791562]
-surface_material_override/0 = SubResource("StandardMaterial3D_b42ov")
+[node name="Cube" parent="." index="0" unique_id=867779040]
+surface_material_override/0 = SubResource("StandardMaterial3D_wo2yw")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Cube" index="0" unique_id=2040171212]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -0.20000005)
