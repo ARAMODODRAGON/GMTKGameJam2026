@@ -9,6 +9,9 @@ extends Node2D
 @export var pos_y: InteractableButton
 @export var neg_y: InteractableButton
 
+@export var success_player: AudioStreamPlayer3D
+@export var blip_player: AudioStreamPlayer3D
+
 @export var player_crosshair: CharacterBody2D
 @export var player_sprite: Sprite2D
 @export var target_crosshair: Area2D
@@ -72,6 +75,8 @@ func _physics_process(delta: float) -> void:
 	if _flashing_timer <= 0.0:
 		_flashing_timer = 0.5
 		target_crosshair.visible = not target_crosshair.visible
+		if target_crosshair.visible:
+			blip_player.play()
 
 
 func _move_player_crosshair(delta: float, movement: Vector2) -> void:
@@ -90,6 +95,8 @@ func _select_new_target_location() -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	success_player.play()
+
 	on_nav_terminal_completion.emit()
 	ShipStats.alignment_amount += stat_success_amount
 
