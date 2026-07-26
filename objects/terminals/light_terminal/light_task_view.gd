@@ -27,6 +27,7 @@ enum PowerState
 @export var audioplayer: AudioStreamPlayer3D
 @export var success_sound: AudioStream
 @export var failure_sound: AudioStream
+@export var blip_sound: AudioStream
 
 @export var nav_rect: ColorRect
 @export var shield_rect: ColorRect
@@ -178,6 +179,9 @@ func send_power(room: PowerState) -> void:
 			print("Power send to shields")
 
 func select_nav(state: bool) -> void:
+	audioplayer.stream = blip_sound
+	audioplayer.play()
+
 	if _needs_refresh:
 		refresh_light_colour()
 
@@ -191,6 +195,9 @@ func select_nav(state: bool) -> void:
 	should_show_error_text()
 
 func select_shield(state: bool) -> void:
+	audioplayer.stream = blip_sound
+	audioplayer.play()
+
 	if _needs_refresh:
 		refresh_light_colour()
 
@@ -204,6 +211,9 @@ func select_shield(state: bool) -> void:
 	should_show_error_text()
 
 func select_energy(state: bool) -> void:
+	audioplayer.stream = blip_sound
+	audioplayer.play()
+
 	if _needs_refresh:
 		refresh_light_colour()
 
@@ -217,6 +227,9 @@ func select_energy(state: bool) -> void:
 	should_show_error_text()
 
 func select_oxygen(state: bool) -> void:
+	audioplayer.stream = blip_sound
+	audioplayer.play()
+
 	if _needs_refresh:
 		refresh_light_colour()
 
